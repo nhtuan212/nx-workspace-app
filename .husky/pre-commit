@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo '🏗️👷 Styling, testing and building your project before committing'
+
+npm run lint-staged ||
+(
+    echo '😴😴 Prettier Format Failed. Run npm run prettier-format ==> and try commit again. 🥲 🥲';
+    false;
+)
+
+echo '🤔🤔 Alright. Code looks good to me!! ✅✅'
+echo '🐶🐶 Successfully!! I am ready to commit. 🐶🐶'

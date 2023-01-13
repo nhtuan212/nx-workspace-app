@@ -7,8 +7,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "prepare": "husky install",
-        "lint-staged": "lint-staged"
+        "lint-staged": "lint-staged",
+        "prepare2": "husky install"
     },
     "lint-staged": {
         "src/**/*.{ts,tsx,json,scss}": [
