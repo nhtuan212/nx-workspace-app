@@ -19,4 +19,10 @@
   justify-content: flex-end;
 }
 
+@media (max-width: 48rem) {
+  .md\:justify-content-end {
+    justify-content: end;
+  }
+}
+
 /*# sourceMappingURL=globals.css.map */

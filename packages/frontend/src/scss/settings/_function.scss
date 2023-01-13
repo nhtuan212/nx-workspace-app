@@ -29,3 +29,10 @@
     }
     @return true;
 }
+
+@function in-map($value, $map) {
+    @if not map.get($map, $value) {
+        @error "#{$value} is not a valid side. Expected one of exactly attribute.";
+    }
+    @return true;
+}
