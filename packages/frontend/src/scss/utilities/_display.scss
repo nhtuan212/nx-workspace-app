@@ -33,7 +33,7 @@
 }
 
 @mixin display($values) {
-    @if meta.type-of($values) ==map or meta.type-of($values) ==list {
+    @if meta.type-of($values) == map or meta.type-of($values) == list {
         @each $values in $values {
             @include display-param($values);
         }
