@@ -1,34 +1,19 @@
-@media (max-width: 48rem) {
-  .md\:d-flex {
-    display: flex;
-  }
-}
-.d-block {
+/* Error: $string: ("start",) is not a string.
+ *   ,
+ * 9 |         $media: str-index($values, $char);
+ *   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   src/scss/utilities/_flex.scss 9:17  flex-param()
+ *   src/scss/utilities/_flex.scss 50:5  flex()
+ *   src/scss/globals.scss 10:1          root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
   display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: $string: ("start",) is not a string.\a   \2577 \a 9 \2502          $media: str-index($values, $char);\a   \2502                  ^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   src/scss/utilities/_flex.scss 9:17  flex-param()\a   src/scss/utilities/_flex.scss 50:5  flex()\a   src/scss/globals.scss 10:1          root stylesheet';
 }
-
-.d-none {
-  display: none;
-}
-
-.justify-content-start {
-  justify-content: flex-start;
-}
-
-.justify-content-end {
-  justify-content: flex-end;
-}
-
-.justify-content-center {
-  justify-content: center;
-}
-
-.justify-content-between {
-  justify-content: space-between;
-}
-
-.justify-content-around {
-  justify-content: space-around;
-}
-
-/*# sourceMappingURL=globals.css.map */
