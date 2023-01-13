@@ -1,0 +1,43 @@
+/// Load
+@use 'sass:meta';
+@use 'sass:string';
+@use '../settings' as sets;
+@use '../mixins' as mixin;
+/// @mixin
+@mixin display-param($values, $class-name: 'display', $char: ':') {
+    @if $values {
+        $media: str-index($values, $char);
+        @if $media {
+            $start-at: string.slice($values, 1, $media - 1);
+            $end-at: string.slice($values, $media + 1, string.length($values));
+            $infix: mixin.breakpoint-infix($start-at, sets.$breakpoints);
+            @if sets.in-list($end-at, sets.$display) {
+                @include mixin.media-breakpoint-down($start-at) {
+                    .#{$infix} {
+                        &d-#{$end-at} {
+                            #{$class-name}: #{$end-at};
+                        }
+                    }
+                }
+            }
+        } @else {
+            @if sets.in-list($values, sets.$display) {
+                .d {
+                    &-#{$values} {
+                        #{$class-name}: #{$values};
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin display($values) {
+    @if meta.type-of($values) ==map or meta.type-of($values) ==list {
+        @each $values in $values {
+            @include display-param($values);
+        }
+    } @else {
+        @include display-param($values);
+    }
+}

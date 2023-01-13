@@ -1,0 +1,28 @@
+@use 'sass:math';
+$state: '\\:';
+$base-unit: 16px;
+$breakpoints: (
+    'xs': 0,
+    'sm': 576,
+    'md': 768,
+    'lg': 992,
+    'xl': 1200,
+    '2xl': 1400,
+    '3xl': 1536,
+    '4xl': 1920,
+);
+$display: (block, inline, inline-block, flex, inline-flex, none);
+$justify-content: (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+);
+$align-items: (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'baseline': baseline,
+    'stretch': stretch,
+);

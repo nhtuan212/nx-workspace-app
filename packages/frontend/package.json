@@ -7,6 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
+        "build-scss": "sass -w src/scss/:public/assets/css/",
         "lint-staged": "lint-staged",
         "prepare2": "husky install"
     },

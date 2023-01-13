@@ -1,0 +1,51 @@
+/// Load
+@use 'sass:meta';
+@use 'sass:string';
+@use '../settings' as sets;
+@use '../mixins' as mixin;
+/// @mixin
+@mixin flex-param($values, $class-name: 'justify-content', $char: ':') {
+    @if $values {
+        $media: str-index($values, $char);
+        @if $media {
+            $start-at: string.slice($values, 1, $media - 1);
+            $end-at: string.slice($values, $media + 1, string.length($values));
+            $infix: mixin.breakpoint-infix($start-at, sets.$breakpoints);
+            @if sets.in-list($end-at, sets.$justify-content) {
+                @include mixin.media-breakpoint-down($start-at) {
+                    .#{$infix} {
+                        &d-#{$end-at} {
+                            #{$class-name}: #{$end-at};
+                        }
+                    }
+                }
+            }
+        } @else {
+            @warn map-has-key(sets.$justify-content, $values);
+
+            @each $key, $value in sets.$justify-content {
+                @if (map-has-key(sets.$justify-content, $values)) {
+                    @if (map-has-key(sets.$justify-content, $values)) {
+                        .#{$class-name} {
+                            &-#{$key} {
+                                #{$class-name}: #{$value};
+                            }
+                        }
+                    }
+                }
+            }
+
+            // @each $key, $value in map-has-key(sets.$justify-content, $values) {
+            // 	.#{$class-name} {
+            // 		&-#{$key} {
+            // 			#{$class-name}: #{$value};
+            // 		}
+            // 	}
+            // }
+        }
+    }
+}
+
+@mixin flex($values) {
+    @include flex-param($values);
+}
