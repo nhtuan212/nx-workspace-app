@@ -1,13 +1,13 @@
-@use './utilities' as util;
+@use './utilities' as utilities;
 
-@include util.display(
+@include utilities.display(
     $values: (
         'md:flex',
         'block',
         'none',
     )
 );
-@include util.flex-justify(
+@include utilities.flex-justify(
     $values: (
         'start',
         'between',
@@ -15,7 +15,7 @@
         'md:end',
     )
 );
-@include util.flex-align(
+@include utilities.flex-align(
     $values: (
         'center',
         'start',
