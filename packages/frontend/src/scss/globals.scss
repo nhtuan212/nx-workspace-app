@@ -7,10 +7,18 @@
         'none',
     )
 );
-@include util.flex(
+@include util.flex-justify(
     $values: (
         'start',
+        'between',
         'end',
         'md:end',
+    )
+);
+@include util.flex-align(
+    $values: (
+        'center',
+        'start',
+        'baseline',
     )
 );

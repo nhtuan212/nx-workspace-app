@@ -11,7 +11,7 @@
             $start-at: string.slice($values, 1, $media - 1);
             $end-at: string.slice($values, $media + 1, string.length($values));
             $infix: mixin.breakpoint-infix($start-at, sets.$breakpoints);
-            @if sets.in-list($end-at, sets.$display) {
+            @if sets.isset($end-at, sets.$display) {
                 @include mixin.media-breakpoint-down($start-at) {
                     .#{$infix} {
                         &d-#{$end-at} {
@@ -21,7 +21,7 @@
                 }
             }
         } @else {
-            @if sets.in-list($values, sets.$display) {
+            @if sets.isset($values, sets.$display) {
                 .d {
                     &-#{$values} {
                         #{$class-name}: #{$values};

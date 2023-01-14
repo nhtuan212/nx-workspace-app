@@ -15,6 +15,10 @@
   justify-content: flex-start;
 }
 
+.justify-content-between {
+  justify-content: space-between;
+}
+
 .justify-content-end {
   justify-content: flex-end;
 }
@@ -23,6 +27,17 @@
   .md\:justify-content-end {
     justify-content: end;
   }
+}
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-baseline {
+  align-items: baseline;
 }
 
 /*# sourceMappingURL=globals.css.map */

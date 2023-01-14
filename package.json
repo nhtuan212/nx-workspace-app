@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "start": "npm run dev --workspaces",
+        "start": "npm run dev --workspacess",
         "prepare": "husky install",
         "lint-staged": "lint-staged"
     },

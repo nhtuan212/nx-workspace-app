@@ -5,14 +5,22 @@
 @use '../settings' as sets;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin flex-param($values, $class-name: 'justify-content', $char: ':') {
+@mixin flex-param($values, $class-name, $char: ':') {
     @if $values {
+        /// Set attribute map follow $class-name
+        $attribute-map: sets.$justify-content;
+        @if ($class-name== 'align-items') {
+            $attribute-map: sets.$align-items;
+        }
+
+        /// Check media
+        /// md: -- lg: -- xl:
         $media: str-index($values, $char);
         @if $media {
             $start-at: string.slice($values, 1, $media - 1);
             $end-at: string.slice($values, $media + 1, string.length($values));
             $infix: mixin.breakpoint-infix($start-at, sets.$breakpoints);
-            @if sets.in-map($end-at, sets.$justify-content) {
+            @if sets.isset($end-at, $attribute-map) {
                 @include mixin.media-breakpoint-down($start-at) {
                     .#{$infix} {
                         &#{$class-name}-#{$end-at} {
@@ -22,10 +30,10 @@
                 }
             }
         } @else {
-            @if sets.in-map($values, sets.$justify-content) {
+            @if sets.isset($values, $attribute-map) {
                 .#{$class-name} {
                     &-#{$values} {
-                        #{$class-name}: map.get(sets.$justify-content, $values);
+                        #{$class-name}: map.get($attribute-map, $values);
                     }
                 }
             }
@@ -33,12 +41,22 @@
     }
 }
 
-@mixin flex($values) {
+@mixin flex-justify($values) {
     @if meta.type-of($values) ==map or meta.type-of($values) ==list {
         @each $values in $values {
-            @include flex-param($values);
+            @include flex-param($values, $class-name: 'justify-content');
         }
     } @else {
-        @include flex-param($values);
+        @include flex-param($values, $class-name: 'justify-content');
+    }
+}
+
+@mixin flex-align($values) {
+    @if meta.type-of($values) ==map or meta.type-of($values) ==list {
+        @each $values in $values {
+            @include flex-param($values, $class-name: 'align-items');
+        }
+    } @else {
+        @include flex-param($values, $class-name: 'align-items');
     }
 }
