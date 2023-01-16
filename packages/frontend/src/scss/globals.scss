@@ -9,7 +9,7 @@
 );
 @include utilities.flex-justify(
     $values: (
-        'start',
+        'md:start',
         'between',
         'end',
         'md:end',
@@ -19,6 +19,6 @@
     $values: (
         'center',
         'start',
-        'baseline',
+        'md:baseline',
     )
 );

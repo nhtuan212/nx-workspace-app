@@ -11,10 +11,11 @@
   display: none;
 }
 
-.justify-content-start {
-  justify-content: flex-start;
+@media (max-width: 48rem) {
+  .md\:justify-content-start {
+    justify-content: start;
+  }
 }
-
 .justify-content-between {
   justify-content: space-between;
 }
@@ -36,8 +37,10 @@
   align-items: flex-start;
 }
 
-.align-items-baseline {
-  align-items: baseline;
+@media (max-width: 48rem) {
+  .md\:align-items-baseline {
+    align-items: baseline;
+  }
 }
 
 /*# sourceMappingURL=globals.css.map */

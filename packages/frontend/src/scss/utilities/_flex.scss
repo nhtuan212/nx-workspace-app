@@ -1,6 +1,7 @@
 /// Load
 @use 'sass:meta';
 @use 'sass:string';
+@use 'sass:list';
 @use 'sass:map';
 @use '../settings' as sets;
 @use '../mixins' as mixin;
@@ -15,10 +16,10 @@
 
         /// Check media
         /// md: -- lg: -- xl:
-        $media: str-index($values, $char);
-        @if $media {
-            $start-at: string.slice($values, 1, $media - 1);
-            $end-at: string.slice($values, $media + 1, string.length($values));
+        $breakpoint-key: sets.breakpoints-isset($values, $char);
+        @if $breakpoint-key {
+            $start-at: sets.find($values, $char, $find: 'start');
+            $end-at: sets.find($values, $char, $find: 'end');
             $infix: mixin.breakpoint-infix($start-at, sets.$breakpoints);
             @if sets.isset($end-at, $attribute-map) {
                 @include mixin.media-breakpoint-down($start-at) {

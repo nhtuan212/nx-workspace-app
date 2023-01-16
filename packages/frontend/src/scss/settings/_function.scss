@@ -21,7 +21,31 @@
     // Error
     @error "Pixels: `#{$value}`.";
 }
-
+@function find($value, $prefix, $find) {
+    $media: string.index($value, $prefix);
+    @if ($media) {
+        @if ($find == start) {
+            @return string.slice($value, 0, $media - 1);
+        }
+        @if ($find == end) {
+            @return string.slice($value, $media + 1, string.length($value));
+        }
+        @error "#{$find} is not a valid. Expected start or end.";
+    }
+    @error "#{$value} is not a valid. Try again later";
+}
+@function breakpoints-isset($value, $prefix) {
+    $media: string.index($value, $prefix);
+    @if ($media) {
+        $media-key: string.slice($value, 0, $media - 1);
+        $checked: map.has-key(var.$breakpoints, $media-key);
+        @if ($checked != true) {
+            @error "#{$media-key} is not a valid. Expected one of exactly breakpoints key.";
+        }
+        @return $checked;
+    }
+    @return false;
+}
 @function isset($value, $array) {
     @if (meta.type-of($array) ==list) {
         @if not list.index($array, $value) {
