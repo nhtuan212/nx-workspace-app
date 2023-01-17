@@ -1,11 +1,11 @@
 /// Load
+@use 'sass:string';
 @use 'sass:list';
 @use 'sass:map';
 @use './../settings' as sets;
 /// Variables
 $breakpoint-map: sets.$breakpoints;
 /// Mixins
-
 /// Breakpoint-max function
 /// Maximum breakpoint width. Null for the smallest (first) breakpoint.
 /// @param {String} $name - Breakpoint name.
@@ -78,4 +78,16 @@ $breakpoint-map: sets.$breakpoints;
     } @else {
         @content;
     }
+}
+
+@function breakpoint-isset($value, $prefix) {
+    $media: string.index($value, $prefix);
+    @if ($media) {
+        $media-key: string.slice($value, 0, $media - 1);
+        $checked: map.has-key(sets.$breakpoints, $media-key);
+        @if not $checked {
+            @error "#{$media-key} is not a valid. Expected one of exactly breakpoints key.";
+        }
+    }
+    @return $media;
 }

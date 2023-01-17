@@ -3,61 +3,45 @@
 @use 'sass:string';
 @use 'sass:list';
 @use 'sass:map';
-@use '../settings' as sets;
+@use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin flex-param($values, $class-name, $char: ':') {
+@mixin flex-param($prefix, $values) {
     @if $values {
-        /// Set attribute map follow $class-name
-        $attribute-map: sets.$justify-content;
-        @if ($class-name== 'align-items') {
-            $attribute-map: sets.$align-items;
+        /// Check attribute-map
+        /// render map config in setting
+        $class-name: #{$prefix}-content;
+        $attribute-map: setting.$justify-content;
+        @if ($prefix== 'align') {
+            $class-name: #{$prefix}-items;
+            $attribute-map: setting.$align-items;
         }
-
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: sets.breakpoints-isset($values, $char);
+        $breakpoint-key: mixin.breakpoint-isset($values, setting.$char);
         @if $breakpoint-key {
-            $start-at: sets.find($values, $char, $find: 'start');
-            $end-at: sets.find($values, $char, $find: 'end');
-            $infix: mixin.breakpoint-infix($start-at, sets.$breakpoints);
-            @if sets.isset($end-at, $attribute-map) {
+            $start-at: setting.find($values, setting.$char, $find: 'start');
+            $end-at: setting.find($values, setting.$char, $find: 'end');
+            $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
+            @if setting.isset($end-at, $attribute-map) {
                 @include mixin.media-breakpoint-down($start-at) {
-                    .#{$infix} {
-                        &#{$class-name}-#{$end-at} {
-                            #{$class-name}: #{$end-at};
-                        }
+                    .#{$infix}#{$prefix}-#{$end-at} {
+                        #{$class-name}: map.get($attribute-map, $end-at);
                     }
                 }
             }
         } @else {
-            @if sets.isset($values, $attribute-map) {
-                .#{$class-name} {
-                    &-#{$values} {
-                        #{$class-name}: map.get($attribute-map, $values);
-                    }
+            @if setting.isset($values, $attribute-map) {
+                .#{$prefix}-#{$values} {
+                    #{$class-name}: map.get($attribute-map, $values);
                 }
             }
         }
     }
 }
 
-@mixin flex-justify($values) {
-    @if meta.type-of($values) ==map or meta.type-of($values) ==list {
-        @each $values in $values {
-            @include flex-param($values, $class-name: 'justify-content');
-        }
-    } @else {
-        @include flex-param($values, $class-name: 'justify-content');
-    }
-}
-
-@mixin flex-align($values) {
-    @if meta.type-of($values) ==map or meta.type-of($values) ==list {
-        @each $values in $values {
-            @include flex-param($values, $class-name: 'align-items');
-        }
-    } @else {
-        @include flex-param($values, $class-name: 'align-items');
+@mixin flex($prefix, $values) {
+    @each $values in $values {
+        @include flex-param($prefix, $values);
     }
 }

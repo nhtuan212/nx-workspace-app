@@ -3,11 +3,13 @@
 @include utilities.display(
     $values: (
         'md:flex',
+        'flex',
         'block',
         'none',
     )
 );
-@include utilities.flex-justify(
+@include utilities.flex(
+    $prefix: 'justify',
     $values: (
         'md:start',
         'between',
@@ -15,10 +17,11 @@
         'md:end',
     )
 );
-@include utilities.flex-align(
+@include utilities.flex(
+    $prefix: 'align',
     $values: (
         'center',
         'start',
-        'md:baseline',
+        'lg:baseline',
     )
 );

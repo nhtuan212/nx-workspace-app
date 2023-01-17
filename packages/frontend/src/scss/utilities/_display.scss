@@ -1,43 +1,37 @@
 /// Load
 @use 'sass:meta';
 @use 'sass:string';
-@use '../settings' as sets;
+@use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin display-param($values, $class-name: 'display', $char: ':') {
+@mixin display-param($values, $class-name, $char: ':') {
     @if $values {
-        $media: str-index($values, $char);
-        @if $media {
-            $start-at: string.slice($values, 1, $media - 1);
-            $end-at: string.slice($values, $media + 1, string.length($values));
-            $infix: mixin.breakpoint-infix($start-at, sets.$breakpoints);
-            @if sets.isset($end-at, sets.$display) {
+        /// Check media
+        /// md: -- lg: -- xl:
+        $breakpoint-key: mixin.breakpoint-isset($values, setting.$char);
+        @if $breakpoint-key {
+            $start-at: setting.find($values, setting.$char, $find: 'start');
+            $end-at: setting.find($values, setting.$char, $find: 'end');
+            $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
+            @if setting.isset($end-at, setting.$display) {
                 @include mixin.media-breakpoint-down($start-at) {
-                    .#{$infix} {
-                        &d-#{$end-at} {
-                            #{$class-name}: #{$end-at};
-                        }
+                    .#{$infix}d-#{$end-at} {
+                        #{$class-name}: #{$end-at};
                     }
                 }
             }
         } @else {
-            @if sets.isset($values, sets.$display) {
-                .d {
-                    &-#{$values} {
-                        #{$class-name}: #{$values};
-                    }
+            @if setting.isset($values, setting.$display) {
+                .d-#{$values} {
+                    #{$class-name}: #{$values};
                 }
             }
         }
     }
 }
 
-@mixin display($values) {
-    @if meta.type-of($values) == map or meta.type-of($values) == list {
-        @each $values in $values {
-            @include display-param($values);
-        }
-    } @else {
-        @include display-param($values);
+@mixin display($class-name: 'display', $values) {
+    @each $values in $values {
+        @include display-param($values, $class-name);
     }
 }
