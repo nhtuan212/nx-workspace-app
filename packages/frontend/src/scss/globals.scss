@@ -2,26 +2,33 @@
 
 @include utilities.display(
     $values: (
-        'md:flex',
         'flex',
         'block',
         'none',
+        'md:flex',
     )
 );
-@include utilities.flex(
-    $prefix: 'justify',
+// @include utilities.flex(
+//     $prefix: 'justify',
+//     $values: (
+// 		'between',
+//         'end',
+//         'md:start',
+//         'md:end',
+//     )
+// );
+// @include utilities.flex(
+//     $prefix: 'align',
+//     $values: (
+//         'center',
+//         'start',
+//         'lg:baseline',
+//     )
+// );
+@include utilities.grid(
     $values: (
-        'md:start',
-        'between',
-        'end',
-        'md:end',
-    )
-);
-@include utilities.flex(
-    $prefix: 'align',
-    $values: (
-        'center',
-        'start',
-        'lg:baseline',
+        '6',
+        'md:6',
+        'sm:8',
     )
 );

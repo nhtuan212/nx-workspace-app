@@ -1,5 +1,6 @@
 $state: '\\:';
 $char: ':';
+$grid-columns: 12;
 $base-unit: 16px;
 $breakpoints: (
     'xs': 0,
@@ -10,6 +11,21 @@ $breakpoints: (
     '2xl': 1400,
     '3xl': 1536,
     '4xl': 1920,
+);
+// $grid: (2,4,5,6,8);
+$grid: (
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9,
+    '10': 10,
+    '11': 11,
+    '12': 12,
 );
 $display: (block, inline, inline-block, flex, inline-flex, none);
 $justify-content: (

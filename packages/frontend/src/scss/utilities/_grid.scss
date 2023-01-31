@@ -1,0 +1,45 @@
+/// Load
+@use 'sass:meta';
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../mixins' as mixin;
+/// @mixin
+@mixin grid-param($class-name, $values) {
+    @if $values {
+        /// Check media
+        /// md: -- lg: -- xl:
+        $breakpoint-key: mixin.breakpoint-isset($values, setting.$char);
+        @if $breakpoint-key {
+            $start-at: setting.find($values, setting.$char, $find: 'start');
+            $end-at: setting.find($values, setting.$char, $find: 'end');
+            $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
+            @if setting.isset($end-at, setting.$grid) {
+                @include mixin.media-breakpoint-down($start-at) {
+                    .#{$infix}#{$class-name}-#{$end-at} {
+                        @include mixin.make-col(
+                            map.get(setting.$grid, $end-at),
+                            $columns: setting.$grid-columns
+                        );
+                    }
+                }
+            }
+        } @else {
+            @if setting.isset($values, setting.$grid) {
+                .#{$class-name}-#{$values} {
+                    @include mixin.make-col(
+                        map.get(setting.$grid, $values),
+                        $columns: setting.$grid-columns
+                    );
+                }
+            }
+        }
+    }
+}
+
+@mixin grid($class-name: 'col', $values) {
+    @each $values in $values {
+        @include grid-param($class-name, $values);
+    }
+}
