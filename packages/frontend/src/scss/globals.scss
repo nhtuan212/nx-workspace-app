@@ -42,10 +42,13 @@
 @include utilities.spacer(
     $prefix: map.get(setting.$property-spacers, 'margin'),
     $values: (
+        'auto',
+        'x-0',
+        'r-n2',
         'x-n0.25',
-        // 'md:y-0',
-        // 'l-2',
-        // 'md:l-2',,
+        'md:y-0',
+        'l-2',
+        'md:l-2',
     )
 );
 ///// Padding

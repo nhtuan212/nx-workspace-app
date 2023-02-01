@@ -25,8 +25,10 @@
 @function spacer-infix($key, $map) {
     // Check if $name value exists in map checks the value $name if not exists in the map
     // return null, otherwise returns -#{$name}
-    $value: string.slice($key, 3);
+    $value: string.slice($key, 4);
     $new-value: setting.str-replace($key, setting.$dot, setting.$state + setting.$dot);
+    // @error map.has-key($map, $value);
+    // @error $value;
     $infix: if(map.has-key($map, $value), $new-value, '');
     // Log debug $infix
     // @debug "breakpoint-infix #{$infix}";

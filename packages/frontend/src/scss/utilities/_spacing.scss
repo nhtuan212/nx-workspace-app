@@ -78,13 +78,13 @@
                     /// Check key $spacers
                     @if type-of(map.get(setting.$sides, $side)) == list {
                         /// Check side: x || y
-                        .#{$prefix}#{$infix} {
+                        .#{$prefix}#{$values} {
                             @each $position in map.get(setting.$sides, $side) {
                                 #{$class-name}-#{$position}: map.get(setting.$spacers, $spacer);
                             }
                         }
                     } @else {
-                        .#{$prefix}#{$infix} {
+                        .#{$prefix}#{$values} {
                             #{$class-name}-#{map.get(setting.$sides, $side)}: map.get(
                                 setting.$spacers,
                                 $spacer
@@ -92,11 +92,28 @@
                         }
                     }
                 } @else {
-                    .#{$prefix}#{$infix} {
-                        #{$class-name}-#{map.get(setting.$sides, $side)}: map.get(
-                            mixin.negative-margins($spacer, setting.$spacers),
-                            $spacer
-                        );
+                    /// Check negative-margins
+                    @if $class-name == 'margin' {
+                        @if type-of(map.get(setting.$sides, $side)) == list {
+                            /// Check side: x || y
+                            .#{$prefix}#{$infix} {
+                                @each $position in map.get(setting.$sides, $side) {
+                                    #{$class-name}-#{$position}: map.get(
+                                        mixin.negative-margins($spacer, setting.$spacers),
+                                        $spacer
+                                    );
+                                }
+                            }
+                        } @else {
+                            .#{$prefix}#{$infix} {
+                                #{$class-name}-#{map.get(setting.$sides, $side)}: map.get(
+                                    mixin.negative-margins($spacer, setting.$spacers),
+                                    $spacer
+                                );
+                            }
+                        }
+                    } @else {
+                        @error "Negative only use for margin. Please remove your map !!";
                     }
                 }
             }
