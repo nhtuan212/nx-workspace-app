@@ -18,10 +18,10 @@
         }
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($values, setting.$char);
+        $breakpoint-key: mixin.breakpoint-isset($values, setting.$colon);
         @if $breakpoint-key {
-            $start-at: setting.find($values, setting.$char, $find: 'start');
-            $end-at: setting.find($values, setting.$char, $find: 'end');
+            $start-at: setting.find($values, setting.$colon, $find: 'start');
+            $end-at: setting.find($values, setting.$colon, $find: 'end');
             $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
             @if setting.isset($end-at, $attribute-map) {
                 @include mixin.media-breakpoint-down($start-at) {

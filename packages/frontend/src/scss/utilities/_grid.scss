@@ -6,30 +6,30 @@
 @use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin grid-param($class-name, $values) {
+@mixin grid-param($prefix, $values) {
     @if $values {
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($values, setting.$char);
+        $breakpoint-key: mixin.breakpoint-isset($values, setting.$colon);
         @if $breakpoint-key {
-            $start-at: setting.find($values, setting.$char, $find: 'start');
-            $end-at: setting.find($values, setting.$char, $find: 'end');
+            $start-at: setting.find($values, setting.$colon, $find: 'start');
+            $end-at: setting.find($values, setting.$colon, $find: 'end');
             $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
-            @if setting.isset($end-at, setting.$grid) {
+            @if setting.isset($end-at, setting.$grids) {
                 @include mixin.media-breakpoint-down($start-at) {
-                    .#{$infix}#{$class-name}-#{$end-at} {
+                    .#{$infix}#{$prefix}-#{$end-at} {
                         @include mixin.make-col(
-                            map.get(setting.$grid, $end-at),
+                            map.get(setting.$grids, $end-at),
                             $columns: setting.$grid-columns
                         );
                     }
                 }
             }
         } @else {
-            @if setting.isset($values, setting.$grid) {
-                .#{$class-name}-#{$values} {
+            @if setting.isset($values, setting.$grids) {
+                .#{$prefix}-#{$values} {
                     @include mixin.make-col(
-                        map.get(setting.$grid, $values),
+                        map.get(setting.$grids, $values),
                         $columns: setting.$grid-columns
                     );
                 }
@@ -38,8 +38,8 @@
     }
 }
 
-@mixin grid($class-name: 'col', $values) {
+@mixin grid($prefix: 'col', $values) {
     @each $values in $values {
-        @include grid-param($class-name, $values);
+        @include grid-param($prefix, $values);
     }
 }

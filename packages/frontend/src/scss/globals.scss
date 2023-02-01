@@ -1,13 +1,18 @@
+/// Load
+@use 'sass:map';
+@use './settings' as setting;
 @use './utilities' as utilities;
 
-@include utilities.display(
-    $values: (
-        'flex',
-        'block',
-        'none',
-        'md:flex',
-    )
-);
+///// Display
+// @include utilities.display(
+//     $values: (
+//         'flex',
+//         'block',
+//         'none',
+//         'md:flex',
+//     )
+// );
+///// Flex
 // @include utilities.flex(
 //     $prefix: 'justify',
 //     $values: (
@@ -17,14 +22,15 @@
 //         'md:end',
 //     )
 // );
-// @include utilities.flex(
-//     $prefix: 'align',
-//     $values: (
-//         'center',
-//         'start',
-//         'lg:baseline',
-//     )
-// );
+@include utilities.flex(
+    $prefix: 'align',
+    $values: (
+        'center',
+        'start',
+        'lg:baseline',
+    )
+);
+///// Grid col
 @include utilities.grid(
     $values: (
         '6',
@@ -32,3 +38,21 @@
         'sm:8',
     )
 );
+/// Margin
+@include utilities.spacer(
+    $prefix: map.get(setting.$property-spacers, 'margin'),
+    $values: (
+        'x-n0.25',
+        // 'md:y-0',
+        // 'l-2',
+        // 'md:l-2',,
+    )
+);
+///// Padding
+// @include utilities.spacer(
+// 	$prefix: map.get(setting.$property-spacers, 'padding'),
+//     $values: (
+//         'l-2',
+//         'md:l-2',
+//     )
+// );

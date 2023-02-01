@@ -1,18 +1,14 @@
-.d-flex {
-  display: flex;
+.align-center {
+  align-items: center;
 }
 
-.d-block {
-  display: block;
+.align-start {
+  align-items: flex-start;
 }
 
-.d-none {
-  display: none;
-}
-
-@media (max-width: 48rem) {
-  .md\:d-flex {
-    display: flex;
+@media (max-width: 62rem) {
+  .lg\:align-baseline {
+    align-items: baseline;
   }
 }
 .col-6 {
@@ -31,6 +27,9 @@
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
   }
+}
+.m {
+  margin-left, right: -0.25rem;
 }
 
 /*# sourceMappingURL=globals.css.map */

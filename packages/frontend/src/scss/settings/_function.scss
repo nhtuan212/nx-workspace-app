@@ -22,7 +22,7 @@
     @error "Pixels: `#{$value}`.";
 }
 
-@function find($value, $prefix, $find) {
+@function find($value, $prefix, $find: '') {
     $media: string.index($value, $prefix);
     @if ($media) {
         @if ($find==start) {
@@ -33,7 +33,8 @@
         }
         @error "#{$find} is not a valid. Expected start or end.";
     }
-    @error "#{$value} is not a valid. Try again later";
+    // @error "#{$value} is not a valid. Please check again";
+    @return false;
 }
 
 @function isset($value, $array) {
@@ -48,4 +49,21 @@
         }
     }
     @return true;
+}
+
+@function str-replace($string, $search, $replace: '') {
+    /// Replace `$search` with `$replace` in `$string`
+    /// @author Kitty Giraudel
+    /// @param {String} $string - Initial string
+    /// @param {String} $search - Substring to replace
+    /// @param {String} $replace ('') - New value
+    /// @return {String} - Updated string
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
 }

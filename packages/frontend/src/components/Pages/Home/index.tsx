@@ -7,6 +7,7 @@ const HomePage = () => {
             <div className="d-flex">
                 <div className="col-6 md:col-6 sm:col-8">Test col</div>
                 <div className="col-6 md:col-6 sm:col-8">Test col</div>
+                <div className="ml-n2">Test col</div>
             </div>
         </div>
     );
