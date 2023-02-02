@@ -4,6 +4,7 @@ import { ErrorInterface } from '@/interface';
 
 const ErrorPage = ({ statusCode }: ErrorInterface) => {
     return <Error statusCode={statusCode} />;
+    return <Error statusCode={statusCode} />;
 };
 
 export default ErrorPage;
