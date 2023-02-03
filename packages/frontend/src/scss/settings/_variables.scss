@@ -5,6 +5,7 @@ $dot: '.';
 $grid-columns: 12;
 $base-unit: 16px;
 $spacer: 1rem;
+$display: (block, inline, inline-block, flex, inline-flex, none);
 $breakpoints: (
     'xs': 0,
     'sm': 576,
@@ -29,10 +30,6 @@ $grids: (
     '11': 11,
     '12': 12,
 );
-$property-spacers: (
-    'margin': m,
-    'padding': p,
-);
 $sides: (
     't': top,
     'b': bottom,
@@ -48,44 +45,59 @@ $sides: (
     ),
 );
 $spacers: (
-    'auto': auto,
-    '0': 0,
-    '0.25': $spacer * 0.25,
-    '0.5': $spacer * 0.5,
-    '0.75': $spacer * 0.75,
-    '1': $spacer,
-    '1.25': $spacer * 1.25,
-    '1.5': $spacer * 1.5,
-    '1.75': $spacer * 1.75,
-    '2': $spacer * 2,
-    '2.25': $spacer * 2.25,
-    '2.5': $spacer * 2.5,
-    '2.75': $spacer * 2.75,
-    '3': $spacer * 3,
-    '3.25': $spacer * 3.25,
-    '3.5': $spacer * 3.5,
-    '3.75': $spacer * 3.75,
-    '4': $spacer * 4,
-    '4.25': $spacer * 4.25,
-    '4.5': $spacer * 4.5,
-    '4.75': $spacer * 4.75,
-    '5': $spacer * 5,
-    '5.25': $spacer * 5.25,
-    '5.5': $spacer * 5.5,
-    '5.75': $spacer * 5.75,
+    'm': (
+        'class-name': 'margin',
+    ),
+    'p': (
+        'class-name': 'padding',
+    ),
+    'properties': (
+        'auto': auto,
+        '0': 0,
+        '0.25': $spacer * 0.25,
+        '0.5': $spacer * 0.5,
+        '0.75': $spacer * 0.75,
+        '1': $spacer,
+        '1.25': $spacer * 1.25,
+        '1.5': $spacer * 1.5,
+        '1.75': $spacer * 1.75,
+        '2': $spacer * 2,
+        '2.25': $spacer * 2.25,
+        '2.5': $spacer * 2.5,
+        '2.75': $spacer * 2.75,
+        '3': $spacer * 3,
+        '3.25': $spacer * 3.25,
+        '3.5': $spacer * 3.5,
+        '3.75': $spacer * 3.75,
+        '4': $spacer * 4,
+        '4.25': $spacer * 4.25,
+        '4.5': $spacer * 4.5,
+        '4.75': $spacer * 4.75,
+        '5': $spacer * 5,
+        '5.25': $spacer * 5.25,
+        '5.5': $spacer * 5.5,
+        '5.75': $spacer * 5.75,
+    ),
 );
-$display: (block, inline, inline-block, flex, inline-flex, none);
-$justify-content: (
-    'start': flex-start,
-    'end': flex-end,
-    'center': center,
-    'between': space-between,
-    'around': space-around,
-);
-$align-items: (
-    'start': flex-start,
-    'end': flex-end,
-    'center': center,
-    'baseline': baseline,
-    'stretch': stretch,
+$flex-maps: (
+    'justify': (
+        'class-name': 'justify-content',
+        'properties': (
+            'start': flex-start,
+            'end': flex-end,
+            'center': center,
+            'between': space-between,
+            'around': space-around,
+        ),
+    ),
+    'align': (
+        'class-name': 'align-items',
+        'properties': (
+            'start': flex-start,
+            'end': flex-end,
+            'center': center,
+            'baseline': baseline,
+            'stretch': stretch,
+        ),
+    ),
 );

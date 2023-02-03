@@ -1,0 +1,13 @@
+/// Load
+@use '../utilities' as utilities;
+
+/// Display
+@include utilities.display(
+    $prefix: 'd',
+    $properties: (
+        'flex',
+        'block',
+        'none',
+        'md:flex',
+    )
+);

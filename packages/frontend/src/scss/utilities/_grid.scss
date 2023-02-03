@@ -6,14 +6,14 @@
 @use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin grid-param($prefix, $values) {
-    @if $values {
+@mixin grid-param($prefix, $properties) {
+    @if $properties {
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($values, setting.$colon);
+        $breakpoint-key: mixin.breakpoint-isset($properties, setting.$colon);
         @if $breakpoint-key {
-            $start-at: setting.find($values, setting.$colon, $find: 'start');
-            $end-at: setting.find($values, setting.$colon, $find: 'end');
+            $start-at: setting.find($properties, setting.$colon, $find: 'start');
+            $end-at: setting.find($properties, setting.$colon, $find: 'end');
             $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
             @if setting.isset($end-at, setting.$grids) {
                 @include mixin.media-breakpoint-down($start-at) {
@@ -26,10 +26,10 @@
                 }
             }
         } @else {
-            @if setting.isset($values, setting.$grids) {
-                .#{$prefix}-#{$values} {
+            @if setting.isset($properties, setting.$grids) {
+                .#{$prefix}-#{$properties} {
                     @include mixin.make-col(
-                        map.get(setting.$grids, $values),
+                        map.get(setting.$grids, $properties),
                         $columns: setting.$grid-columns
                     );
                 }
@@ -38,8 +38,8 @@
     }
 }
 
-@mixin grid($prefix: 'col', $values) {
-    @each $values in $values {
-        @include grid-param($prefix, $values);
+@mixin grid($prefix, $properties) {
+    @each $properties in $properties {
+        @include grid-param($prefix, $properties);
     }
 }

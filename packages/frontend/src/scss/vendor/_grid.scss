@@ -1,0 +1,12 @@
+/// Load
+@use '../utilities' as utilities;
+
+/// Grid col
+@include utilities.grid(
+    $prefix: 'col',
+    $properties: (
+        '6',
+        'md:6',
+        'sm:8',
+    )
+);

@@ -6,22 +6,18 @@
 @use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin flex-param($prefix, $values) {
-    @if $values {
-        /// Check attribute-map
-        /// render map config in setting
-        $class-name: #{$prefix}-content;
-        $attribute-map: setting.$justify-content;
-        @if ($prefix== 'align') {
-            $class-name: #{$prefix}-items;
-            $attribute-map: setting.$align-items;
-        }
+@mixin flex-param($prefix, $properties) {
+    @if $properties {
+        /// Check class-name, attribute-map
+        $class-name: map.get(map.get(setting.$flex-maps, $prefix), 'class-name');
+        $attribute-map: map.get(map.get(setting.$flex-maps, $prefix), 'properties');
+
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($values, setting.$colon);
+        $breakpoint-key: mixin.breakpoint-isset($properties, setting.$colon);
         @if $breakpoint-key {
-            $start-at: setting.find($values, setting.$colon, $find: 'start');
-            $end-at: setting.find($values, setting.$colon, $find: 'end');
+            $start-at: setting.find($properties, setting.$colon, $find: 'start');
+            $end-at: setting.find($properties, setting.$colon, $find: 'end');
             $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
             @if setting.isset($end-at, $attribute-map) {
                 @include mixin.media-breakpoint-down($start-at) {
@@ -31,17 +27,17 @@
                 }
             }
         } @else {
-            @if setting.isset($values, $attribute-map) {
-                .#{$prefix}-#{$values} {
-                    #{$class-name}: map.get($attribute-map, $values);
+            @if setting.isset($properties, $attribute-map) {
+                .#{$prefix}-#{$properties} {
+                    #{$class-name}: map.get($attribute-map, $properties);
                 }
             }
         }
     }
 }
 
-@mixin flex($prefix, $values) {
-    @each $values in $values {
-        @include flex-param($prefix, $values);
+@mixin flex($prefix, $properties) {
+    @each $properties in $properties {
+        @include flex-param($prefix, $properties);
     }
 }

@@ -4,34 +4,36 @@
 @use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin display-param($values, $prefix, $char: ':') {
-    @if $values {
+@mixin display-param($prefix, $properties) {
+    @if $properties {
+        /// Set class-name
+        $class-name: 'display';
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($values, setting.$colon);
+        $breakpoint-key: mixin.breakpoint-isset($properties, setting.$colon);
         @if $breakpoint-key {
-            $start-at: setting.find($values, setting.$colon, $find: 'start');
-            $end-at: setting.find($values, setting.$colon, $find: 'end');
+            $start-at: setting.find($properties, setting.$colon, $find: 'start');
+            $end-at: setting.find($properties, setting.$colon, $find: 'end');
             $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
             @if setting.isset($end-at, setting.$display) {
                 @include mixin.media-breakpoint-down($start-at) {
-                    .#{$infix}d-#{$end-at} {
-                        #{$prefix}: #{$end-at};
+                    .#{$infix}#{$prefix}-#{$end-at} {
+                        #{$class-name}: #{$end-at};
                     }
                 }
             }
         } @else {
-            @if setting.isset($values, setting.$display) {
-                .d-#{$values} {
-                    #{$prefix}: #{$values};
+            @if setting.isset($properties, setting.$display) {
+                .#{$prefix}-#{$properties} {
+                    #{$class-name}: #{$properties};
                 }
             }
         }
     }
 }
 
-@mixin display($prefix: 'display', $values) {
-    @each $values in $values {
-        @include display-param($values, $prefix);
+@mixin display($prefix, $properties) {
+    @each $properties in $properties {
+        @include display-param($prefix, $properties);
     }
 }
