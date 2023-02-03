@@ -21,7 +21,7 @@
     }
     @return true;
 }
-@function spacer-infix($key, $map) {
+@function spacing-infix($map, $key) {
     /// Check if properties has n
     $value: string.slice($key, if(string.index($key, 'n'), 4, 3));
     $new-value: setting.str-replace($key, setting.$dot, setting.$state + setting.$dot);
@@ -30,26 +30,24 @@
     @return $infix;
 }
 /// Mixin
-@mixin negative-margins($class-name, $prefix, $properties, $side, $spacer, $infix: '') {
-    @if $class-name != 'margin' {
+@mixin negative-margins($property, $class, $value, $side, $spacer, $infix: '') {
+    @if $property != 'margin' {
         @error "Negative only use for margin. Please remove invalid key in your map !!";
     }
-    $spacer-properties: map.get(setting.$spacers, 'properties');
-    $spacer-infix: spacer-infix($properties, $spacer-properties);
-    @if type-of(map.get(setting.$sides, $side)) == list {
+    $value-list: map.get(setting.$spacings, 'values');
+    $side-list: map.get(setting.$spacings, 'sides');
+    $spacing-infix: spacing-infix($value-list, $value);
+    @if type-of(map.get($side-list, $side)) == list {
         /// Check variable sides: x || y
-        .#{$infix}#{$prefix}#{$spacer-infix} {
-            @each $position in map.get(setting.$sides, $side) {
-                #{$class-name}-#{$position}: map.get(
-                    negative-merge($spacer, $spacer-properties),
-                    $spacer
-                );
+        .#{$infix}#{$class}#{$spacing-infix} {
+            @each $position in map.get($side-list, $side) {
+                #{$property}-#{$position}: map.get(negative-merge($spacer, $value-list), $spacer);
             }
         }
     } @else {
-        .#{$infix}#{$prefix}#{$spacer-infix} {
-            #{$class-name}-#{map.get(setting.$sides, $side)}: map.get(
-                negative-merge($spacer, $spacer-properties),
+        .#{$infix}#{$class}#{$spacing-infix} {
+            #{$property}-#{map.get($side-list, $side)}: map.get(
+                negative-merge($spacer, $value-list),
                 $spacer
             );
         }

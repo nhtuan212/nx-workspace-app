@@ -1,3 +1,4 @@
+/// Variables
 $state: '\\';
 $colon: ':';
 $dash: '-';
@@ -86,28 +87,30 @@ $grids: (
         '12': 12,
     ),
 );
-$sides: (
-    't': top,
-    'b': bottom,
-    'l': left,
-    'r': right,
-    'x': (
-        left,
-        right,
+$spacings: (
+    'margin': (
+        'property': 'margin',
+        'class': 'm',
     ),
-    'y': (
-        top,
-        bottom,
+    'padding': (
+        'property': 'padding',
+        'class': 'p',
     ),
-);
-$spacers: (
-    'm': (
-        'class-name': 'margin',
+    'sides': (
+        't': top,
+        'b': bottom,
+        'l': left,
+        'r': right,
+        'x': (
+            left,
+            right,
+        ),
+        'y': (
+            top,
+            bottom,
+        ),
     ),
-    'p': (
-        'class-name': 'padding',
-    ),
-    'properties': (
+    'values': (
         'auto': auto,
         '0': 0,
         '0.25': $spacer * 0.25,

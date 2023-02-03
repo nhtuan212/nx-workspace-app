@@ -1,41 +1,45 @@
 /// Load
-@use 'sass:meta';
 @use 'sass:string';
 @use 'sass:list';
 @use 'sass:map';
 @use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin spacer-handle($prefix, $properties) {
-    @if $properties {
-        /// Get class-name, properties of variable spacers
-        $class-name: map.get(setting.$spacers, $prefix, 'class-name');
-        $spacer-properties: map.get(setting.$spacers, 'properties');
-        /// Check sides and spacer of properties
-        $side: setting.find($properties, setting.$dash, $find: 'start');
-        $spacer: setting.find($properties, setting.$dash, $find: 'end');
+@mixin spacer-handle($property, $class, $value) {
+    @if $value {
+        /// Get list property
+        $value-list: map.get(setting.$spacings, 'values');
+        $side-list: map.get(setting.$spacings, 'sides');
+
+        /// Check sides and space of value based on "-"
+        $side: setting.find($value, setting.$dash, $find: 'start');
+        $space: setting.find($value, setting.$dash, $find: 'end');
+
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($properties, setting.$colon);
+        $breakpoint-key: mixin.breakpoint-isset($value, setting.$colon);
         @if $breakpoint-key {
-            $start-at: setting.find($properties, setting.$colon, $find: 'start');
-            $end-at: setting.find($properties, setting.$colon, $find: 'end');
+            $start-at: setting.find($value, setting.$colon, $find: 'start');
+            $end-at: setting.find($value, setting.$colon, $find: 'end');
             $side-end: setting.find($side, setting.$colon, $find: 'end');
+            @error $side, $side-end;
             $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
-            @if map.has-key($spacer-properties, $spacer) {
+            /// Check infix when value is 0.25 - 0.5 ...
+            $spacing-infix: mixin.spacing-infix($value-list, $end-at);
+            @if map.has-key($value-list, $space) {
                 @include mixin.media-breakpoint-down($start-at) {
-                    @if type-of(map.get(setting.$sides, $side-end)) == list {
-                        .#{$infix}#{$prefix}#{$end-at} {
-                            @each $position in map.get(setting.$sides, $side-end) {
-                                #{$class-name}-#{$position}: map.get($spacer-properties, $spacer);
+                    @if type-of(map.get($side-list, $side-end)) == list {
+                        /// Check side has x || y
+                        .#{$infix}#{$class}#{$spacing-infix} {
+                            @each $position in map.get($side-list, $side-end) {
+                                #{$property}-#{$position}: map.get($value-list, $space);
                             }
                         }
                     } @else {
-                        $spacer-infix: mixin.spacer-infix($end-at, $spacer-properties);
-                        .#{$infix}#{$prefix}#{$spacer-infix} {
-                            #{$class-name}-#{map.get(setting.$sides, $side-end)}: map.get(
-                                $spacer-properties,
-                                $spacer
+                        .#{$infix}#{$class}#{$spacing-infix} {
+                            #{$property}-#{map.get($side-list, $side-end)}: map.get(
+                                $value-list,
+                                $space
                             );
                         }
                     }
@@ -45,58 +49,53 @@
                     /// Check negative-margins
                     /// Has n in property
                     @include mixin.negative-margins(
-                        $class-name,
-                        $prefix,
+                        $property,
+                        $class,
                         $end-at,
                         $side-end,
-                        $spacer,
+                        $space,
                         $infix
                     );
                 }
             }
         } @else {
-            @if not string.index($properties, setting.$dash) {
-                /// Check properties non "-"
-                .#{$prefix}-#{$properties} {
-                    #{$class-name}: map.get($spacer-properties, $properties);
+            @if not string.index($value, setting.$dash) {
+                /// Check value non "-"
+                .#{$class}-#{$value} {
+                    #{$property}: map.get($value-list, $value);
                 }
             } @else {
-                @if map.has-key($spacer-properties, $spacer) {
-                    /// Check key $spacers
-                    @if type-of(map.get(setting.$sides, $side)) == list {
-                        /// Check side: x || y
-                        .#{$prefix}#{$properties} {
-                            @each $position in map.get(setting.$sides, $side) {
-                                #{$class-name}-#{$position}: map.get($spacer-properties, $spacer);
+                @if map.has-key($value-list, $space) {
+                    /// Check infix when value is 0.25 - 0.5 ...
+                    $spacing-infix: mixin.spacing-infix($value-list, $value);
+                    /// Check spacings-sides has key side
+                    @if type-of(map.get($side-list, $side)) == list {
+                        /// Check side has x || y
+                        .#{$class}#{$spacing-infix} {
+                            @each $position in map.get($side-list, $side) {
+                                #{$property}-#{$position}: map.get($value-list, $space);
                             }
                         }
                     } @else {
-                        $spacer-infix: mixin.spacer-infix($properties, $spacer-properties);
-                        .#{$prefix}#{$spacer-infix} {
-                            #{$class-name}-#{map.get(setting.$sides, $side)}: map.get(
-                                $spacer-properties,
-                                $spacer
+                        .#{$class}#{$spacing-infix} {
+                            #{$property}-#{map.get($side-list, $side)}: map.get(
+                                $value-list,
+                                $space
                             );
                         }
                     }
                 } @else {
                     /// Check negative-margins
                     /// Has n in property
-                    @include mixin.negative-margins(
-                        $class-name,
-                        $prefix,
-                        $properties,
-                        $side,
-                        $spacer
-                    );
+                    @include mixin.negative-margins($property, $class, $value, $side, $space);
                 }
             }
         }
     }
 }
 
-@mixin spacer($prefix, $properties) {
-    @each $properties in $properties {
-        @include spacer-handle($prefix, $properties);
+@mixin spacer($property, $class, $values) {
+    @each $value in $values {
+        @include spacer-handle($property, $class, $value);
     }
 }
