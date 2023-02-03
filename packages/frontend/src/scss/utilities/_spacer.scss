@@ -1,0 +1,102 @@
+/// Load
+@use 'sass:meta';
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../mixins' as mixin;
+/// @mixin
+@mixin spacer-handle($prefix, $properties) {
+    @if $properties {
+        /// Get class-name, properties of variable spacers
+        $class-name: map.get(setting.$spacers, $prefix, 'class-name');
+        $spacer-properties: map.get(setting.$spacers, 'properties');
+        /// Check sides and spacer of properties
+        $side: setting.find($properties, setting.$dash, $find: 'start');
+        $spacer: setting.find($properties, setting.$dash, $find: 'end');
+        /// Check media
+        /// md: -- lg: -- xl:
+        $breakpoint-key: mixin.breakpoint-isset($properties, setting.$colon);
+        @if $breakpoint-key {
+            $start-at: setting.find($properties, setting.$colon, $find: 'start');
+            $end-at: setting.find($properties, setting.$colon, $find: 'end');
+            $side-end: setting.find($side, setting.$colon, $find: 'end');
+            $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
+            @if map.has-key($spacer-properties, $spacer) {
+                @include mixin.media-breakpoint-down($start-at) {
+                    @if type-of(map.get(setting.$sides, $side-end)) == list {
+                        .#{$infix}#{$prefix}#{$end-at} {
+                            @each $position in map.get(setting.$sides, $side-end) {
+                                #{$class-name}-#{$position}: map.get($spacer-properties, $spacer);
+                            }
+                        }
+                    } @else {
+                        $spacer-infix: mixin.spacer-infix($end-at, $spacer-properties);
+                        .#{$infix}#{$prefix}#{$spacer-infix} {
+                            #{$class-name}-#{map.get(setting.$sides, $side-end)}: map.get(
+                                $spacer-properties,
+                                $spacer
+                            );
+                        }
+                    }
+                }
+            } @else {
+                @include mixin.media-breakpoint-down($start-at) {
+                    /// Check negative-margins
+                    /// Has n in property
+                    @include mixin.negative-margins(
+                        $class-name,
+                        $prefix,
+                        $end-at,
+                        $side-end,
+                        $spacer,
+                        $infix
+                    );
+                }
+            }
+        } @else {
+            @if not string.index($properties, setting.$dash) {
+                /// Check properties non "-"
+                .#{$prefix}-#{$properties} {
+                    #{$class-name}: map.get($spacer-properties, $properties);
+                }
+            } @else {
+                @if map.has-key($spacer-properties, $spacer) {
+                    /// Check key $spacers
+                    @if type-of(map.get(setting.$sides, $side)) == list {
+                        /// Check side: x || y
+                        .#{$prefix}#{$properties} {
+                            @each $position in map.get(setting.$sides, $side) {
+                                #{$class-name}-#{$position}: map.get($spacer-properties, $spacer);
+                            }
+                        }
+                    } @else {
+                        $spacer-infix: mixin.spacer-infix($properties, $spacer-properties);
+                        .#{$prefix}#{$spacer-infix} {
+                            #{$class-name}-#{map.get(setting.$sides, $side)}: map.get(
+                                $spacer-properties,
+                                $spacer
+                            );
+                        }
+                    }
+                } @else {
+                    /// Check negative-margins
+                    /// Has n in property
+                    @include mixin.negative-margins(
+                        $class-name,
+                        $prefix,
+                        $properties,
+                        $side,
+                        $spacer
+                    );
+                }
+            }
+        }
+    }
+}
+
+@mixin spacer($prefix, $properties) {
+    @each $properties in $properties {
+        @include spacer-handle($prefix, $properties);
+    }
+}

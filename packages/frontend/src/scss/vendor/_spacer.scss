@@ -1,0 +1,34 @@
+/// Load
+@use 'sass:map';
+@use 'sass:list';
+@use '../settings' as setting;
+@use '../utilities' as utilities;
+
+/// Margin
+@include utilities.spacer(
+    $prefix: list.nth(map-keys(setting.$spacers), list.index(map-keys(setting.$spacers), 'm')),
+    $properties: (
+        'l-0.25',
+        'md:l-0.25',
+        'md:r-n2',
+        'x-n0.25',
+        'md:y-0',
+        'l-2',
+        'md:l-2',
+        'x-0',
+        'md:x-n2',
+        'md:x-2',
+        'x-0',
+        '0',
+        'auto',
+    )
+);
+// /// Padding
+// @include utilities.spacer(
+//     $prefix: list.nth(map-keys(setting.$spacers), list.index(map-keys(setting.$spacers), 'p')),
+//     $properties: (
+//         'l-2',
+//         'md:l-2',
+//         // 'md:l-n2',
+//     )
+// );

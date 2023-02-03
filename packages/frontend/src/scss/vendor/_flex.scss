@@ -1,0 +1,25 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../utilities' as utilities;
+
+/// Flex
+@include utilities.flex(
+    $property: map.get(setting.$flexs, 'justify', 'property'),
+    $class: map.get(setting.$flexs, 'justify', 'class'),
+    $values: (
+        'between',
+        'end',
+        'md:start',
+        'md:end',
+    )
+);
+@include utilities.flex(
+    $property: map.get(setting.$flexs, 'align', 'property'),
+    $class: map.get(setting.$flexs, 'align', 'class'),
+    $values: (
+        'center',
+        'start',
+        'lg:baseline',
+    )
+);

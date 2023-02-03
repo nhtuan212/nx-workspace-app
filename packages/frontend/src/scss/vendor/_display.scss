@@ -1,0 +1,14 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../utilities' as utilities;
+
+/// Display
+@include utilities.display(
+    $property: map.get(setting.$displays, 'property'),
+    $class: map.get(setting.$displays, 'class'),
+    $values: (
+        'flex',
+        'md:flex',
+    )
+);

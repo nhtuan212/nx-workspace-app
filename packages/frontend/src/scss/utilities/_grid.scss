@@ -6,30 +6,32 @@
 @use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin grid-param($prefix, $values) {
-    @if $values {
+@mixin grid-param($property, $class, $value) {
+    @if $value {
+        /// Get list property
+        $value-list: map.get(setting.$grids, 'values');
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($values, setting.$colon);
+        $breakpoint-key: mixin.breakpoint-isset($value, setting.$colon);
         @if $breakpoint-key {
-            $start-at: setting.find($values, setting.$colon, $find: 'start');
-            $end-at: setting.find($values, setting.$colon, $find: 'end');
+            $start-at: setting.find($value, setting.$colon, $find: 'start');
+            $end-at: setting.find($value, setting.$colon, $find: 'end');
             $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
-            @if setting.isset($end-at, setting.$grids) {
+            @if setting.isset($end-at, $value-list) {
                 @include mixin.media-breakpoint-down($start-at) {
-                    .#{$infix}#{$prefix}-#{$end-at} {
+                    .#{$infix}#{$class}-#{$end-at} {
                         @include mixin.make-col(
-                            map.get(setting.$grids, $end-at),
+                            map.get($value-list, $end-at),
                             $columns: setting.$grid-columns
                         );
                     }
                 }
             }
         } @else {
-            @if setting.isset($values, setting.$grids) {
-                .#{$prefix}-#{$values} {
+            @if setting.isset($value, $value-list) {
+                .#{$class}-#{$value} {
                     @include mixin.make-col(
-                        map.get(setting.$grids, $values),
+                        map.get($value-list, $value),
                         $columns: setting.$grid-columns
                     );
                 }
@@ -38,8 +40,8 @@
     }
 }
 
-@mixin grid($prefix: 'col', $values) {
-    @each $values in $values {
-        @include grid-param($prefix, $values);
+@mixin grid($property, $class, $values) {
+    @each $value in $values {
+        @include grid-param($property, $class, $value);
     }
 }

@@ -5,14 +5,13 @@
 @use 'sass:math';
 @use 'sass:string';
 @use './../settings' as setting;
-/// Mixin
-@function negative-margins($value, $array) {
+/// Function
+@function negative-merge($value, $array) {
     @if (meta.type-of($array) ==map) {
         @if not map.get($array, $value) {
             $new-value: string.slice($value, 2);
-            // @error $new-value;
             @if not map.has-key($array, $new-value) {
-                @error '#{$value} Values of egative-margins not exists in spacer variable';
+                @error '#{$value} Values of negative-margins not exists in spacer variable';
             }
             $negative: (
                 $value: map.get($array, $new-value) * -1,
@@ -23,15 +22,36 @@
     @return true;
 }
 @function spacer-infix($key, $map) {
-    // Check if $name value exists in map checks the value $name if not exists in the map
-    // return null, otherwise returns -#{$name}
-    $value: string.slice($key, 4);
+    /// Check if properties has n
+    $value: string.slice($key, if(string.index($key, 'n'), 4, 3));
     $new-value: setting.str-replace($key, setting.$dot, setting.$state + setting.$dot);
-    // @error map.has-key($map, $value);
-    // @error $value;
     $infix: if(map.has-key($map, $value), $new-value, '');
     // Log debug $infix
-    // @debug "breakpoint-infix #{$infix}";
-    // Returned
     @return $infix;
+}
+/// Mixin
+@mixin negative-margins($class-name, $prefix, $properties, $side, $spacer, $infix: '') {
+    @if $class-name != 'margin' {
+        @error "Negative only use for margin. Please remove invalid key in your map !!";
+    }
+    $spacer-properties: map.get(setting.$spacers, 'properties');
+    $spacer-infix: spacer-infix($properties, $spacer-properties);
+    @if type-of(map.get(setting.$sides, $side)) == list {
+        /// Check variable sides: x || y
+        .#{$infix}#{$prefix}#{$spacer-infix} {
+            @each $position in map.get(setting.$sides, $side) {
+                #{$class-name}-#{$position}: map.get(
+                    negative-merge($spacer, $spacer-properties),
+                    $spacer
+                );
+            }
+        }
+    } @else {
+        .#{$infix}#{$prefix}#{$spacer-infix} {
+            #{$class-name}-#{map.get(setting.$sides, $side)}: map.get(
+                negative-merge($spacer, $spacer-properties),
+                $spacer
+            );
+        }
+    }
 }
