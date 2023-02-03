@@ -1,14 +1,13 @@
 /// Load
 @use 'sass:map';
-@use 'sass:list';
 @use '../settings' as setting;
 @use '../utilities' as utilities;
 
 /// Flex
 @include utilities.flex(
-    $prefix:
-        list.nth(map-keys(setting.$flex-maps), list.index(map-keys(setting.$flex-maps), 'justify')),
-    $properties: (
+    $property: map.get(setting.$flexs, 'justify', 'property'),
+    $class: map.get(setting.$flexs, 'justify', 'class'),
+    $values: (
         'between',
         'end',
         'md:start',
@@ -16,9 +15,9 @@
     )
 );
 @include utilities.flex(
-    $prefix:
-        list.nth(map-keys(setting.$flex-maps), list.index(map-keys(setting.$flex-maps), 'align')),
-    $properties: (
+    $property: map.get(setting.$flexs, 'align', 'property'),
+    $class: map.get(setting.$flexs, 'align', 'class'),
+    $values: (
         'center',
         'start',
         'lg:baseline',

@@ -5,7 +5,6 @@ $dot: '.';
 $grid-columns: 12;
 $base-unit: 16px;
 $spacer: 1rem;
-$display: (block, inline, inline-block, flex, inline-flex, none);
 $breakpoints: (
     'xs': 0,
     'sm': 576,
@@ -16,19 +15,76 @@ $breakpoints: (
     '3xl': 1536,
     '4xl': 1920,
 );
+$displays: (
+    'property': 'display',
+    'class': 'd',
+    'values': (
+        block,
+        inline,
+        inline-block,
+        flex,
+        inline-flex,
+        none,
+    ),
+);
+$sizes: (
+    'width': (
+        'property': 'width',
+        'class': 'w',
+    ),
+    'height': (
+        'property': 'height',
+        'class': 'h',
+    ),
+    'values': (
+        '25': 25%,
+        '50': 50%,
+        '75': 75%,
+        '100': 100%,
+        'auto': auto,
+    ),
+);
+$flexs: (
+    'justify': (
+        'property': 'justify-content',
+        'class': 'justify',
+        'values': (
+            'start': flex-start,
+            'end': flex-end,
+            'center': center,
+            'between': space-between,
+            'around': space-around,
+        ),
+    ),
+    'align': (
+        'property': 'align-items',
+        'class': 'align',
+        'values': (
+            'start': flex-start,
+            'end': flex-end,
+            'center': center,
+            'baseline': baseline,
+            'stretch': stretch,
+        ),
+    ),
+);
 $grids: (
-    '1': 1,
-    '2': 2,
-    '3': 3,
-    '4': 4,
-    '5': 5,
-    '6': 6,
-    '7': 7,
-    '8': 8,
-    '9': 9,
-    '10': 10,
-    '11': 11,
-    '12': 12,
+    'property': '',
+    'class': 'col',
+    'values': (
+        '1': 1,
+        '2': 2,
+        '3': 3,
+        '4': 4,
+        '5': 5,
+        '6': 6,
+        '7': 7,
+        '8': 8,
+        '9': 9,
+        '10': 10,
+        '11': 11,
+        '12': 12,
+    ),
 );
 $sides: (
     't': top,
@@ -77,27 +133,5 @@ $spacers: (
         '5.25': $spacer * 5.25,
         '5.5': $spacer * 5.5,
         '5.75': $spacer * 5.75,
-    ),
-);
-$flex-maps: (
-    'justify': (
-        'class-name': 'justify-content',
-        'properties': (
-            'start': flex-start,
-            'end': flex-end,
-            'center': center,
-            'between': space-between,
-            'around': space-around,
-        ),
-    ),
-    'align': (
-        'class-name': 'align-items',
-        'properties': (
-            'start': flex-start,
-            'end': flex-end,
-            'center': center,
-            'baseline': baseline,
-            'stretch': stretch,
-        ),
     ),
 );

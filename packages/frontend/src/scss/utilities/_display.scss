@@ -1,39 +1,38 @@
 /// Load
-@use 'sass:meta';
-@use 'sass:string';
+@use 'sass:map';
 @use '../settings' as setting;
 @use '../mixins' as mixin;
 /// @mixin
-@mixin display-param($prefix, $properties) {
-    @if $properties {
-        /// Set class-name
-        $class-name: 'display';
+@mixin display-param($class, $property, $value) {
+    @if $value {
+        /// Get list property
+        $value-list: map.get(setting.$displays, 'values');
         /// Check media
         /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($properties, setting.$colon);
+        $breakpoint-key: mixin.breakpoint-isset($value, setting.$colon);
         @if $breakpoint-key {
-            $start-at: setting.find($properties, setting.$colon, $find: 'start');
-            $end-at: setting.find($properties, setting.$colon, $find: 'end');
+            $start-at: setting.find($value, setting.$colon, $find: 'start');
+            $end-at: setting.find($value, setting.$colon, $find: 'end');
             $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
-            @if setting.isset($end-at, setting.$display) {
+            @if setting.isset($end-at, $value-list) {
                 @include mixin.media-breakpoint-down($start-at) {
-                    .#{$infix}#{$prefix}-#{$end-at} {
-                        #{$class-name}: #{$end-at};
+                    .#{$infix}#{$class}-#{$end-at} {
+                        #{$property}: #{$end-at};
                     }
                 }
             }
         } @else {
-            @if setting.isset($properties, setting.$display) {
-                .#{$prefix}-#{$properties} {
-                    #{$class-name}: #{$properties};
+            @if setting.isset($value, $value-list) {
+                .#{$class}-#{$value} {
+                    #{$property}: #{$value};
                 }
             }
         }
     }
 }
 
-@mixin display($prefix, $properties) {
-    @each $properties in $properties {
-        @include display-param($prefix, $properties);
+@mixin display($class, $property, $values) {
+    @each $value in $values {
+        @include display-param($class, $property, $value);
     }
 }

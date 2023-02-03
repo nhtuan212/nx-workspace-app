@@ -1,10 +1,13 @@
 /// Load
+@use 'sass:map';
+@use '../settings' as setting;
 @use '../utilities' as utilities;
 
 /// Grid col
 @include utilities.grid(
-    $prefix: 'col',
-    $properties: (
+    $property: map.get(setting.$grids, 'property'),
+    $class: map.get(setting.$grids, 'class'),
+    $values: (
         '6',
         'md:6',
         'sm:8',

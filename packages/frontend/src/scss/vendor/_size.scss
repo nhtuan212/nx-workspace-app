@@ -1,0 +1,21 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../utilities' as utilities;
+
+/// Width
+@include utilities.size(
+    $property: map.get(setting.$sizes, 'width', 'property'),
+    $class: map.get(setting.$sizes, 'width', 'class'),
+    $values: (
+        'md:25',
+    )
+);
+/// Height
+@include utilities.size(
+    $property: map.get(setting.$sizes, 'height', 'property'),
+    $class: map.get(setting.$sizes, 'height', 'class'),
+    $values: (
+        'md:25',
+    )
+);
