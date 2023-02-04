@@ -1,0 +1,39 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../mixins' as mixin;
+/// @mixin
+@mixin text-param($class, $property, $value) {
+    @if $value {
+        /// Get list property
+        $value-list: map.get(setting.$texts, $property, 'values');
+        /// Check media
+        /// md: -- lg: -- xl:
+        $breakpoint-key: mixin.breakpoint-isset($value, setting.$colon);
+        @if $breakpoint-key {
+            $start-at: setting.find($value, setting.$colon, $find: 'start');
+            $end-at: setting.find($value, setting.$colon, $find: 'end');
+            $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
+            @if setting.isset($end-at, $value-list) {
+                @include mixin.media-breakpoint-down($start-at) {
+                    .#{$infix}#{$class}-#{$end-at} {
+                        #{$property}: #{$end-at};
+                    }
+                }
+            }
+        } @else {
+            $css-value: if(type-of($value-list) != map, $value, map.get($value-list, $value));
+            @if setting.isset($value, $value-list) {
+                .#{$class}-#{$value} {
+                    #{$property}: #{$css-value};
+                }
+            }
+        }
+    }
+}
+
+@mixin text($class, $property, $values) {
+    @each $value in $values {
+        @include text-param($class, $property, $value);
+    }
+}

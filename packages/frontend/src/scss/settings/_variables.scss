@@ -1,3 +1,19 @@
+/// Function
+@function rem2($value, $context: $font-size-base) {
+    // Check $value not unit
+    @if math.is-unitless($value) {
+        $value: $value * 1px;
+    }
+    // Check $context not unit
+    @if math.is-unitless($context) {
+        $context: $context * 1px;
+    }
+    // @return $pixels / $context * 1rem;
+    @return math.div($value, $context) * 1rem;
+    // Error
+    @error "Pixels: `#{$value}`.";
+}
+
 /// Variables
 $state: '\\';
 $colon: ':';
@@ -5,6 +21,7 @@ $dash: '-';
 $dot: '.';
 $grid-columns: 12;
 $base-unit: 16px;
+$font-size-base: 1rem;
 $spacer: 1rem;
 $breakpoints: (
     'xs': 0,
@@ -137,4 +154,86 @@ $spacings: (
         '5.5': $spacer * 5.5,
         '5.75': $spacer * 5.75,
     ),
+);
+$texts: (
+    'text-align': (
+        property: 'text-align',
+        class: 'text',
+        values: left center right,
+    ),
+    'font-size': (
+        property: 'font-size',
+        class: 'text',
+        values: (
+            '12': rem2(12),
+            '14': 14 / $base-unit,
+            '16': 16 / $base-unit,
+            '18': 18 / $base-unit,
+            '20': 20 / $base-unit,
+        ),
+    ),
+    // 'font-style': (
+    //     property: font-style,
+    //     class: fst,
+    //     values: italic normal,
+    // ),
+    // 'font-weight': (
+    //     property: font-weight,
+    //     class: fw,
+    //     values: (
+    //         lighter: $font-weight-lighter,
+    //         light: $font-weight-light,
+    //         normal: $font-weight-normal,
+    //         medium: $font-weight-medium,
+    //         semibold: $font-weight-semibold,
+    //         bold: $font-weight-bold,
+    //         bolder: $font-weight-bolder,
+    //     ),
+    // ),
+    // 'line-height': (
+    //     property: line-height,
+    //     class: lh,
+    //     values: (
+    //         1: 1,
+    //         sm: $line-height-sm,
+    //         base: $line-height-base,
+    //         lg: $line-height-lg,
+    //     ),
+    // ),
+    // 'text-align': (
+    //     responsive: true,
+    //     property: text-align,
+    //     class: text,
+    //     values: (
+    //         start: left,
+    //         end: right,
+    //         center: center,
+    //     ),
+    // ),
+    // 'text-decoration': (
+    //     property: text-decoration,
+    //     values: none underline line-through,
+    // ),
+    'text-transform':
+        (
+            property: text-transform,
+            class: text,
+            values: lowercase uppercase capitalize,
+        ),
+    'white-space': (
+        property: white-space,
+        class: text,
+        values: (
+            wrap: normal,
+            nowrap: nowrap,
+        ),
+    ),
+    // 'word-wrap': (
+    //     property: word-wrap word-break,
+    //     class: text,
+    //     values: (
+    //         break: break-word,
+    //     ),
+    //     rtl: false,
+    // ),,,
 );

@@ -1,0 +1,23 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../utilities' as utilities;
+
+/// Text align
+@include utilities.text(
+    $property: map.get(setting.$texts, 'text-align', 'property'),
+    $class: map.get(setting.$texts, 'text-align', 'class'),
+    $values: (
+        'center',
+        'md:center',
+    )
+);
+
+/// Text size
+@include utilities.text(
+    $property: map.get(setting.$texts, 'font-size', 'property'),
+    $class: map.get(setting.$texts, 'font-size', 'class'),
+    $values: (
+        '12',
+    )
+);
