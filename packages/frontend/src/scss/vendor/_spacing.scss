@@ -4,11 +4,11 @@
 @use '../utilities' as utilities;
 
 /// Margin
-@include utilities.spacer(
+@include utilities.spacing(
     $property: map.get(setting.$spacings, 'margin', 'property'),
     $class: map.get(setting.$spacings, 'margin', 'class'),
     $values: (
-        // 'l-2',
+        'l-2',
         'l-0.25',
         // 'l-n2',
         // 'l-n0.25',
@@ -31,12 +31,13 @@
 );
 
 /// Padding
-@include utilities.spacer(
+@include utilities.spacing(
     $property: map.get(setting.$spacings, 'padding', 'property'),
     $class: map.get(setting.$spacings, 'padding', 'class'),
     $values: (
         'l-2',
         'l-0.25',
+        'x-0.25',
         // 'l-n2',
     )
 );

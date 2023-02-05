@@ -1,38 +1,13 @@
 /// Load
 @use 'sass:map';
 @use '../settings' as setting;
-@use '../mixins' as mixin;
-/// @mixin
-@mixin flex-param($property, $class, $value) {
-    @if $property {
-        /// Get list property
-        $value-list: map.get(setting.$flexs, $class, 'values');
-        /// Check media
-        /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($value, setting.$colon);
-        @if $breakpoint-key {
-            $start-at: setting.find($value, setting.$colon, $find: 'start');
-            $end-at: setting.find($value, setting.$colon, $find: 'end');
-            $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
-            @if setting.isset($end-at, $value-list) {
-                @include mixin.media-breakpoint-down($start-at) {
-                    .#{$infix}#{$class}-#{$end-at} {
-                        #{$property}: map.get($value-list, $end-at);
-                    }
-                }
-            }
-        } @else {
-            @if setting.isset($value, $value-list) {
-                .#{$class}-#{$value} {
-                    #{$property}: map.get($value-list, $value);
-                }
-            }
-        }
-    }
-}
+@use '../mixins/param' as param;
 
 @mixin flex($property, $class, $values) {
+    /// Get list variable
+    $maps: map.get(setting.$flexs, $property, 'values');
+
     @each $value in $values {
-        @include flex-param($property, $class, $value);
+        @include param.property-param($maps, $property, $class, $value);
     }
 }

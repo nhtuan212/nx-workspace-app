@@ -84,10 +84,10 @@ $breakpoint-map: sets.$breakpoints;
     $media: string.index($value, $prefix);
     @if ($media) {
         $media-key: string.slice($value, 0, $media - 1);
-        $checked: map.has-key(sets.$breakpoints, $media-key);
-        @if not $checked {
+        $breakpoint-key: map.has-key(sets.$breakpoints, $media-key);
+        @if not $breakpoint-key {
             @error "#{$media-key} is not a valid. Expected one of exactly breakpoints key.";
         }
     }
-    @return $media;
+    @return if($media, true, false);
 }

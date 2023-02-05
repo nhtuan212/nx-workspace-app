@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../../src/scss/utilities/_text.scss","../../../src/scss/mixins/_breakpoints.scss"],"names":[],"mappings":"AA0BgB;EACI;;;AC+CZ;EDxDY;IACI;;;AAOR;EACI","file":"globals.css"}
+{"version":3,"sourceRoot":"","sources":["../../../src/scss/mixins/_param.scss","../../../src/scss/mixins/_breakpoints.scss"],"names":[],"mappings":"AAqDoB;EAUQ;EAEI;;;ACSxB;EDrBY;IAUQ;IAEI","file":"globals.css"}

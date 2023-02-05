@@ -1,23 +1,94 @@
 /// Load
 @use 'sass:map';
-@use '../settings' as setting;
+@use '../settings/variables' as var;
 @use '../utilities' as utilities;
 
-/// Text align
-@include utilities.text(
-    $property: map.get(setting.$texts, 'text-align', 'property'),
-    $class: map.get(setting.$texts, 'text-align', 'class'),
-    $values: (
-        'center',
-        'md:center',
-    )
-);
+// /// Text align
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'text-align', 'property'),
+//     $class: map.get(var.$texts, 'text-align', 'class'),
+//     $values: (
+//         'center',
+//         'md:center',
+//     )
+// );
 
-/// Text size
+// /// Text size
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'font-size', 'property'),
+//     $class: map.get(var.$texts, 'font-size', 'class'),
+//     $values: (
+//         '12',
+//         'md:12',
+//     )
+// );
+
+// /// Font style
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'font-style', 'property'),
+//     $class: map.get(var.$texts, 'font-style', 'class'),
+//     $values: (
+//         'italic',
+//         'md:normal',
+//     )
+// );
+
+// /// Font weight
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'font-weight', 'property'),
+//     $class: map.get(var.$texts, 'font-weight', 'class'),
+//     $values: (
+//         '600',
+//         'md:500',
+//     )
+// );
+
+// /// Line height
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'line-height', 'property'),
+//     $class: map.get(var.$texts, 'line-height', 'class'),
+//     $values: (
+//         'sm',
+//         'md:base',
+//     )
+// );
+
+// /// Text decoration
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'text-decoration', 'property'),
+//     $class: map.get(var.$texts, 'text-decoration', 'class'),
+//     $values: (
+//         'none',
+//         'md:underline',
+//     )
+// );
+
+// /// Text transform
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'text-transform', 'property'),
+//     $class: map.get(var.$texts, 'text-transform', 'class'),
+//     $values: (
+//         'uppercase',
+//         'md:capitalize',
+//     )
+// );
+
+// /// White space
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'white-space', 'property'),
+//     $class: map.get(var.$texts, 'white-space', 'class'),
+//     $values: (
+//         'wrap',
+//         'md:nowrap',
+//     )
+// );
+
+/// Word wrap
 @include utilities.text(
-    $property: map.get(setting.$texts, 'font-size', 'property'),
-    $class: map.get(setting.$texts, 'font-size', 'class'),
+    $property: map.get(var.$texts, 'word-wrap', 'property'),
+    $class: map.get(var.$texts, 'word-wrap', 'class'),
     $values: (
-        '12',
+        'break',
+        'md:break',
     )
 );

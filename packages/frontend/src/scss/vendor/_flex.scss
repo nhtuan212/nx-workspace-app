@@ -9,17 +9,17 @@
     $class: map.get(setting.$flexs, 'justify', 'class'),
     $values: (
         'between',
-        'end',
+        // 'end',
         'md:start',
-        'md:end',
+        // 'md:end',
     )
 );
-@include utilities.flex(
-    $property: map.get(setting.$flexs, 'align', 'property'),
-    $class: map.get(setting.$flexs, 'align', 'class'),
-    $values: (
-        'center',
-        'start',
-        'lg:baseline',
-    )
-);
+// @include utilities.flex(
+//     $property: map.get(setting.$flexs, 'align', 'property'),
+//     $class: map.get(setting.$flexs, 'align', 'class'),
+//     $values: (
+//         'center',
+//         'start',
+//         'lg:baseline',
+//     )
+// );

@@ -8,6 +8,7 @@
     $property: map.get(setting.$sizes, 'width', 'property'),
     $class: map.get(setting.$sizes, 'width', 'class'),
     $values: (
+        '25',
         'md:25',
     )
 );
@@ -16,6 +17,7 @@
     $property: map.get(setting.$sizes, 'height', 'property'),
     $class: map.get(setting.$sizes, 'height', 'class'),
     $values: (
-        'md:25',
+        '50',
+        'md:50',
     )
 );

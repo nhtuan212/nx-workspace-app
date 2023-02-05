@@ -25,25 +25,25 @@
 @function find($value, $prefix, $find: '') {
     $media: string.index($value, $prefix);
     @if ($media) {
-        @if ($find==start) {
+        @if ($find== 'start') {
             @return string.slice($value, 0, $media - 1);
         }
-        @if ($find==end) {
+        @if ($find== 'end') {
             @return string.slice($value, $media + 1, string.length($value));
         }
-        @error "#{$find} is not a valid. Expected start or end.";
+        @error "#{$find} is not a valid. Expected start or end !!";
     }
     // @error "#{$value} is not a valid. Please check again";
     @return false;
 }
 
-@function isset($value, $array) {
-    @if (meta.type-of($array) ==list) {
+@function isset($array, $value) {
+    @if (meta.type-of($array) == list) {
         @if not list.index($array, $value) {
             @error "#{$value} is not a valid side of list. Expected one of exactly attribute.";
         }
     }
-    @if (meta.type-of($array) ==map) {
+    @if (meta.type-of($array) == map) {
         @if not map.get($array, $value) {
             @error "#{$value} is not a valid side of map. Expected one of exactly attribute.";
         }

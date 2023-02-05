@@ -1,38 +1,13 @@
 /// Load
 @use 'sass:map';
 @use '../settings' as setting;
-@use '../mixins' as mixin;
-/// @mixin
-@mixin display-param($class, $property, $value) {
-    @if $value {
-        /// Get list property
-        $value-list: map.get(setting.$displays, 'values');
-        /// Check media
-        /// md: -- lg: -- xl:
-        $breakpoint-key: mixin.breakpoint-isset($value, setting.$colon);
-        @if $breakpoint-key {
-            $start-at: setting.find($value, setting.$colon, $find: 'start');
-            $end-at: setting.find($value, setting.$colon, $find: 'end');
-            $infix: mixin.breakpoint-infix($start-at, setting.$breakpoints);
-            @if setting.isset($end-at, $value-list) {
-                @include mixin.media-breakpoint-down($start-at) {
-                    .#{$infix}#{$class}-#{$end-at} {
-                        #{$property}: #{$end-at};
-                    }
-                }
-            }
-        } @else {
-            @if setting.isset($value, $value-list) {
-                .#{$class}-#{$value} {
-                    #{$property}: #{$value};
-                }
-            }
-        }
-    }
-}
+@use '../mixins/param' as param;
 
-@mixin display($class, $property, $values) {
+@mixin display($property, $class, $values) {
+    /// Get list variable
+    $maps: map.get(setting.$displays, 'values');
+
     @each $value in $values {
-        @include display-param($class, $property, $value);
+        @include param.property-param($maps, $property, $class, $value);
     }
 }

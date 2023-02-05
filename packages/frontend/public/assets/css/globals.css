@@ -1,22 +1,13 @@
-/* Error: There is no module with the namespace "math".
- *   ,
- * 4 |     @if math.is-unitless($value) {
- *   |         ^^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   src\scss\settings\_variables.scss 4:9     rem2()
- *   src\scss\settings\_variables.scss 168:19  @use
- *   src\scss\settings\_function.scss 7:1      @forward
- *   src\scss\settings\_index.scss 1:1         @use
- *   src\scss\vendor\_text.scss 3:1            @forward
- *   src\scss\globals.scss 6:1                 root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: There is no module with the namespace "math".\a   \2577 \a 4 \2502      @if math.is-unitless($value) {\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   src\\scss\\settings\\_variables.scss 4:9     rem2()\a   src\\scss\\settings\\_variables.scss 168:19  @use\a   src\\scss\\settings\\_function.scss 7:1      @forward\a   src\\scss\\settings\\_index.scss 1:1         @use\a   src\\scss\\vendor\\_text.scss 3:1            @forward\a   src\\scss\\globals.scss 6:1                 root stylesheet';
+.text-break {
+  word-wrap: break-word;
+  word-break: break-word;
 }
+
+@media (max-width: 48rem) {
+  .md\:text-break {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+/*# sourceMappingURL=globals.css.map */
