@@ -250,17 +250,22 @@ $positions: (
 );
 
 /// Border
-$border-width: 1px;
-$border-style: solid;
-$border-color: #dee2e6;
-$boder-null: $border-width $border-style $border-color;
-
+$boder-default: 1px solid #dee2e6;
+$roundeds: (
+    '': 0.25rem,
+    '0': 0,
+    'sm': 0.125rem,
+    'md': 0.375rem,
+    'lg': 0.5rem,
+    'circle': 50%,
+    'full': 100%,
+);
 $borders: (
     'border': (
         'property': 'border',
         'class': 'border',
         'values': (
-            '': $boder-null,
+            '': $boder-default,
             '0': 0,
         ),
     ),
@@ -268,7 +273,7 @@ $borders: (
         'property': border-top,
         'class': border-top,
         'values': (
-            '': $boder-null,
+            '': $boder-default,
             '0': 0,
         ),
     ),
@@ -276,7 +281,7 @@ $borders: (
         'property': 'border-bottom',
         'class': 'border-bottom',
         'values': (
-            '': $boder-null,
+            '': $boder-default,
             '0': 0,
         ),
     ),
@@ -284,7 +289,7 @@ $borders: (
         'property': 'border-left',
         'class': 'border-left',
         'values': (
-            '': $boder-null,
+            '': $boder-default,
             '0': 0,
         ),
     ),
@@ -292,7 +297,7 @@ $borders: (
         'property': 'border-right',
         'class': 'border-right',
         'values': (
-            '': $boder-null,
+            '': $boder-default,
             '0': 0,
         ),
     ),
@@ -302,9 +307,6 @@ $borders: (
         'values': (
             '1': 1px,
             '2': 2px,
-            '3': 3px,
-            '4': 4px,
-            '5': 5px,
         ),
     ),
     'border-color': (
@@ -319,84 +321,46 @@ $borders: (
     'rounded': (
         'property': 'border-radius',
         'class': 'rounded',
-        'values': (
-            '': 0.25rem,
-            '0': 0,
-            'sm': 0.125rem,
-            'md': 0.375rem,
-            'lg': 0.5rem,
-            'circle': 50%,
-            'full': 100%,
-        ),
+        'values': $roundeds,
     ),
     'rounded-top': (
         'property': 'border-radius',
         'class': 'rounded-top',
-        'values': (
-            '': 0.25rem,
-            '0': 0,
-            'sm': 0.125rem,
-            'md': 0.375rem,
-            'lg': 0.5rem,
-            'circle': 50%,
-            'full': 100%,
-        ),
+        'values': $roundeds,
     ),
     'rounded-bottom': (
         'property': 'border-radius',
         'class': 'rounded-bottom',
-        'values': (
-            '': 0.25rem,
-            '0': 0,
-            'sm': 0.125rem,
-            'md': 0.375rem,
-            'lg': 0.5rem,
-            'circle': 50%,
-            'full': 100%,
-        ),
+        'values': $roundeds,
     ),
     'rounded-left': (
         'property': 'border-radius',
         'class': 'rounded-left',
-        'values': (
-            '': 0.25rem,
-            '0': 0,
-            'sm': 0.125rem,
-            'md': 0.375rem,
-            'lg': 0.5rem,
-            'circle': 50%,
-            'full': 100%,
-        ),
+        'values': $roundeds,
     ),
     'rounded-right': (
         'property': 'border-radius',
         'class': 'rounded-right',
-        'values': (
-            '': 0.25rem,
-            '0': 0,
-            'sm': 0.125rem,
-            'md': 0.375rem,
-            'lg': 0.5rem,
-            'circle': 50%,
-            'full': 100%,
-        ),
+        'values': $roundeds,
     ),
 );
 
+/// Overflow
+$overflow-list: 'auto hidden visible scroll';
 $overflows: (
     'overflow': (
         'property': 'overflow',
         'class': 'overflow',
-        'values': auto hidden visible scroll,
+        'values': $overflow-list,
     ),
     'overflow-x': (
         'property': 'overflow-x',
         'class': 'overflow-x',
-        'values': auto hidden visible scroll,
+        'values': $overflow-list,
     ),
     'overflow-y': (
         'property': 'overflow-y',
         'class': 'overflow-y',
-        'values': auto hidden visible scroll,
+        'values': $overflow-list,
     ),
 );
