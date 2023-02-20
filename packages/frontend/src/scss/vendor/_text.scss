@@ -13,15 +13,15 @@
 //     )
 // );
 
-// /// Text size
-// @include utilities.text(
-//     $property: map.get(var.$texts, 'font-size', 'property'),
-//     $class: map.get(var.$texts, 'font-size', 'class'),
-//     $values: (
-//         '12',
-//         'md:12',
-//     )
-// );
+/// Text size
+@include utilities.text(
+    $property: map.get(var.$texts, 'font-size', 'property'),
+    $class: map.get(var.$texts, 'font-size', 'class'),
+    $values: (
+        '12',
+        'md:12',
+    )
+);
 
 // /// Font style
 // @include utilities.text(
@@ -83,12 +83,12 @@
 //     )
 // );
 
-/// Word wrap
-@include utilities.text(
-    $property: map.get(var.$texts, 'word-wrap', 'property'),
-    $class: map.get(var.$texts, 'word-wrap', 'class'),
-    $values: (
-        'break',
-        'md:break',
-    )
-);
+// /// Word wrap
+// @include utilities.text(
+//     $property: map.get(var.$texts, 'word-wrap', 'property'),
+//     $class: map.get(var.$texts, 'word-wrap', 'class'),
+//     $values: (
+//         'break',
+//         'md:break',
+//     )
+// );

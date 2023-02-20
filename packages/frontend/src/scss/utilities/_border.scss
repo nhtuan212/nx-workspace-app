@@ -1,0 +1,22 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../mixins/param' as param;
+
+@mixin border($property, $class, $values) {
+    /// Get list variable
+    $maps: map.get(setting.$borders, $property, 'values');
+
+    @each $value in $values {
+        @include param.property-param($maps, $property, $class, $value);
+    }
+}
+
+@mixin border-radius($property, $class, $values) {
+    /// Get list variable
+    $maps: map.get(setting.$borders, 'rounded', 'values');
+
+    @each $value in $values {
+        @include param.property-param($maps, $property, $class, $value);
+    }
+}

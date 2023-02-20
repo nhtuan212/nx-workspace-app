@@ -1,0 +1,139 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../utilities' as utilities;
+
+// /// Border
+// @include utilities.border(
+//     $property: map.get(setting.$borders, 'border', 'property'),
+//     $class: map.get(setting.$borders, 'border', 'class'),
+//     $values: (
+// 		'',
+// 		'0',
+// 		'md:',
+//     )
+// );
+
+// /// Border Top
+// @include utilities.border(
+//     $property: map.get(setting.$borders, 'border-top', 'property'),
+//     $class: map.get(setting.$borders, 'border-top', 'class'),
+//     $values: (
+// 		'',
+// 		'0',
+// 		'md:',
+//     )
+// );
+
+// /// Border Bottom
+// @include utilities.border(
+//     $property: map.get(setting.$borders, 'border-bottom', 'property'),
+//     $class: map.get(setting.$borders, 'border-bottom', 'class'),
+//     $values: (
+// 		'',
+// 		'0',
+// 		'md:',
+//     )
+// );
+
+// /// Border Left
+// @include utilities.border(
+//     $property: map.get(setting.$borders, 'border-left', 'property'),
+//     $class: map.get(setting.$borders, 'border-left', 'class'),
+//     $values: (
+// 		'',
+// 		'0',
+// 		'md:',
+//     )
+// );
+
+// /// Border Right
+// @include utilities.border(
+//     $property: map.get(setting.$borders, 'border-right', 'property'),
+//     $class: map.get(setting.$borders, 'border-right', 'class'),
+//     $values: (
+// 		'',
+// 		'0',
+// 		'md:',
+//     )
+// );
+
+// /// Border Width
+// @include utilities.border(
+//     $property: map.get(setting.$borders, 'border-width', 'property'),
+//     $class: map.get(setting.$borders, 'border-width', 'class'),
+//     $values: (
+// 		'1',
+//     )
+// );
+
+// /// Border Color
+// @include utilities.border(
+//     $property: map.get(setting.$borders, 'border-color', 'property'),
+//     $class: map.get(setting.$borders, 'border-color', 'class'),
+//     $values: (
+// 		'black',
+// 		'md:black',
+//     )
+// );
+
+// /// Border Radius
+// @include utilities.border-radius(
+//     $property: map.get(setting.$borders, 'rounded', 'property'),
+//     $class: map.get(setting.$borders, 'rounded', 'class'),
+//     $position: '',
+//     $values: (
+// 		'',
+// 		'0',
+// 		'sm',
+// 		'md:sm',
+//     )
+// );
+
+// /// Border Top Radius
+// @include utilities.border-radius(
+//     $property: map.get(setting.$borders, 'rounded-top', 'property'),
+//     $class: map.get(setting.$borders, 'rounded-top', 'class'),
+//     $values: (
+// 		'',
+// 		'0',
+// 		'sm',
+// 		'md:sm',
+//     )
+// );
+
+// /// Border Bottom Radius
+// @include utilities.border-radius(
+//     $property: map.get(setting.$borders, 'rounded-bottom', 'property'),
+//     $class: map.get(setting.$borders, 'rounded-bottom', 'class'),
+//     $values: (
+// 		'',
+// 		'0',
+// 		'sm',
+// 		'md:sm',
+//     )
+// );
+
+// /// Border Left Radius
+// @include utilities.border-radius(
+//     $property: map.get(setting.$borders, 'rounded-left', 'property'),
+//     $class: map.get(setting.$borders, 'rounded-left', 'class'),
+//     $values: (
+// 		'',
+// 		'0',
+// 		'sm',
+// 		'md:sm',
+//     )
+// );
+
+/// Border Right Radius
+@include utilities.border-radius(
+    $property: map.get(setting.$borders, 'rounded-right', 'property'),
+    $class: map.get(setting.$borders, 'rounded-right', 'class'),
+    $values: (
+        '',
+        '0',
+        'sm',
+        'md:sm',
+    )
+);

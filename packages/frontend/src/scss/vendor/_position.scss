@@ -1,0 +1,68 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../utilities' as utilities;
+
+/// Position
+@include utilities.position(
+    $property: map.get(setting.$positions, 'position', 'property'),
+    $class: '',
+    $values: (
+        'relative',
+        'md:relative',
+    )
+);
+
+// /// Top
+// @include utilities.position(
+//     $property: map.get(setting.$positions, 'top', 'property'),
+//     $class: map.get(setting.$positions, 'top', 'class'),
+//     $values: (
+// 		'50',
+// 		'md:50',
+//     )
+// );
+
+// /// Bottom
+// @include utilities.position(
+//     $property: map.get(setting.$positions, 'bottom', 'property'),
+//     $class: map.get(setting.$positions, 'bottom', 'class'),
+//     $values: (
+// 		'50',
+// 		'md:50',
+//     )
+// );
+
+// /// Left
+// @include utilities.position(
+//     $property: map.get(setting.$positions, 'left', 'property'),
+//     $class: map.get(setting.$positions, 'left', 'class'),
+//     $values: (
+// 		'50',
+// 		'md:50',
+//     )
+// );
+
+/// Right
+@include utilities.position(
+    $property: map.get(setting.$positions, 'right', 'property'),
+    $class: map.get(setting.$positions, 'right', 'class'),
+    $values: (
+        '50',
+        'md:50',
+    )
+);
+
+/// Translate middle
+@include utilities.position(
+    $property: map.get(setting.$positions, 'translate', 'class'),
+    $class: map.get(setting.$positions, 'translate', 'class'),
+    $values: (
+        'x',
+        'y',
+        'xy',
+        'md:x',
+        'md:y',
+        'md:xy',
+    )
+);

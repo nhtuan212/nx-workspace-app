@@ -51,14 +51,27 @@
         } @else {
             @if setting.isset($maps, $value) {
                 @include mixin.media-breakpoint-down($breakpoint-key) {
-                    .#{$infix}#{$class}-#{$value} {
-                        @if type-of($property) == list or type-of($property) == map {
-                            /// Check class col in grids
-                            @if $class == col {
-                                @include mixin.make-col(
-                                    map.get($maps, $value),
-                                    $columns: setting.$grid-columns
-                                );
+                    // Check if $class == '' => return value none "-"
+                    $class-value: if($class != '' and $value != '', #{setting.$dash}, '') + $value;
+
+                    .#{$infix}#{$class}#{$class-value} {
+                        // Check property to return mixin scss
+                        @if $property == 'grid' {
+                            @include mixin.make-col(
+                                map.get($maps, $value),
+                                $columns: setting.$grid-columns
+                            );
+                        } @else if $property == 'border-radius' {
+                            @if $class == 'rounded-top' {
+                                @include mixin.border-top-radius($result);
+                            } @else if $class == 'rounded-bottom' {
+                                @include mixin.border-bottom-radius($result);
+                            } @else if $class == 'rounded-left' {
+                                @include mixin.border-left-radius($result);
+                            } @else if $class == 'rounded-right' {
+                                @include mixin.border-right-radius($result);
+                            } @else {
+                                @include mixin.border-radius($result);
                             }
                         } @else {
                             #{$property}: #{$result};

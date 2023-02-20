@@ -1,12 +1,14 @@
-.text-break {
-  word-wrap: break-word;
-  word-break: break-word;
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }
 
 @media (max-width: 48rem) {
-  .md\:text-break {
-    word-wrap: break-word;
-    word-break: break-word;
+  .md\:overflow-scroll {
+    overflow: scroll;
   }
 }
 

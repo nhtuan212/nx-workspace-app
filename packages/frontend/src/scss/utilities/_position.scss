@@ -1,0 +1,13 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../mixins/param' as param;
+
+@mixin position($property, $class, $values) {
+    /// Get list variable
+    $maps: map.get(setting.$positions, $property, 'values');
+
+    @each $value in $values {
+        @include param.property-param($maps, $property, $class, $value);
+    }
+}
