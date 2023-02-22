@@ -6,8 +6,11 @@
         // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
         // do not appear to require this.
         max-width: calc($size / $columns * 100%);
+    } @else if ($size == 'auto') {
+        flex: 1 1 auto;
+        max-width: auto;
     } @else {
-        flex: 1 1 0;
+        flex: 1 0 0;
         max-width: 100%;
     }
 }

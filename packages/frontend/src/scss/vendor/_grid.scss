@@ -8,9 +8,7 @@
     $property: map.get(setting.$grids, 'property'),
     $class: map.get(setting.$grids, 'class'),
     $values: (
-        '6',
+        '',
         'auto',
-        'md:6',
-        'sm:8',
     )
 );

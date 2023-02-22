@@ -8,10 +8,9 @@
     $property: map.get(setting.$flexs, 'justify', 'property'),
     $class: map.get(setting.$flexs, 'justify', 'class'),
     $values: (
-        'between',
-        // 'end',
-        'md:start',
-        // 'md:end',
+        'start',
+        'center',
+        'end',
     )
 );
 // @include utilities.flex(

@@ -1,15 +1,88 @@
-.overflow-auto {
-  overflow: auto;
+.button {
+  border: none;
+  background-color: inherit;
+}
+.button:not(:disabled) {
+  cursor: pointer;
 }
 
-.overflow-scroll {
-  overflow: scroll;
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-@media (max-width: 48rem) {
-  .md\:overflow-scroll {
-    overflow: scroll;
-  }
+.pointer {
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1.5625rem;
+}
+.icon--large {
+  max-width: 2rem;
+}
+.icon--small {
+  max-width: 1.25rem;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 75rem;
+  margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+}
+.header .container .logo .icon {
+  max-width: 5rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-start {
+  justify-content: start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.col {
+  flex: 1 0 0;
+  max-width: 100%;
+}
+
+.col-auto {
+  flex: 1 1 auto;
+  max-width: auto;
 }
 
 /*# sourceMappingURL=globals.css.map */
