@@ -12,7 +12,7 @@ const index = ({ className, onChange, disabled, type, text }: inputInterface) =>
     return (
         <input
             className={inputClassname}
-            onChange={onChangeInput}
+            onChange={onChange || onChangeInput}
             value={value}
             type={type}
             disabled={disabled}
