@@ -3,16 +3,14 @@
 @use '../settings' as setting;
 @use '../utilities' as utilities;
 
-// /// Border
-// @include utilities.border(
-//     $property: map.get(setting.$borders, 'border', 'property'),
-//     $class: map.get(setting.$borders, 'border', 'class'),
-//     $values: (
-// 		'',
-// 		'0',
-// 		'md:',
-//     )
-// );
+/// Border
+@include utilities.border(
+    $property: map.get(setting.$borders, 'border', 'property'),
+    $class: map.get(setting.$borders, 'border', 'class'),
+    $values: (
+        '',
+    )
+);
 
 // /// Border Top
 // @include utilities.border(
@@ -77,18 +75,16 @@
 //     )
 // );
 
-// /// Border Radius
-// @include utilities.border-radius(
-//     $property: map.get(setting.$borders, 'rounded', 'property'),
-//     $class: map.get(setting.$borders, 'rounded', 'class'),
-//     $position: '',
-//     $values: (
-// 		'',
-// 		'0',
-// 		'sm',
-// 		'md:sm',
-//     )
-// );
+/// Border Radius
+@include utilities.border-radius(
+    $property: map.get(setting.$borders, 'rounded', 'property'),
+    $class: map.get(setting.$borders, 'rounded', 'class'),
+    $values: (
+        '',
+        '0',
+        'md',
+    )
+);
 
 // /// Border Top Radius
 // @include utilities.border-radius(

@@ -8,16 +8,15 @@
     $property: map.get(setting.$sizes, 'width', 'property'),
     $class: map.get(setting.$sizes, 'width', 'class'),
     $values: (
-        '25',
-        'md:25',
+        '100',
     )
 );
-/// Height
-@include utilities.size(
-    $property: map.get(setting.$sizes, 'height', 'property'),
-    $class: map.get(setting.$sizes, 'height', 'class'),
-    $values: (
-        '50',
-        'md:50',
-    )
-);
+// /// Height
+// @include utilities.size(
+//     $property: map.get(setting.$sizes, 'height', 'property'),
+//     $class: map.get(setting.$sizes, 'height', 'class'),
+//     $values: (
+//         '50',
+//         'md:50',
+//     )
+// );

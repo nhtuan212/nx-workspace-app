@@ -29,9 +29,10 @@
                 $spacing-infix: mixin.spacing-infix($maps, $value);
                 $side: setting.find($value, setting.$dash, $find: 'start');
                 $space: setting.find($value, setting.$dash, $find: 'end');
+
                 @if not string.index($value, setting.$dash) {
                     /// Check value non "-"
-                    .#{$class}-#{$value} {
+                    .#{$class}-#{$spacing-infix} {
                         #{$property}: map.get($maps, $value);
                     }
                 } @else {
