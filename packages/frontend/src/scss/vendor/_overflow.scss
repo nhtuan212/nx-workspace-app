@@ -8,9 +8,9 @@
     $property: map.get(var.$overflows, 'overflow', 'property'),
     $class: map.get(var.$overflows, 'overflow', 'class'),
     $values: (
-        'auto',
-        'scroll',
-        'md:scroll',
+        'hidden',
+        // 'scroll',
+        // 'md:scroll',,
     )
 );
 

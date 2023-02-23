@@ -72,6 +72,10 @@ body {
   display: flex;
 }
 
+.d-none {
+  display: none;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -86,6 +90,10 @@ body {
 
 .justify-end {
   justify-content: end;
+}
+
+.align-center {
+  align-items: center;
 }
 
 .col {

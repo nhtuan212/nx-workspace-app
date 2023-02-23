@@ -10,7 +10,7 @@ const Header = () => {
                 <div className="col">
                     <Logo />
                 </div>
-                <div className="col d-flex justify-end">
+                <div className="col relative d-flex justify-end">
                     <Search />
                 </div>
                 <div className="col d-flex justify-end">

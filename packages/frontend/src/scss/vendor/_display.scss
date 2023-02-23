@@ -9,5 +9,6 @@
     $class: map.get(setting.$displays, 'class'),
     $values: (
         'flex',
+        'none',
     )
 );

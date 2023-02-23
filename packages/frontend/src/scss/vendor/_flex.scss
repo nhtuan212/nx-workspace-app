@@ -13,12 +13,10 @@
         'end',
     )
 );
-// @include utilities.flex(
-//     $property: map.get(setting.$flexs, 'align', 'property'),
-//     $class: map.get(setting.$flexs, 'align', 'class'),
-//     $values: (
-//         'center',
-//         'start',
-//         'lg:baseline',
-//     )
-// );
+@include utilities.flex(
+    $property: map.get(setting.$flexs, 'align', 'property'),
+    $class: map.get(setting.$flexs, 'align', 'class'),
+    $values: (
+        'center',
+    )
+);
