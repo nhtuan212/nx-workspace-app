@@ -4,7 +4,7 @@ import SvgIcons from '../Icons/SvgIcons';
 import classNames from 'classnames';
 
 let clickTimer: number = 0;
-const index = ({
+const Button = ({
     className,
     disabled = false,
     svgIconKind,
@@ -37,4 +37,4 @@ const index = ({
     );
 };
 
-export default index;
+export default Button;

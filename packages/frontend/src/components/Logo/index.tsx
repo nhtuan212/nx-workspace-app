@@ -2,7 +2,7 @@ import React from 'react';
 import SvgIcons from '../Icons/SvgIcons';
 import { ICON_KEY } from '@/constants';
 
-const index = () => {
+const Logo = () => {
     return (
         <div className="logo">
             <span className="icon">
@@ -12,4 +12,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Logo;

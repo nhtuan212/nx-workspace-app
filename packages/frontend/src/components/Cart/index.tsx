@@ -1,7 +1,7 @@
 import React from 'react';
 import CartSvg from '../Icons/SvgIcons/CartSvg';
 
-const index = () => {
+const Cart = () => {
     return (
         <div className="cart">
             <span className="icon icon--large">
@@ -11,4 +11,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Cart;

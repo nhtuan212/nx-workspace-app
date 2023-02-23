@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { inputInterface } from '@/interface';
 import classNames from 'classnames';
 
-const index = ({ className, onChange, disabled, type, text }: inputInterface) => {
+const Input = ({ className, onChange, disabled, type, text }: inputInterface) => {
     const inputClassname = classNames('input', className && className);
 
     const [value, setValue] = useState(text);
@@ -20,4 +20,4 @@ const index = ({ className, onChange, disabled, type, text }: inputInterface) =>
     );
 };
 
-export default index;
+export default Input;

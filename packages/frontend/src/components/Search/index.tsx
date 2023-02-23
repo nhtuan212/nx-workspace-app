@@ -6,7 +6,7 @@ import SvgIcons from '../Icons/SvgIcons';
 import classNames from 'classnames';
 import styles from './searchStyles.module.scss';
 
-const index = () => {
+const Search = () => {
     const searchClassName = classNames(
         styles['search-header'],
         'search-head absolute top-0 w-100 d-flex justify-between align-center border rounded-md',
@@ -33,4 +33,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Search;

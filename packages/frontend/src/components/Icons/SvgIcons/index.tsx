@@ -7,7 +7,7 @@ const LogoSvg = dynamic(() => import('./LogoSvg'));
 const SearchSvg = dynamic(() => import('./SearchSvg'));
 const CartSvg = dynamic(() => import('./CartSvg'));
 
-const index = ({ kind }: SvgIconsInterface) => {
+const SvgIcons = ({ kind }: SvgIconsInterface) => {
     switch (kind) {
         case ICON_KEY.LOGO:
             return <LogoSvg />;
@@ -20,4 +20,4 @@ const index = ({ kind }: SvgIconsInterface) => {
     }
 };
 
-export default index;
+export default SvgIcons;
