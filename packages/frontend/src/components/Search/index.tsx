@@ -6,7 +6,7 @@ import SvgIcons from '../Icons/SvgIcons';
 import classNames from 'classnames';
 import styles from './searchStyles.module.scss';
 
-const index = () => {
+const Search = () => {
     const [showSearch, setShowSearch] = useState(false);
 
     const searchClassName = classNames(
@@ -36,4 +36,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Search;
