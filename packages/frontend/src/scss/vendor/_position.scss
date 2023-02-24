@@ -32,15 +32,15 @@
 //     )
 // );
 
-// /// Left
-// @include utilities.position(
-//     $property: map.get(setting.$positions, 'left', 'property'),
-//     $class: map.get(setting.$positions, 'left', 'class'),
-//     $values: (
-// 		'50',
-// 		'md:50',
-//     )
-// );
+/// Left
+@include utilities.position(
+    $property: map.get(setting.$positions, 'left', 'property'),
+    $class: map.get(setting.$positions, 'left', 'class'),
+    $values: (
+        '0',
+        // 'md:50',
+    )
+);
 
 /// Right
 @include utilities.position(

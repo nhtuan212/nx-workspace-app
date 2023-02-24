@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { inputInterface } from '@/interface';
 import classNames from 'classnames';
 
-const Input = ({ className, onChange, disabled, type, text }: inputInterface) => {
+const Input = ({ className, onChange, disabled, type, text, placeHolder }: inputInterface) => {
     const inputClassname = classNames('input', className && className);
 
     const [value, setValue] = useState(text);
@@ -13,8 +13,9 @@ const Input = ({ className, onChange, disabled, type, text }: inputInterface) =>
         <input
             className={inputClassname}
             onChange={onChange || onChangeInput}
-            value={value}
             type={type}
+            value={value}
+            placeholder={placeHolder}
             disabled={disabled}
         />
     );

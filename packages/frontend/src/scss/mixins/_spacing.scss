@@ -23,9 +23,10 @@
 }
 @function spacing-infix($map, $key) {
     /// Check if properties has n
-    // $value: string.slice($key, if(string.index($key, 'n'), 4, 3));
+    $value-none-dash: string.slice($key, if(string.index($key, 'n'), 4, 3));
+    $value: if(string.index($key, setting.$dash), $value-none-dash, 1);
     $new-value: setting.str-replace($key, setting.$dot, setting.$state + setting.$dot);
-    $infix: if(map.has-key($map, $key), $new-value, '');
+    $infix: if(map.has-key($map, $value), $new-value, '');
     // Log debug $infix
     @return $infix;
 }

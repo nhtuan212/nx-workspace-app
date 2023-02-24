@@ -22,5 +22,6 @@ export interface inputInterface {
     onChange?: any;
     disabled?: boolean;
     type?: 'text' | 'number';
+    placeHolder?: string;
     text?: string;
 }

@@ -4,7 +4,7 @@ import CartSvg from '../Icons/SvgIcons/CartSvg';
 const Cart = () => {
     return (
         <div className="cart">
-            <span className="icon icon--large">
+            <span className="icon">
                 <CartSvg />
             </span>
         </div>

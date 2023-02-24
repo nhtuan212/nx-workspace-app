@@ -9,6 +9,7 @@
     $class: map.get(setting.$borders, 'border', 'class'),
     $values: (
         '',
+        '0',
     )
 );
 
@@ -23,16 +24,16 @@
 //     )
 // );
 
-// /// Border Bottom
-// @include utilities.border(
-//     $property: map.get(setting.$borders, 'border-bottom', 'property'),
-//     $class: map.get(setting.$borders, 'border-bottom', 'class'),
-//     $values: (
-// 		'',
-// 		'0',
-// 		'md:',
-//     )
-// );
+/// Border Bottom
+@include utilities.border(
+    $property: map.get(setting.$borders, 'border-bottom', 'property'),
+    $class: map.get(setting.$borders, 'border-bottom', 'class'),
+    $values: (
+        '',
+        // '0',
+        // 'md:',,
+    )
+);
 
 // /// Border Left
 // @include utilities.border(

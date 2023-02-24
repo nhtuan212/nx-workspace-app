@@ -2,19 +2,26 @@ import React from 'react';
 import Logo from '@/components/Logo';
 import Search from '@/components/Search';
 import Cart from '@/components/Cart';
+import Menu from '@/components/Menu';
+import styles from './headerStyles.module.scss';
 
 const Header = () => {
     return (
-        <header className="header py-5">
-            <div className="container">
+        <header className={`${styles['header']} relative py-1`}>
+            <div className="container d-flex align-center">
                 <div className="col">
                     <Logo />
                 </div>
-                <div className="col relative d-flex justify-end">
-                    <Search />
+                <div className="col">
+                    <Menu />
                 </div>
                 <div className="col d-flex justify-end">
-                    <Cart />
+                    <div className="mx-0.5">
+                        <Search />
+                    </div>
+                    <div className="mx-0.5">
+                        <Cart />
+                    </div>
                 </div>
             </div>
         </header>

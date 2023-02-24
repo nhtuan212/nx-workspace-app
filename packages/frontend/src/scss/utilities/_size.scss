@@ -11,3 +11,11 @@
         @include param.property-param($maps, $property, $class, $value);
     }
 }
+@mixin max-size($property, $class, $values) {
+    /// Get list variable
+    $maps: map.get(setting.$sizes, $property, 'values');
+
+    @each $value in $values {
+        @include param.property-param($maps, $property, $class, $value);
+    }
+}

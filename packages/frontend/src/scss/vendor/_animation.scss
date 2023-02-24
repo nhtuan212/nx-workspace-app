@@ -1,0 +1,13 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../utilities' as utilities;
+
+/// Animation
+@include utilities.animation(
+    $property: map.get(setting.$animations, 'animation', 'property'),
+    $class: map.get(setting.$animations, 'animation', 'class'),
+    $values: (
+        'top',
+    )
+);

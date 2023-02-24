@@ -11,12 +11,22 @@
         '100',
     )
 );
-// /// Height
-// @include utilities.size(
-//     $property: map.get(setting.$sizes, 'height', 'property'),
-//     $class: map.get(setting.$sizes, 'height', 'class'),
-//     $values: (
-//         '50',
-//         'md:50',
-//     )
-// );
+
+/// Max Width
+@include utilities.max-size(
+    $property: map.get(setting.$sizes, 'max-width', 'property'),
+    $class: map.get(setting.$sizes, 'max-width', 'class'),
+    $values: (
+        '800',
+    )
+);
+
+/// Height
+@include utilities.size(
+    $property: map.get(setting.$sizes, 'height', 'property'),
+    $class: map.get(setting.$sizes, 'height', 'class'),
+    $values: (
+        '100',
+        // 'md:50',
+    )
+);

@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
-import { ICON_KEY } from '@/constants';
+import { ICON_KEY, TEXT } from '@/constants';
 import Button from '../Button';
 import Input from '../Input';
 import SvgIcons from '../Icons/SvgIcons';
 import classNames from 'classnames';
-import styles from './searchStyles.module.scss';
 
 const Search = () => {
     const [showSearch, setShowSearch] = useState(false);
 
     const searchClassName = classNames(
-        styles['search-header'],
-        'search-head absolute w-100 d-flex justify-between align-center border rounded-md translate-y',
-        showSearch && styles['active'],
+        'absolute top-0 left-0 w-100 h-100 d-flex justify-between border-bottom align-center bg-white mx-auto animation-top',
     );
-    const inputSearchClassName = classNames(styles['input']);
+    const inputSearchClassName = classNames('text-26 border-0');
 
     const handleOnClick = () => {
         setShowSearch(!showSearch);
@@ -22,16 +19,23 @@ const Search = () => {
     return (
         <>
             <Button svgIconKind={ICON_KEY.SEARCH} onClick={handleOnClick} />
-            <div className={searchClassName}>
-                <div className="col">
-                    <Input className={inputSearchClassName} />
+            {showSearch && (
+                <div className={searchClassName}>
+                    <div className="w-100 mw-800 d-flex align-center mx-auto h-100">
+                        <div className="col">
+                            <Input
+                                className={inputSearchClassName}
+                                placeHolder={TEXT.ENTER_FIND_PRODUCT}
+                            />
+                        </div>
+                        <div className="p-0.5 pointer" onClick={handleOnClick}>
+                            <span className="icon icon--small">
+                                <SvgIcons kind={ICON_KEY.CLOSE} />
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div className="p-0.5" onClick={handleOnClick}>
-                    <span className="icon icon--small">
-                        <SvgIcons kind={ICON_KEY.SEARCH} />
-                    </span>
-                </div>
-            </div>
+            )}
         </>
     );
 };

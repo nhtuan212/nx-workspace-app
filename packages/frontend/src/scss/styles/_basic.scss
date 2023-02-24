@@ -39,6 +39,9 @@
     justify-content: center;
     align-items: center;
     max-width: rem(25);
+    &--8x {
+        max-width: rem(80);
+    }
     &--large {
         max-width: rem(32);
     }

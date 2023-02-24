@@ -74,6 +74,8 @@
                             } @else {
                                 @include mixin.border-radius($result);
                             }
+                        } @else if $property == 'animation' {
+                            @include mixin.animation($value);
                         } @else {
                             #{$property}: #{$result};
                             @if $property == 'word-wrap' {

@@ -1,0 +1,13 @@
+/// Load
+@use 'sass:map';
+@use '../settings' as setting;
+@use '../mixins/param' as param;
+
+@mixin animation($property, $class, $values) {
+    /// Get list variable
+    $maps: map.get(setting.$animations, $property, 'values');
+
+    @each $value in $values {
+        @include param.property-param($maps, $property, $class, $value);
+    }
+}
