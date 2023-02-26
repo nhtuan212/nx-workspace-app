@@ -1,3 +1,11 @@
+export interface InitialPropsInterface {
+    store?: any;
+    req?: string;
+    res?: string;
+    asPath?: string;
+    query?: string;
+}
+
 export interface ErrorInterface {
     statusCode: number;
 }

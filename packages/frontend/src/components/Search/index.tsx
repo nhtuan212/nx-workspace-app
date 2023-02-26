@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ICON_KEY, TEXT } from '@/constants';
-import Button from '../Button';
-import Input from '../Input';
-import SvgIcons from '../Icons/SvgIcons';
 import classNames from 'classnames';
+import Button from '@components/Button';
+import Input from '@components/Input';
+import SvgIcons from '@components/Icons/SvgIcons';
+import { ICON_KEY, TEXT } from '@/constants';
 
 const Search = () => {
     const [showSearch, setShowSearch] = useState(false);
@@ -11,7 +11,10 @@ const Search = () => {
     const searchClassName = classNames(
         'absolute top-0 left-0 w-100 h-100 d-flex justify-between border-bottom align-center bg-white mx-auto animation-top',
     );
-    const inputSearchClassName = classNames('text-26 border-0');
+    const containerSearchClassName = classNames(
+        'w-100 h-100 mw-800 d-flex align-center mx-auto px-2',
+    );
+    const inputSearchClassName = classNames('text-26 px-0 border-0');
 
     const handleOnClick = () => {
         setShowSearch(!showSearch);
@@ -21,7 +24,7 @@ const Search = () => {
             <Button svgIconKind={ICON_KEY.SEARCH} onClick={handleOnClick} />
             {showSearch && (
                 <div className={searchClassName}>
-                    <div className="w-100 mw-800 d-flex align-center mx-auto h-100">
+                    <div className={containerSearchClassName}>
                         <div className="col">
                             <Input
                                 className={inputSearchClassName}

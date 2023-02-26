@@ -7,6 +7,18 @@
   outline: none;
 }
 
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 75rem;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .button {
   border: none;
   background-color: inherit;
@@ -50,16 +62,6 @@
 }
 .icon--small {
   max-width: 1.25rem;
-}
-
-body {
-  margin: 0;
-}
-
-.container {
-  width: 100%;
-  max-width: 75rem;
-  margin: auto;
 }
 
 @keyframes fadeIntop {
@@ -169,13 +171,22 @@ body {
   margin-right: auto;
 }
 
-.mx-0\.5 {
+.ml-0\.5 {
   margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .p- {
   padding: 0.5rem;
+}
+
+.px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.px-2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .py-0 {

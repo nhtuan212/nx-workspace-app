@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgIcons from '../Icons/SvgIcons';
+import SvgIcons from '@components/Icons/SvgIcons';
 import { ICON_KEY } from '@/constants';
 
 const Logo = () => {
