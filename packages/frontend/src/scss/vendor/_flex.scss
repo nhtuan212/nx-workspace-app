@@ -5,17 +5,19 @@
 
 /// Flex
 @include utilities.flex(
-    $property: map.get(setting.$flexs, 'justify', 'property'),
-    $class: map.get(setting.$flexs, 'justify', 'class'),
+    $property: map.get(setting.$flexs, 'justify-content', 'property'),
+    $class: map.get(setting.$flexs, 'justify-content', 'class'),
     $values: (
         'start',
+        'between',
         'center',
         'end',
     )
 );
+
 @include utilities.flex(
-    $property: map.get(setting.$flexs, 'align', 'property'),
-    $class: map.get(setting.$flexs, 'align', 'class'),
+    $property: map.get(setting.$flexs, 'align-items', 'property'),
+    $class: map.get(setting.$flexs, 'align-items', 'class'),
     $values: (
         'center',
     )

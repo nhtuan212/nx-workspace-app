@@ -54,7 +54,7 @@ $sizes: (
     ),
 );
 $flexs: (
-    'justify': (
+    'justify-content': (
         'property': 'justify-content',
         'class': 'justify',
         'values': (
@@ -65,7 +65,7 @@ $flexs: (
             'around': space-around,
         ),
     ),
-    'align': (
+    'align-items': (
         'property': 'align-items',
         'class': 'align',
         'values': (

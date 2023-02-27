@@ -11,6 +11,20 @@ body {
   margin: 0;
 }
 
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container {
   width: 100%;
   max-width: 75rem;
@@ -141,7 +155,11 @@ body {
 }
 
 .justify-start {
-  justify-content: start;
+  justify-content: flex-start;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .justify-center {
@@ -149,7 +167,7 @@ body {
 }
 
 .justify-end {
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .align-center {
@@ -182,6 +200,11 @@ body {
 .px-0 {
   padding-left: 0;
   padding-right: 0;
+}
+
+.px-1\.5 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .px-2 {

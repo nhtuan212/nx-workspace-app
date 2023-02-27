@@ -11,6 +11,18 @@
 body {
     margin: 0;
 }
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 0;
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .container {
     width: 100%;
     max-width: rem(1200);

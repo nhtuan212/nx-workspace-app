@@ -1,7 +1,11 @@
 import React from 'react';
 
 const MenuItems = (props: any) => {
-    return <div>{props?.data?.name}</div>;
+    return (
+        <li className="px-1.5">
+            <a href="">{props?.data?.name}</a>
+        </li>
+    );
 };
 
 export default MenuItems;
