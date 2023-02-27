@@ -18,9 +18,10 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@actions/*": ["./src/redux/actions/*"],
+      "@services/*": ["./src/services/*"],
+      "@reducers/*": ["./src/redux/reducers/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/services/menuService"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
-import menuReducer from './menuReducer';
+import menuSlice from './menuSlice';
 
 export const rootReducer = {
-    menus: menuReducer,
+    menu: menuSlice,
 };
