@@ -1,8 +1,8 @@
 import React from 'react';
 import ContactPage from '@/components/Pages/Contact';
 
-const index = () => {
+const Contact = () => {
     return <ContactPage />;
 };
 
-export default index;
+export default Contact;
