@@ -1,0 +1,55 @@
+{
+    "IcoMoonType": "selection",
+    "icons": [
+        {
+            "icon": {
+                "paths": [
+                    "M13.207 15.423c17.189-17.188 45.057-17.188 62.245 0l382.627 382.628v0c62.375 62.377 62.375 164.187 0 226.562l-382.627 382.626c-17.189 17.191-45.056 17.191-62.245 0-17.188-17.186-17.189-45.056-0-62.242l382.625-382.626 31.123 31.119-31.123-31.123c27.999-27.998 27.999-74.074 0-102.072v0l-382.625-382.627c-17.188-17.189-17.188-45.057 0-62.245z"
+                ],
+                "attrs": [{}],
+                "width": 505,
+                "isMulticolor": false,
+                "isMulticolor2": false,
+                "grid": 0,
+                "tags": ["test"]
+            },
+            "attrs": [{}],
+            "properties": { "order": 9, "id": 0, "name": "chevron", "prevSize": 32, "code": 59648 },
+            "setIdx": 0,
+            "setId": 2,
+            "iconIdx": 0
+        }
+    ],
+    "height": 1024,
+    "metadata": { "name": "icon" },
+    "preferences": {
+        "showGlyphs": true,
+        "showQuickUse": true,
+        "showQuickUse2": true,
+        "showSVGs": true,
+        "fontPref": {
+            "prefix": "icon-",
+            "metadata": { "fontFamily": "icon", "majorVersion": 1, "minorVersion": 0 },
+            "metrics": { "emSize": 1024, "baseline": 6.25, "whitespace": 50 },
+            "embed": false,
+            "ie7": true,
+            "noie8": false,
+            "showSelector": true,
+            "selector": "i",
+            "showMetrics": true,
+            "showMetadata": true,
+            "showVersion": true
+        },
+        "imagePref": {
+            "prefix": "icon-",
+            "png": true,
+            "useClassSelector": true,
+            "color": 0,
+            "bgColor": 16777215,
+            "classSelector": ".icon"
+        },
+        "historySize": 50,
+        "showCodes": true,
+        "gridSize": 16
+    }
+}

@@ -3,15 +3,25 @@
 @use '../settings/variables' as var;
 @use '../utilities' as utilities;
 
-// /// Text align
-// @include utilities.text(
-//     $property: map.get(var.$texts, 'text-align', 'property'),
-//     $class: map.get(var.$texts, 'text-align', 'class'),
-//     $values: (
-//         'center',
-//         'md:center',
-//     )
-// );
+/// Color
+@include utilities.text(
+    $property: map.get(var.$texts, 'color', 'property'),
+    $class: map.get(var.$texts, 'color', 'class'),
+    $values: (
+        'white',
+        'black',
+        'pink',
+    )
+);
+
+/// Text align
+@include utilities.text(
+    $property: map.get(var.$texts, 'text-align', 'property'),
+    $class: map.get(var.$texts, 'text-align', 'class'),
+    $values: (
+        'center',
+    )
+);
 
 /// Text size
 @include utilities.text(
@@ -33,15 +43,14 @@
 //     )
 // );
 
-// /// Font weight
-// @include utilities.text(
-//     $property: map.get(var.$texts, 'font-weight', 'property'),
-//     $class: map.get(var.$texts, 'font-weight', 'class'),
-//     $values: (
-//         '600',
-//         'md:500',
-//     )
-// );
+/// Font weight
+@include utilities.text(
+    $property: map.get(var.$texts, 'font-weight', 'property'),
+    $class: map.get(var.$texts, 'font-weight', 'class'),
+    $values: (
+        '700',
+    )
+);
 
 // /// Line height
 // @include utilities.text(

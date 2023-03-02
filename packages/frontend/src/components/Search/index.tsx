@@ -8,6 +8,7 @@ import { ICON_KEY, TEXT } from '@/constants';
 const Search = () => {
     const [showSearch, setShowSearch] = useState(false);
 
+    // Setup ClassName
     const searchClassName = classNames(
         'absolute top-0 left-0 w-100 h-100 d-flex justify-between border-bottom align-center bg-white mx-auto animation-top',
     );
@@ -16,11 +17,12 @@ const Search = () => {
     );
     const inputSearchClassName = classNames('text-26 px-0 border-0');
 
+    // Setup Functions
     const handleOnClick = () => {
         setShowSearch(!showSearch);
     };
     return (
-        <>
+        <div className="search">
             <Button svgIconKind={ICON_KEY.SEARCH} onClick={handleOnClick} />
             {showSearch && (
                 <div className={searchClassName}>
@@ -39,7 +41,7 @@ const Search = () => {
                     </div>
                 </div>
             )}
-        </>
+        </div>
     );
 };
 

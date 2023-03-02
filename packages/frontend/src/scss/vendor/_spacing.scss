@@ -8,6 +8,8 @@
     $property: map.get(setting.$spacings, 'margin', 'property'),
     $class: map.get(setting.$spacings, 'margin', 'class'),
     $values: (
+        // 't-2',
+        'b-0.5',
         'x-auto',
         // 'l-2',
         // 'l-0.25',
@@ -28,7 +30,7 @@
         // 'md:x-2',
         // 'md:x-0.25',
         // 'md:x-n2',
-        // 'md:x-n0.25',,,,,,
+        // 'md:x-n0.25',,,,,,,
     )
 );
 
@@ -39,12 +41,15 @@
     $values: (
         '0.5',
         'x-0',
+        'x-0.5',
         'x-1.5',
         'x-2',
         'y-0',
         'y-1',
+        'y-2',
+        'sm:y-0.5',
         // 'l-0.25',
         // 'x-0.25',
-        // 'l-n2',,,,,
+        // 'l-n2',,,,,,
     )
 );

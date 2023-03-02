@@ -1,0 +1,11 @@
+@use '../../scss/settings/function' as *;
+
+.product-image {
+    img {
+        width: rem(280);
+        height: rem(280);
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 0.5rem;
+    }
+}

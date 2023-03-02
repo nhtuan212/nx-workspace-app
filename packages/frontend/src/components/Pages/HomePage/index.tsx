@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { flashSaleProductAction, hotProducts } from '@reducers/productSlice';
+import Slide from '@components/Slide';
+import ProductList from '@/components/Products/ProductList';
 
 const HomePage = () => {
+    const dispatch = useDispatch();
+
+    const { hotProduct, flashSaleProduct } = useSelector<any, any>(state => state?.product);
+
+    // Hook
+    useEffect(() => {
+        dispatch(hotProducts());
+        dispatch(flashSaleProductAction());
+    }, []);
+
     return (
-        <div className="d-flex align-start lg:align-baseline">
-            <p>This is Home Page</p>
-            <div className="d-flex">
-                <div className="col-6 md:col-6 sm:col-8">Test col</div>
-                <div className="col-6 md:col-6 sm:col-8">Test col</div>
-                <div className="mx-n0.25 border border-top-0 rounded">Test col</div>
-            </div>
-        </div>
+        <>
+            <Slide />
+            <ProductList title={'Sản phẩm hot'} data={hotProduct} />
+            <ProductList title={'Sản phẩm bán chạy'} data={flashSaleProduct} />
+        </>
     );
 };
 

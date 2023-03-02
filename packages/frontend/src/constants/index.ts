@@ -8,11 +8,16 @@ export const HTTP_CODE = {
     NOT_FOUND: 404,
 };
 
+export const PAGE = {
+    HOME: '/',
+};
+
 export const ICON_KEY = {
     LOGO: 'logo',
     SEARCH: 'search',
     CART: 'cart',
     CLOSE: 'close',
+    CHEVRON: 'chevron',
 };
 
 export const TEXT = {

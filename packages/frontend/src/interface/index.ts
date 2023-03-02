@@ -33,3 +33,17 @@ export interface inputInterface {
     placeHolder?: string;
     text?: string;
 }
+
+export interface imageInterface {
+    className?: string;
+    src?: string;
+    alt?: string;
+    width?: string;
+    height?: string;
+    title?: string;
+}
+
+export interface productOptionInterface {
+    title?: string;
+    data?: any;
+}

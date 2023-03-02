@@ -7,6 +7,7 @@ const LogoSvg = dynamic(() => import('./LogoSvg'));
 const SearchSvg = dynamic(() => import('./SearchSvg'));
 const CartSvg = dynamic(() => import('./CartSvg'));
 const CloseSvg = dynamic(() => import('./CloseSvg'));
+const ChevronSvg = dynamic(() => import('./ChevronSvg'));
 
 const SvgIcons = ({ kind }: SvgIconsInterface) => {
     switch (kind) {
@@ -18,6 +19,8 @@ const SvgIcons = ({ kind }: SvgIconsInterface) => {
             return <CartSvg />;
         case ICON_KEY.CLOSE:
             return <CloseSvg />;
+        case ICON_KEY.CHEVRON:
+            return <ChevronSvg />;
         default:
             return null;
     }

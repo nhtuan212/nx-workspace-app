@@ -76,6 +76,11 @@ $flexs: (
             'stretch': stretch,
         ),
     ),
+    'flex-wrap': (
+        'property': 'flex-wrap',
+        'class': 'flex',
+        'values': 'wrap',
+    ),
 );
 $grids: (
     'property': 'grid',
@@ -151,6 +156,15 @@ $spacings: (
 
 /// Text
 $texts: (
+    'color': (
+        property: 'color',
+        class: 'text',
+        values: (
+            'white': '#ffffff',
+            'black': '#00000',
+            'pink': '#009aa9',
+        ),
+    ),
     'text-align': (
         property: 'text-align',
         class: 'text',
@@ -176,7 +190,7 @@ $texts: (
     'font-weight': (
         property: 'font-weight',
         class: 'fw',
-        values: '100' '200' '300' '400' '500' '600' '700' '800' '900',
+        values: '100' '200' '300' '400' '500' '700' '800' '900',
     ),
     'line-height': (
         property: 'line-height',
@@ -389,5 +403,14 @@ $animations: (
         'property': 'animation',
         'class': 'animation',
         'values': 'top left right bottom',
+    ),
+);
+
+/// Hover
+$hovers: (
+    'image-hover': (
+        'property': 'image-hover',
+        'class': 'hover',
+        'values': 'zoom glass',
     ),
 );

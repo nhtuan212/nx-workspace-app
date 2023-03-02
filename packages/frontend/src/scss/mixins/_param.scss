@@ -74,6 +74,8 @@
                             } @else {
                                 @include mixin.border-radius($result);
                             }
+                        } @else if $property == 'image-hover' {
+                            @include mixin.image-hover($value);
                         } @else if $property == 'animation' {
                             @include mixin.animation($value);
                         } @else {
