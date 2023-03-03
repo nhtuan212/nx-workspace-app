@@ -3,6 +3,7 @@ import { Roboto } from '@next/font/google';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import View from '@/components/Pages/View';
+import Loading from '@components/Loading';
 import 'public/assets/css/globals.css';
 
 const roboto = Roboto({
@@ -10,7 +11,11 @@ const roboto = Roboto({
     subsets: ['latin'],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+type TProps = AppProps & {
+    viewProps: {};
+};
+
+export default function App({ Component, pageProps, viewProps }: TProps) {
     return (
         <Provider store={store}>
             <style jsx global>{`
@@ -18,9 +23,14 @@ export default function App({ Component, pageProps }: AppProps) {
                     font-family: ${roboto.style.fontFamily};
                 }
             `}</style>
-            <View {...pageProps}>
+            <View {...viewProps}>
                 <Component {...pageProps} />
             </View>
         </Provider>
     );
 }
+
+App.getInitialProps = async (context: any) => {
+    const viewProps = View.getInitialProps ? await View.getInitialProps(context) : {};
+    return { viewProps };
+};

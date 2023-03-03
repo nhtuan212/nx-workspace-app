@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { getMenu } from '@reducers/menuSlice';
 import Header from '@components/Pages/View/Header';
 import Footer from '@components/Pages/View/Footer';
-import { getMenu } from '@reducers/menuSlice';
 
-const View = ({ children, stars }: any) => {
+const View = ({ children }: any) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log({ stars });
-
         dispatch(getMenu());
     }, []);
 
@@ -25,7 +23,7 @@ const View = ({ children, stars }: any) => {
 View.getInitialProps = async ctx => {
     const res = await fetch('https://api.github.com/repos/vercel/next.js');
     const json = await res.json();
-    return { stars: json.stargazers_count };
+    return { data: json.stargazers_count };
 };
 
 export default View;
