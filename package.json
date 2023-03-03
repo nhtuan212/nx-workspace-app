@@ -11,7 +11,8 @@
     },
     "lint-staged": {
         "src/**/*.{ts,tsx,json,scss}": [
-            "prettier --write"
+            "prettier --write",
+            "npm run lint"
         ]
     },
     "private": true,
