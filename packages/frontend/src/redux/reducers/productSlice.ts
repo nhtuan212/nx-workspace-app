@@ -15,6 +15,7 @@ export const listProductAction: any = createAsyncThunk('/listProduct', async () 
 
 // State
 export const initialState: ProductState = {
+    loading: false,
     hotProduct: [],
     flashSaleProduct: [],
     listProduct: [],
@@ -26,13 +27,20 @@ const productSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
+        // hotProducts
         builder.addCase(hotProducts.fulfilled, (state, action) => {
             state.hotProduct = action.payload;
         });
+        // flashSaleProductAction
         builder.addCase(flashSaleProductAction.fulfilled, (state, action) => {
             state.flashSaleProduct = action.payload;
         });
+        // listProductAction
+        // builder.addCase(listProductAction.pending, (state) => {
+        //     state.loading = true;
+        // });
         builder.addCase(listProductAction.fulfilled, (state, action) => {
+            state.loading = false;
             state.listProduct = action.payload;
         });
     },

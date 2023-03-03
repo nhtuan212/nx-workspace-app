@@ -4,10 +4,12 @@ import Header from '@components/Pages/View/Header';
 import Footer from '@components/Pages/View/Footer';
 import { getMenu } from '@reducers/menuSlice';
 
-const View = ({ children }: any) => {
+const View = ({ children, stars }: any) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        console.log({ stars });
+
         dispatch(getMenu());
     }, []);
 
@@ -18,6 +20,12 @@ const View = ({ children }: any) => {
             <Footer />
         </>
     );
+};
+
+View.getInitialProps = async ctx => {
+    const res = await fetch('https://api.github.com/repos/vercel/next.js');
+    const json = await res.json();
+    return { stars: json.stargazers_count };
 };
 
 export default View;

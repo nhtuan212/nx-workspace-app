@@ -9,6 +9,7 @@ export const getMenu: any = createAsyncThunk('/getMenu', async () => {
 
 // State
 export const initialState: MenuState = {
+    loading: false,
     getMenu: [],
 };
 
@@ -18,8 +19,12 @@ const menuSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
+        builder.addCase(getMenu.pending, (state, action) => {
+            state.loading = true;
+        });
         builder.addCase(getMenu.fulfilled, (state, action) => {
             state.getMenu = action.payload;
+            state.loading = false;
         });
     },
 });

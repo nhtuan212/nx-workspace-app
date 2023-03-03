@@ -43,7 +43,7 @@ export interface imageInterface {
     title?: string;
 }
 
-export interface productOptionInterface {
+export interface productListInterface {
     title?: string;
     data?: any;
 }

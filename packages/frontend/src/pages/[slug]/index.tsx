@@ -6,13 +6,13 @@ import { listProductAction } from '@/redux/reducers/productSlice';
 
 const Slug = ({ posts }: any) => {
     // const dispatch = useDispatch();
-    // const router = useRouterCustomHook();
+    const router = useRouterCustomHook();
 
     const { listProduct } = useSelector<any, any>(state => state?.product);
 
     // Hook
     useEffect(() => {
-        console.log({ posts: posts });
+        console.log({ posts: posts, router });
 
         // dispatch(listProductAction());
     }, []);

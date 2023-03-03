@@ -9,9 +9,9 @@ const Image = ({ className, src, alt, width, height, title }: imageInterface) =>
             src={src}
             // onLoad={handleOnLoaded}
             // onError={handleOnError}
-            alt={alt || 'QiNi Image'}
+            alt={alt || 'Image'}
             title={title}
-            width={width || 'auto'}
+            width={width || '100%'}
             height={height || 'auto'}
         />
     );

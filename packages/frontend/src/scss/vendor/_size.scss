@@ -27,6 +27,7 @@
     $class: map.get(setting.$sizes, 'height', 'class'),
     $values: (
         '100',
+        '100vh',
         // 'md:50',
     )
 );

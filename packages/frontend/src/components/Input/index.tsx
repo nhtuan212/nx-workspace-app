@@ -3,6 +3,7 @@ import { inputInterface } from '@/interface';
 import classNames from 'classnames';
 
 const Input = ({ className, onChange, disabled, type, text, placeHolder }: inputInterface) => {
+    // Setup ClassName
     const inputClassname = classNames('input', className && className);
 
     const [value, setValue] = useState(text);
