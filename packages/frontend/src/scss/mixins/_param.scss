@@ -78,6 +78,8 @@
                             @include mixin.image-hover($value);
                         } @else if $property == 'animation' {
                             @include mixin.animation($value);
+                        } @else if $property == 'seo' {
+                            @include mixin.seo($value);
                         } @else {
                             #{$property}: #{$result};
                             @if $property == 'word-wrap' {

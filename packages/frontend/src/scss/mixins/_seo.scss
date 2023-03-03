@@ -1,0 +1,10 @@
+/// Mixin
+@mixin seo($value) {
+    @if $value == 'h' {
+        position: absolute;
+        height: 0;
+        color: transparent;
+        overflow: hidden;
+        zindex: -9999;
+    }
+}

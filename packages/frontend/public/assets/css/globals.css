@@ -423,4 +423,12 @@ img {
   animation: 0.5s fadeIntop;
 }
 
+.seo-h {
+  position: absolute;
+  height: 0;
+  color: transparent;
+  overflow: hidden;
+  zIndex: -9999;
+}
+
 /*# sourceMappingURL=globals.css.map */

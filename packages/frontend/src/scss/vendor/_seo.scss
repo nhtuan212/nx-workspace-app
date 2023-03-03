@@ -1,0 +1,13 @@
+/// Load
+@use 'sass:map';
+@use '../settings/variables' as var;
+@use '../utilities' as utilities;
+
+/// Seo
+@include utilities.hover(
+    $property: map.get(var.$seos, 'seo', 'property'),
+    $class: map.get(var.$seos, 'seo', 'class'),
+    $values: (
+        'h',
+    )
+);
