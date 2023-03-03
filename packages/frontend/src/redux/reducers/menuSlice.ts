@@ -19,7 +19,7 @@ const menuSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(getMenu.pending, (state, action) => {
+        builder.addCase(getMenu.pending, state => {
             state.loading = true;
         });
         builder.addCase(getMenu.fulfilled, (state, action) => {

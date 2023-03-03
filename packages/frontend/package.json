@@ -8,6 +8,7 @@
         "start": "next start",
         "lint": "next lint",
         "es-lint": "eslint",
+        "lint:check": "eslint . --ext .ts",
         "build-scss": "sass -w src/scss/:public/assets/css/",
         "minify-css": "css-minify -d public/assets/css/ -o public/assets/css/",
         "lint-staged": "lint-staged"
@@ -26,8 +27,6 @@
         "@types/react-dom": "18.0.10",
         "classnames": "^2.3.2",
         "css-minify": "^2.0.0",
-        "eslint": "8.31.0",
-        "eslint-config-next": "13.1.2",
         "lodash": "^4.17.21",
         "next": "13.1.2",
         "react": "18.2.0",
@@ -39,6 +38,10 @@
         "typescript": "4.9.4"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.54.0",
+        "@typescript-eslint/parser": "^5.54.0",
+        "eslint": "^8.35.0",
+        "eslint-plugin-react": "^7.32.2",
         "husky": "^8.0.3",
         "lint-staged": "^13.1.0",
         "prettier": "^2.8.2"

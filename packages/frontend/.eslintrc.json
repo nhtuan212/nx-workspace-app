@@ -1,3 +1,46 @@
 {
-  "extends": "next/core-web-vitals"
+  env: {
+    browser: true,
+    node: true,
+    es6: true
+  },
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+      modules: true
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module'
+  },
+  plugins: ['react'],
+  globals: {
+    it: true,
+    expect: true,
+    AiactivSDK: true,
+    Moengage: true,
+    localStorage: true,
+    module: true,
+    process: true,
+    google: true,
+    test: true,
+    describe: true,
+    jest: true,
+    partnerHandler: true,
+    ZaloPay: true,
+    socketClusterClient: true,
+    shaka: true,
+    googletag: true,
+    importScripts: true
+  },
+  rules: {
+    'no-extra-boolean-cast': 0,
+    'no-useless-escape': 0,
+    'react/prop-types': 0,
+    'react/display-name': 0,
+    'no-prototype-builtins': 0,
+    'no-unsafe-optional-chaining': 0,
+    'react/no-unescaped-entities': 0,
+    'no-extra-semi': 0
+  }
 }

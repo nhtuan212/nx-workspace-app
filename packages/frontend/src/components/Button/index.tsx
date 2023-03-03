@@ -3,7 +3,7 @@ import { buttonInterface } from '@/interface';
 import SvgIcons from '../Icons/SvgIcons';
 import classNames from 'classnames';
 
-let clickTimer: number = 0;
+let clickTimer = 0;
 const Button = ({
     className,
     disabled = false,

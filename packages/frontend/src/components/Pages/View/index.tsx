@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMenu } from '@reducers/menuSlice';
 import Header from '@components/Pages/View/Header';
@@ -20,7 +20,7 @@ const View = ({ children }: any) => {
     );
 };
 
-View.getInitialProps = async ctx => {
+View.getInitialProps = async () => {
     const res = await fetch('https://api.github.com/repos/vercel/next.js');
     const json = await res.json();
     return { data: json.stargazers_count };
