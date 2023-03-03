@@ -46,7 +46,7 @@ module.exports = {
 				}
 			}
 		],
-		'no-unused-vars': 'error',
+		'@typescript-eslint/no-unused-vars': 'error',
 		'react/no-unknown-property': [
 			2,
 			{
