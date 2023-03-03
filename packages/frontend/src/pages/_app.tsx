@@ -3,6 +3,7 @@ import { Roboto } from '@next/font/google';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import View from '@/components/Pages/View';
+import Loading from '@components/Loading';
 import 'public/assets/css/globals.css';
 
 const roboto = Roboto({
