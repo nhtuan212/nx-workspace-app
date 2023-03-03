@@ -6,7 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint",
+        "lint": "next lint",
         "lint:check": "eslint . --ext .ts",
         "build-scss": "sass -w src/scss/:public/assets/css/",
         "minify-css": "css-minify -d public/assets/css/ -o public/assets/css/",
@@ -15,7 +15,8 @@
     "lint-staged": {
         "src/**/*.{ts,tsx,json,scss}": [
             "prettier --write",
-            "npm run lint"
+            "npm run lint",
+            "git add ."
         ]
     },
     "dependencies": {
