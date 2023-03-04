@@ -5,10 +5,10 @@ import { imageInterface } from '@/interface';
 const ImageComponent = ({
     className,
     src,
-    alt = 'Image',
     title,
     width,
     height,
+    alt = 'Image',
     objectFit = 'contain',
     objectPosition = 'center',
 }: imageInterface) => {
@@ -26,7 +26,7 @@ const ImageComponent = ({
                     !width ? { objectFit: objectFit, objectPosition: objectPosition } : undefined
                 }
                 sizes={
-                    !width ? '(max-width: 768px) 100vw,(max-width: 1200px) 50vw,100vw' : undefined
+                    !width ? '(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw' : undefined
                 }
                 loading={!width ? 'lazy' : undefined}
                 priority={!!width}

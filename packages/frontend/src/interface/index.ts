@@ -41,7 +41,7 @@ export interface imageInterface {
     title?: string;
     width?: number;
     height?: number;
-    objectFit: 'fill' | 'contain' | 'cover' | 'none';
+    objectFit?: 'fill' | 'contain' | 'cover' | 'none';
     objectPosition?: string;
 }
 
