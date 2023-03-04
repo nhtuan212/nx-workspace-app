@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import { Navigation } from 'swiper';
 import { photoSlide } from '@/pages/api/slide';
-import Image from '@components/Image';
+import ImageComponent from '@components/ImageComponent';
 import 'swiper/css';
 
 const Slide = () => {
@@ -27,7 +27,12 @@ const Slide = () => {
                 >
                     {slideItems.map((item: any) => (
                         <SwiperSlide key={item.id}>
-                            <Image src={item?.src} alt={item?.name} />
+                            <ImageComponent
+                                src={item?.src}
+                                alt={item?.name}
+                                width={1920}
+                                height={500}
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>

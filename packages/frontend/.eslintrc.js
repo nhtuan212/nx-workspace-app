@@ -6,8 +6,14 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended',
+		'plugin:@next/next/recommended',
         'plugin:@typescript-eslint/recommended'
     ],
+	'settings': {
+		'react': {
+			'version': 'detect'
+		}
+	},
     'overrides': [
     ],
     'parser': '@typescript-eslint/parser',
@@ -19,7 +25,7 @@ module.exports = {
         'react',
         '@typescript-eslint'
     ],
-    'rules': {
+	'rules': {
         'indent': [
             'off',
             4

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import Button from '@components/Button';
-import Input from '@components/Input';
+import ButtonComponent from '@/components/ButtonComponent';
+import InputComponent from '@/components/InputComponent';
 import SvgIcons from '@components/Icons/SvgIcons';
 import { ICON_KEY, TEXT } from '@/constants';
 
@@ -23,12 +23,12 @@ const Search = () => {
     };
     return (
         <div className="search">
-            <Button svgIconKind={ICON_KEY.SEARCH} onClick={handleOnClick} />
+            <ButtonComponent svgIconKind={ICON_KEY.SEARCH} onClick={handleOnClick} />
             {showSearch && (
                 <div className={searchClassName}>
                     <div className={containerSearchClassName}>
                         <div className="col">
-                            <Input
+                            <InputComponent
                                 className={inputSearchClassName}
                                 placeHolder={TEXT.ENTER_FIND_PRODUCT}
                             />

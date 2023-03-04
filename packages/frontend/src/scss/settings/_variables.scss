@@ -418,6 +418,22 @@ $hovers: (
     ),
 );
 
+/// Object fit
+$objectfits: (
+    'object-fit': (
+        'property': 'object-fit',
+        'class': 'object',
+        'values': 'cover contain',
+    ),
+    'object-position': (
+        'property': 'object-position',
+        'class': 'object',
+        'values': (
+            'center': 'center center',
+        ),
+    ),
+);
+
 /// Seo
 $seos: (
     'seo': (

@@ -5,7 +5,7 @@
     "scripts": {
         "start": "npm run dev --workspaces",
         "build": "npm run build --workspaces",
-        "lint": "npm run lint --workspaces",
+        "es-lint": "npm run es-lint --workspaces",
         "prepare": "husky install",
         "lint-staged": "lint-staged"
     },

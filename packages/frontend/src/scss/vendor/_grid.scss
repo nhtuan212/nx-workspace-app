@@ -9,7 +9,9 @@
     $class: map.get(setting.$grids, 'class'),
     $values: (
         '',
-        '3',
+        '6',
+        'sm:4',
+        'md:3',
         'auto',
     )
 );

@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import { inputInterface } from '@/interface';
 import classNames from 'classnames';
 
-const Input = ({ className, onChange, disabled, type, text, placeHolder }: inputInterface) => {
+const InputComponent = ({
+    className,
+    onChange,
+    disabled,
+    type,
+    text,
+    placeHolder,
+}: inputInterface) => {
     // Setup ClassName
     const inputClassname = classNames('input', className && className);
 
@@ -22,4 +29,4 @@ const Input = ({ className, onChange, disabled, type, text, placeHolder }: input
     );
 };
 
-export default Input;
+export default InputComponent;

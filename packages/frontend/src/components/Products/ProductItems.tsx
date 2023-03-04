@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from '@components/Image';
+import ImageComponent from '@components/ImageComponent';
 import classNames from 'classnames';
 import styles from './productStyles.module.scss';
 
@@ -12,10 +12,10 @@ const ProductItems = (props: any) => {
     );
 
     return (
-        <div className="product-items col-3 p-0.5">
+        <div className="product-items md:col-3 sm:col-4 col-6 p-0.5">
             <Link href="">
                 <div className={imageClassName}>
-                    <Image src={props?.data?.thumbnail} />
+                    <ImageComponent src={props?.data?.thumbnail} />
                 </div>
                 <p className="name">{props?.data.title}</p>
                 <p className="price text-pink fw-700">{props?.data.price}</p>

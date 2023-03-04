@@ -14,6 +14,14 @@ $breakpoint-map: sets.$breakpoints;
 ///   >> breakpoint-max(sm, (xs: 0, sm: 576, md: 768, lg: 992, xl: 1200, 2xl: 1400, 3xl: 1536, 4xl: 1920))
 ///   576
 ///
+@function breakpoint-min($name, $breakpoints: $breakpoint-map) {
+    // Set value for $br-min (breakpoint min).
+    $br-min: map.get($breakpoints, $name);
+    // @debug "breakpoint-min: #{$br-min}";
+    // Returned
+    @return if($br-min !=0, $br-min, null);
+}
+
 @function breakpoint-max($name, $breakpoints: $breakpoint-map) {
     // Set value for $br-max (breakpoint max).
     $br-max: map.get($breakpoints, $name);
@@ -65,6 +73,20 @@ $breakpoint-map: sets.$breakpoints;
 ///      @content;
 ///    }
 ///
+@mixin media-breakpoint-up($name, $breakpoints: $breakpoint-map) {
+    // Get breakpoint name.
+    $min: breakpoint-min($name);
+    // Debug
+    // @debug "media breakpoint down #{$min}";
+    // Check $min
+    @if $min {
+        @media (min-width: #{sets.rem($min)}) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
 @mixin media-breakpoint-down($name, $breakpoints: $breakpoint-map) {
     // Get breakpoint name.
     $max: breakpoint-max($name);

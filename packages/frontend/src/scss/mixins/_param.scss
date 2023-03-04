@@ -51,7 +51,7 @@
             }
         } @else {
             @if setting.isset($maps, $value) {
-                @include mixin.media-breakpoint-down($breakpoint-key) {
+                @include mixin.media-breakpoint-up($breakpoint-key) {
                     // Check if $class == '' => return value none "-"
                     $class-value: if($class != '' and $value != '', #{setting.$dash}, '') + $value;
 

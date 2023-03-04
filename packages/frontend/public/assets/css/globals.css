@@ -246,11 +246,23 @@ img {
   max-width: 100%;
 }
 
-.col-3 {
-  flex: 0 0 25%;
-  max-width: 25%;
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
+@media (min-width: 36rem) {
+  .sm\:col-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+}
+@media (min-width: 48rem) {
+  .md\:col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
 .col-auto {
   flex: 1 1 auto;
   max-width: auto;
@@ -409,7 +421,7 @@ img {
   border-bottom-right-radius: 0.125rem;
 }
 
-@media (max-width: 48rem) {
+@media (min-width: 48rem) {
   .md\:rounded-right-sm {
     border-top-right-radius: 0.125rem;
     border-bottom-right-radius: 0.125rem;
@@ -423,12 +435,24 @@ img {
   animation: 0.5s fadeIntop;
 }
 
+.object-cover {
+  object-fit: cover;
+}
+
+.object-contain {
+  object-fit: contain;
+}
+
+.object-center {
+  object-position: center center;
+}
+
 .seo-h {
   position: absolute;
   height: 0;
   color: transparent;
   overflow: hidden;
-  zIndex: -9999;
+  z-index: -9999;
 }
 
 /*# sourceMappingURL=globals.css.map */

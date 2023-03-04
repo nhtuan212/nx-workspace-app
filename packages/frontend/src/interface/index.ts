@@ -38,9 +38,11 @@ export interface imageInterface {
     className?: string;
     src?: string;
     alt?: string;
-    width?: string;
-    height?: string;
     title?: string;
+    width?: number;
+    height?: number;
+    objectFit: 'fill' | 'contain' | 'cover' | 'none';
+    objectPosition?: string;
 }
 
 export interface productListInterface {
