@@ -1,8 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import classNames from 'classnames';
 import { imageInterface } from '@/interface';
 
 const ImageComponent = ({
+    id,
     className,
     src,
     title,
@@ -12,24 +14,35 @@ const ImageComponent = ({
     objectFit = 'contain',
     objectPosition = 'center',
 }: imageInterface) => {
+    // Setup ClassName
+    const slideClassName = classNames('relative w-100 h-100', className);
+
     return (
-        <div className="relative w-100 h-100">
+        <div className={slideClassName}>
+            {/* <div className="relative w-100 h-100"> */}
             <Image
-                className={className}
+                id={id}
+                // className={className}
                 src={src as string}
                 alt={alt}
                 title={title}
                 width={width}
                 height={height}
-                fill={!width}
-                style={
-                    !width ? { objectFit: objectFit, objectPosition: objectPosition } : undefined
-                }
-                sizes={
-                    !width ? '(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw' : undefined
-                }
-                loading={!width ? 'lazy' : undefined}
-                priority={!!width}
+                // fill={!width}
+
+                fill
+                style={{ objectFit: objectFit, objectPosition: objectPosition }}
+                sizes="100vw"
+                loading="lazy"
+
+                // style={
+                //     !width ? { objectFit: objectFit, objectPosition: objectPosition } : undefined
+                // }
+                // sizes={
+                //     !width ? '(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw' : undefined
+                // }
+                // loading={!width ? 'lazy' : undefined}
+                // priority={!!width}
             />
         </div>
     );
