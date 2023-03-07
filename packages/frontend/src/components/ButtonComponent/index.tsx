@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { buttonInterface } from '@/interface';
-import SvgIcons from '../Icons/SvgIcons';
+import SvgIcons from '../IconComponent/SvgIcons';
 import classNames from 'classnames';
 
 let clickTimer = 0;

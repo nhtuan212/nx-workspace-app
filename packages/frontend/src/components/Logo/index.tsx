@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import SvgIcons from '@components/Icons/SvgIcons';
+import SvgIcons from '@/components/IconComponent/SvgIcons';
 import { ICON_KEY, PAGE } from '@/constants';
 
 const Logo = () => {

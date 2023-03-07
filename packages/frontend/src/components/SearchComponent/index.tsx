@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import ButtonComponent from '@/components/ButtonComponent';
-import InputComponent from '@/components/InputComponent';
-import SvgIcons from '@components/Icons/SvgIcons';
+import ButtonComponent from '@components/ButtonComponent';
+import InputComponent from '@components/InputComponent';
+import SvgIcons from '@components/IconComponent/SvgIcons';
 import { ICON_KEY, TEXT } from '@/constants';
 
-const Search = () => {
+const SearchComponent = () => {
     const [showSearch, setShowSearch] = useState(false);
 
     // Setup ClassName
@@ -21,6 +21,7 @@ const Search = () => {
     const handleOnClick = () => {
         setShowSearch(!showSearch);
     };
+
     return (
         <div className="search">
             <ButtonComponent svgIconKind={ICON_KEY.SEARCH} onClick={handleOnClick} />
@@ -45,4 +46,4 @@ const Search = () => {
     );
 };
 
-export default Search;
+export default SearchComponent;

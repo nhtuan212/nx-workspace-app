@@ -1,5 +1,5 @@
 import React from 'react';
-import CartSvg from '@components/Icons/SvgIcons/CartSvg';
+import CartSvg from '@components/IconComponent/SvgIcons/CartSvg';
 
 const Cart = () => {
     return (

@@ -14,7 +14,7 @@ const ImageComponent = ({
     objectPosition = 'center',
 }: imageInterface) => {
     // Setup ClassName
-    const slideClassName = classNames('relative w-100 h-100', className);
+    const slideClassName = classNames('relative w-100 mh-100p', className);
 
     // Variables
     const [slideHeight, setSlideHeight] = useState<number>(0);

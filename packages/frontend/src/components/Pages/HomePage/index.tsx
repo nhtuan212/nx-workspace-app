@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 import { flashSaleProductAction, hotProducts } from '@reducers/productSlice';
-import Slide from '@components/Slide';
-import Loading from '@/components/Loading';
+import Slide from '@components/SlideComponent';
+import Loading from '@components/Loading';
 
 const ProductList = dynamic(() => import('@components/Products/ProductList'), {
     loading: () => <Loading />,

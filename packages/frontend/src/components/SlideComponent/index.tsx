@@ -2,11 +2,11 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import { Navigation } from 'swiper';
-import { photoSlide } from '@/pages/api/slide';
+import { photoSlide } from '@/pages/api/slideApi';
 import ImageComponent from '@components/ImageComponent';
 import 'swiper/css';
 
-const Slide = () => {
+const SlideComponent = () => {
     // Hook
     const [slideItems, setSlideItems] = useState<any>([]);
     useEffect(() => {
@@ -41,4 +41,4 @@ const Slide = () => {
     );
 };
 
-export default Slide;
+export default SlideComponent;

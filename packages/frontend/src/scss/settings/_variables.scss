@@ -34,6 +34,10 @@ $sizes: (
         'property': 'width',
         'class': 'w',
     ),
+    'height': (
+        'property': 'height',
+        'class': 'h',
+    ),
     'max-width': (
         'property': 'max-width',
         'class': 'mw',
@@ -41,9 +45,12 @@ $sizes: (
             '800': calc((800 / 16) * $spacer),
         ),
     ),
-    'height': (
-        'property': 'height',
-        'class': 'h',
+    'max-height': (
+        'property': 'max-height',
+        'class': 'mh',
+        'values': (
+            '100p': 100%,
+        ),
     ),
     'values': (
         '25': 25%,

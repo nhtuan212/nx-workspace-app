@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactPage from '@/components/Pages/Contact';
+import ContactPage from '@/components/Pages/ContactPage';
 
 const Contact = () => {
     return <ContactPage />;
