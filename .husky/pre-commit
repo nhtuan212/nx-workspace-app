@@ -10,4 +10,4 @@ npm run lint-staged ||
     false;
 )
 
-echo '✅🐶 Successfully!! I am ready to commit!!'
+echo '✅🐶 Successfully!! Already to commit!!'
