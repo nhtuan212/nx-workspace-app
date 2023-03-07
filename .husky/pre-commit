@@ -6,7 +6,7 @@ echo '🏗️👷 Styling, testing and building your project before committing'
 npm run lint &&
 npm run lint-staged ||
 (
-    echo '😴 Prettier Format Failed. Run npm run prettier-format ==> and try commit again.';
+    echo '😴 Prettier Format Failed. Run npm run lint-staged ==> and try commit again.';
     false;
 )
 
