@@ -6,7 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "es-lint": "next lint",
+        "lint": "next lint",
         "build-scss": "sass -w src/scss/:public/assets/css/",
         "minify-css": "css-minify -d public/assets/css/ -o public/assets/css/",
         "lint-staged": "lint-staged"
