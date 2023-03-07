@@ -17,10 +17,7 @@ export const ICON_KEY = {
     SEARCH: 'search',
     CART: 'cart',
     CLOSE: 'close',
-    CHEVRON_TOP: 'chevron_top',
-    CHEVRON_DOWN: 'chevron_down',
-    CHEVRON_LEFT: 'chevron_left',
-    CHEVRON_RIGHT: 'chevron_right',
+    CHEVRON: 'chevron',
 };
 
 export const TEXT = {

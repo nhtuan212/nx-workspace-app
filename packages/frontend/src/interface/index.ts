@@ -12,6 +12,7 @@ export interface ErrorInterface {
 
 export interface SvgIconsInterface {
     kind: string;
+    direction?: string;
     isActive?: boolean;
     isHover?: boolean;
 }
@@ -48,4 +49,8 @@ export interface imageInterface {
 export interface productListInterface {
     title?: string;
     data?: any;
+}
+
+export interface subMenuInterface {
+    showSubMenu: boolean;
 }
