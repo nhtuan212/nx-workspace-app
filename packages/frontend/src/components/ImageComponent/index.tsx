@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { imageInterface } from '@/interface';
 
 const ImageComponent = ({
-    id,
     className,
     src,
     title,
@@ -17,32 +16,31 @@ const ImageComponent = ({
     // Setup ClassName
     const slideClassName = classNames('relative w-100 h-100', className);
 
+    // Variables
+    const [slideHeight, setSlideHeight] = useState<number>(0);
+
+    const slideStyle = !width && { height: slideHeight };
+
+    // Functions
+    const handleImageLoad = (event: any) => {
+        const imageHeight = event.target.naturalHeight;
+        setSlideHeight(imageHeight);
+    };
+
     return (
-        <div className={slideClassName}>
-            {/* <div className="relative w-100 h-100"> */}
+        <div className={slideClassName} style={{ ...slideStyle }}>
             <Image
-                id={id}
-                // className={className}
                 src={src as string}
                 alt={alt}
                 title={title}
                 width={width}
                 height={height}
-                // fill={!width}
-
-                fill
+                fill={!width}
                 style={{ objectFit: objectFit, objectPosition: objectPosition }}
-                sizes="100vw"
-                loading="lazy"
-
-                // style={
-                //     !width ? { objectFit: objectFit, objectPosition: objectPosition } : undefined
-                // }
-                // sizes={
-                //     !width ? '(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw' : undefined
-                // }
-                // loading={!width ? 'lazy' : undefined}
-                // priority={!!width}
+                sizes="100mw"
+                loading={!width ? 'lazy' : undefined}
+                priority={!!width}
+                onLoad={handleImageLoad}
             />
         </div>
     );
