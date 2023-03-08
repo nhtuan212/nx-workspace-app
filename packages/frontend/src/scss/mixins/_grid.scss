@@ -7,7 +7,7 @@
         // do not appear to require this.
         max-width: calc($size / $columns * 100%);
     } @else if ($size == 'auto') {
-        flex: 1 1 auto;
+        flex: 0 1 auto;
         max-width: auto;
     } @else {
         flex: 1 0 0;

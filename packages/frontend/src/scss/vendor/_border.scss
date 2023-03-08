@@ -13,16 +13,16 @@
     )
 );
 
-// /// Border Top
-// @include utilities.border(
-//     $property: map.get(setting.$borders, 'border-top', 'property'),
-//     $class: map.get(setting.$borders, 'border-top', 'class'),
-//     $values: (
-// 		'',
-// 		'0',
-// 		'md:',
-//     )
-// );
+/// Border Top
+@include utilities.border(
+    $property: map.get(setting.$borders, 'border-top', 'property'),
+    $class: map.get(setting.$borders, 'border-top', 'class'),
+    $values: (
+        '',
+        '0',
+        'md:',
+    )
+);
 
 /// Border Bottom
 @include utilities.border(
@@ -31,7 +31,7 @@
     $values: (
         '',
         // '0',
-        // 'md:',,,
+        // 'md:',,,,
     )
 );
 

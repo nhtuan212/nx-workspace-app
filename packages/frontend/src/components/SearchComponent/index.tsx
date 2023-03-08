@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import ButtonComponent from '@components/ButtonComponent';
 import InputComponent from '@components/InputComponent';
 import SvgIcons from '@components/IconComponent/SvgIcons';
-import { ICON_KEY, TEXT } from '@/constants';
+import { ICON, TEXT } from '@/constants';
 
 const SearchComponent = () => {
     const [showSearch, setShowSearch] = useState(false);
@@ -24,7 +24,7 @@ const SearchComponent = () => {
 
     return (
         <div className="search">
-            <ButtonComponent svgIconKind={ICON_KEY.SEARCH} onClick={handleOnClick} />
+            <ButtonComponent svgIconKind={ICON.KEY.SEARCH} onClick={handleOnClick} />
             {showSearch && (
                 <div className={searchClassName}>
                     <div className={containerSearchClassName}>
@@ -36,7 +36,7 @@ const SearchComponent = () => {
                         </div>
                         <div className="p-0.5 pointer" onClick={handleOnClick}>
                             <span className="icon icon--small">
-                                <SvgIcons kind={ICON_KEY.CLOSE} />
+                                <SvgIcons kind={ICON.KEY.CLOSE} />
                             </span>
                         </div>
                     </div>

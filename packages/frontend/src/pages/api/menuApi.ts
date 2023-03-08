@@ -1,4 +1,4 @@
-export const menuList = [
+export const menuApiList = [
     {
         createdAt: '2023-03-01T04:22:15.702Z',
         name: 'Trang chủ',
@@ -10,16 +10,18 @@ export const menuList = [
         name: 'Áo thun',
         slug: 'ao-thun',
         id: '2',
-        subMenus: [
-            {
-                id: '1',
-                name: 'Áo thun 1',
-            },
-            {
-                id: '2',
-                name: 'Áo thun 2',
-            },
-        ],
+        // subMenus: [
+        //     {
+        //         id: '1',
+        //         slug: 'ao-thun-1',
+        //         name: 'Áo thun 1',
+        //     },
+        //     {
+        // 		id: '2',
+        // 		slug: '',
+        //         name: 'Áo thun 2',
+        //     },
+        // ],
     },
     {
         createdAt: '2023-03-01T07:25:03.509Z',

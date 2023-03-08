@@ -1,12 +1,12 @@
 import React from 'react';
-import Logo from '@components/Logo';
-import Search from '@/components/SearchComponent';
+import Logo from '@components/LogoComponent';
+import Search from '@components/SearchComponent';
 import Menu from '@components/MenuComponent';
 import Cart from '@components/Cart';
 
 const Header = () => {
     return (
-        <header className="relative py-1">
+        <header className="relative">
             <div className="container d-flex justify-between align-center">
                 <section className="logo">
                     <Logo />

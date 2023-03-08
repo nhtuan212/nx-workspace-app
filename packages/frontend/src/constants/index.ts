@@ -12,12 +12,21 @@ export const PAGE = {
     HOME: '/',
 };
 
-export const ICON_KEY = {
-    LOGO: 'logo',
-    SEARCH: 'search',
-    CART: 'cart',
-    CLOSE: 'close',
-    CHEVRON: 'chevron',
+export const ICON = {
+    KEY: {
+        LOGO: 'logo',
+        SEARCH: 'search',
+        CART: 'cart',
+        CLOSE: 'close',
+        BAR: 'bar',
+        CHEVRON: 'chevron',
+    },
+    DIRECTION: {
+        UP: 'up',
+        DOWN: 'down',
+        LEFT: 'left',
+        RIGHT: 'right',
+    },
 };
 
 export const TEXT = {

@@ -51,6 +51,11 @@ export interface productListInterface {
     data?: any;
 }
 
+export interface menuMoreInterface {
+    data: [];
+}
+
 export interface subMenuInterface {
     showSubMenu: boolean;
+    data: [];
 }

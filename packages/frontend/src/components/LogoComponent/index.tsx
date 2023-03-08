@@ -1,16 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import SvgIcons from '@/components/IconComponent/SvgIcons';
-import { ICON_KEY, PAGE } from '@/constants';
+import { ICON, PAGE } from '@/constants';
 
-const Logo = () => {
+const LogoComponent = () => {
     return (
         <Link href={PAGE.HOME}>
             <span className="icon icon--8x">
-                <SvgIcons kind={ICON_KEY.LOGO} />
+                <SvgIcons kind={ICON.KEY.LOGO} />
             </span>
         </Link>
     );
 };
 
-export default Logo;
+export default LogoComponent;

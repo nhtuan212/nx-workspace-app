@@ -19,7 +19,7 @@ const ImageComponent = ({
     // Variables
     const [slideHeight, setSlideHeight] = useState<number>(0);
 
-    const slideStyle = !width && { height: slideHeight };
+    const slideStyle = !width && { height: slideHeight || '100%' };
 
     // Functions
     const handleImageLoad = (event: any) => {
