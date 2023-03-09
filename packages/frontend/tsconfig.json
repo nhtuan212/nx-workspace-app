@@ -20,6 +20,7 @@
       "@components/*": ["./src/components/*"],
       "@services/*": ["./src/services/*"],
       "@reducers/*": ["./src/redux/reducers/*"],
+      "@config/*": ["./src/config/*"],
       "@helpers/*": ["./src/helpers/*"],
     }
   },
