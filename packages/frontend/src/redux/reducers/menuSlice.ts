@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { AnyAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { menuService } from '@/services/menuService';
 import { MenuState } from '@/interface/reduxState';
+import { HYDRATE } from 'next-redux-wrapper';
 
 // Async Actions
 export const getMenu: any = createAsyncThunk('/getMenu', async () => {
@@ -22,8 +23,13 @@ const menuSlice = createSlice({
         builder.addCase(getMenu.pending, state => {
             state.loading = true;
         });
-        builder.addCase(getMenu.fulfilled, (state, action) => {
+        builder.addCase(getMenu.fulfilled, (state, action: any) => {
             state.getMenu = action.payload;
+            state.loading = false;
+        });
+        builder.addCase(HYDRATE, (state, action: AnyAction) => {
+            // handle call on getServerSideProps
+            state.getMenu = action.payload.menu.getMenu;
             state.loading = false;
         });
     },

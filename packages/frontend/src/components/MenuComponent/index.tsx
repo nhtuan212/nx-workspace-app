@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import MenuItems from './MenuItems';
 import MenuMore from './MenuMore';
 import isEmpty from 'lodash/isEmpty';
-import { menuApiList } from '@/pages/api/menuApi';
 
 const MenuComponent = () => {
     // Variables
@@ -13,15 +12,14 @@ const MenuComponent = () => {
 
     // Hook
     useEffect(() => {
-        menuApiList && setMenuList(menuApiList.slice(0, 3));
-        menuApiList && setMenuMoreList(menuApiList.slice(3));
-    }, [menuApiList]);
+        !isEmpty(getMenu) && setMenuList(getMenu.slice(0, 3));
+        !isEmpty(getMenu) && setMenuMoreList(getMenu.slice(3));
+    }, [getMenu]);
 
     return (
         <>
             {!isEmpty(getMenu) && (
                 <ul className="d-flex align-center">
-                    {/* {getMenu.map((item: any) => ( */}
                     {menuList.map((item: any) => (
                         <MenuItems key={item?.id} data={item} />
                     ))}

@@ -2,8 +2,9 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import { Roboto } from '@next/font/google';
 import { Provider } from 'react-redux';
-import { store } from '@/redux/store';
-import View from '@/components/Pages/View';
+import { ReduxWrapper } from '@/redux/store';
+import { getMenu } from '@/redux/reducers/menuSlice';
+import ViewPage from '@/components/Pages/ViewPage';
 import 'public/assets/css/globals.css';
 
 const roboto = Roboto({
@@ -11,11 +12,10 @@ const roboto = Roboto({
     subsets: ['latin'],
 });
 
-type TProps = AppProps & {
-    viewProps: {};
-};
+const MyApp = ({ Component, ...rest }: AppProps) => {
+    const { store, props } = ReduxWrapper.useWrappedStore(rest);
+    const { pageProps, ViewPageProps } = props;
 
-export default function App({ Component, pageProps, viewProps }: TProps) {
     return (
         <Provider store={store}>
             <style jsx global>{`
@@ -23,14 +23,21 @@ export default function App({ Component, pageProps, viewProps }: TProps) {
                     font-family: ${roboto.style.fontFamily};
                 }
             `}</style>
-            <View {...viewProps}>
+            <ViewPage {...ViewPageProps}>
                 <Component {...pageProps} />
-            </View>
+            </ViewPage>
         </Provider>
     );
-}
-
-App.getInitialProps = async (context: any) => {
-    const viewProps = View.getInitialProps ? await View.getInitialProps(context) : {};
-    return { viewProps };
 };
+
+MyApp.getInitialProps = ReduxWrapper.getInitialPageProps(store => async ctx => {
+    // Handle SSR from ViewPage
+    const ViewPageProps = ViewPage.getInitialProps ? await ViewPage.getInitialProps(ctx) : {};
+
+    // Dispatch from Server
+    await store.dispatch(getMenu());
+
+    return { ViewPageProps };
+});
+
+export default MyApp;
