@@ -15,6 +15,7 @@ const ImageComponent = ({
 }: imageInterface) => {
     // Setup ClassName
     const slideClassName = classNames('relative w-100 mh-100p', className);
+    const imageClassName = classNames(width && 'w-100');
 
     // Variables
     const [slideHeight, setSlideHeight] = useState<number>(0);
@@ -30,6 +31,7 @@ const ImageComponent = ({
     return (
         <div className={slideClassName} style={{ ...slideStyle }}>
             <Image
+                className={imageClassName}
                 src={src as string}
                 alt={alt}
                 title={title}

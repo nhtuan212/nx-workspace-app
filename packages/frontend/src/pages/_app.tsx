@@ -2,7 +2,7 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import { Roboto } from '@next/font/google';
 import { Provider } from 'react-redux';
-import { ReduxWrapper } from '@/redux/store';
+import { AppStore, ReduxWrapper } from '@/redux/store';
 import { getMenu } from '@/redux/reducers/menuSlice';
 import ViewPage from '@/components/Pages/ViewPage';
 import 'public/assets/css/globals.css';
@@ -30,7 +30,7 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
     );
 };
 
-MyApp.getInitialProps = ReduxWrapper.getInitialPageProps(store => async ctx => {
+MyApp.getInitialProps = ReduxWrapper.getInitialPageProps((store: AppStore) => async (ctx: any) => {
     // Handle SSR from ViewPage
     const ViewPageProps = ViewPage.getInitialProps ? await ViewPage.getInitialProps(ctx) : {};
 

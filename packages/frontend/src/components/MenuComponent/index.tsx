@@ -12,8 +12,9 @@ const MenuComponent = () => {
 
     // Hook
     useEffect(() => {
-        !isEmpty(getMenu) && setMenuList(getMenu.slice(0, 3));
-        !isEmpty(getMenu) && setMenuMoreList(getMenu.slice(3));
+        const menuLimit = 3;
+        !isEmpty(getMenu) && setMenuList(getMenu.slice(0, menuLimit));
+        !isEmpty(getMenu) && setMenuMoreList(getMenu.slice(menuLimit));
     }, [getMenu]);
 
     return (

@@ -7,7 +7,7 @@ import Loading from '@components/Loading';
 
 const ProductList = dynamic(() => import('@components/Products/ProductList'), {
     loading: () => <Loading />,
-    ssr: true,
+    ssr: false,
 });
 
 const HomePage = () => {

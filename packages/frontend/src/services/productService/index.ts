@@ -3,7 +3,7 @@ import { axiosClient } from '@services/axiosClient';
 
 export const productService = {
     hotProducts: async () => {
-        const url = 'https://dummyjson.com/products?limit=4';
+        const url = 'https://dummyjson.com/products?limit=40';
         const method = METHOD.GET;
         return axiosClient.excuted({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
@@ -12,7 +12,7 @@ export const productService = {
         });
     },
     flashSaleProductAction: async () => {
-        const url = 'https://dummyjson.com/products?limit=4';
+        const url = 'https://dummyjson.com/products?limit=80';
         const method = METHOD.GET;
         return axiosClient.excuted({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {

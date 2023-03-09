@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReduxWrapper } from '@/redux/store';
+import { AppStore, ReduxWrapper } from '@/redux/store';
 import Header from '@components/Pages/ViewPage/Header';
 import Footer from '@components/Pages/ViewPage/Footer';
 
@@ -13,7 +13,7 @@ const ViewPage = ({ children }: any) => {
     );
 };
 
-ViewPage.getInitialProps = ReduxWrapper.getInitialPageProps(store => async () => {
+ViewPage.getInitialProps = ReduxWrapper.getInitialPageProps((store: AppStore) => async () => {
     console.log({ store });
     // await store.dispatch(getMenu());
     // return {
