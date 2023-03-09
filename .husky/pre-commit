@@ -5,7 +5,7 @@ echo '🏗️👷 Styling, testing and building your project before committing'
 
 npm run lint ||
 (
-    echo '🆘🚫 Es-Lint found an Error. Please recheck and try commit again.';
+    echo '🆘🚫 Es-Lint Founded an Error. Please recheck and try commit again.';
     false;
 )
 npm run lint-staged ||
