@@ -4,7 +4,7 @@ import { MenuState } from '@/interface/reduxState';
 import { HYDRATE } from 'next-redux-wrapper';
 
 // Async Actions
-export const getMenu: any = createAsyncThunk('/getMenu', async () => {
+export const getMenuAction: any = createAsyncThunk('/getMenu', async () => {
     return await menuService.getMenu();
 });
 
@@ -18,12 +18,17 @@ export const initialState: MenuState = {
 const menuSlice = createSlice({
     name: 'menuSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        resetGetMenuAction(state) {
+            console.log('ok');
+            state.getMenu = [];
+        },
+    },
     extraReducers: builder => {
-        builder.addCase(getMenu.pending, state => {
+        builder.addCase(getMenuAction.pending, state => {
             state.loading = true;
         });
-        builder.addCase(getMenu.fulfilled, (state, action: any) => {
+        builder.addCase(getMenuAction.fulfilled, (state, action: any) => {
             state.getMenu = action.payload;
             state.loading = false;
         });
@@ -35,5 +40,5 @@ const menuSlice = createSlice({
     },
 });
 
-// export const {} = menuSlice.actions;
+export const { resetGetMenuAction } = menuSlice.actions;
 export default menuSlice.reducer;
