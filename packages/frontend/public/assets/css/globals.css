@@ -278,10 +278,21 @@ img {
   max-width: 50%;
 }
 
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
 @media (min-width: 36rem) {
   .sm\:col-4 {
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
+  }
+}
+@media (min-width: 36rem) {
+  .sm\:col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
   }
 }
 @media (min-width: 48rem) {
@@ -293,6 +304,10 @@ img {
 .col-auto {
   flex: 0 1 auto;
   max-width: auto;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
 }
 
 .mr-0\.5 {
@@ -318,6 +333,10 @@ img {
 
 .p-0\.5 {
   padding: 0.5rem;
+}
+
+.p-1 {
+  padding: 1rem;
 }
 
 .p-1\.5 {
