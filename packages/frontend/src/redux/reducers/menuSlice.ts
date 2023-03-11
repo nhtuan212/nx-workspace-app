@@ -20,7 +20,6 @@ const menuSlice = createSlice({
     initialState,
     reducers: {
         resetGetMenuAction(state) {
-            console.log('ok');
             state.getMenu = [];
         },
     },
