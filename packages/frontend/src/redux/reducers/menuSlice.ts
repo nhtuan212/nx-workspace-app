@@ -18,11 +18,7 @@ export const initialState: MenuState = {
 const menuSlice = createSlice({
     name: 'menuSlice',
     initialState,
-    reducers: {
-        resetGetMenuAction(state) {
-            state.getMenu = [];
-        },
-    },
+    reducers: {},
     extraReducers: builder => {
         builder.addCase(getMenuAction.pending, state => {
             state.loading = true;
@@ -39,5 +35,5 @@ const menuSlice = createSlice({
     },
 });
 
-export const { resetGetMenuAction } = menuSlice.actions;
+// export const { } = menuSlice.actions;
 export default menuSlice.reducer;

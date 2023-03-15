@@ -4,6 +4,10 @@ const nextConfig = {
     images: {
 		remotePatterns: [
 			{
+				protocol: 'https',
+				hostname: 'ucarecdn.com',
+			},
+			{
 				protocol: 'http',
 				hostname: 'via.placeholder.com',
 			},
