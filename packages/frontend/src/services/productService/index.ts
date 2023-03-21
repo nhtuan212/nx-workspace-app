@@ -5,7 +5,7 @@ export const productService = {
     hotProducts: async () => {
         const url = 'https://dummyjson.com/products?limit=40';
         const method = METHOD.GET;
-        return axiosClient.excuted({ url, method }).then(response => {
+        return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
                 return response?.data?.products;
             }
@@ -14,7 +14,7 @@ export const productService = {
     flashSaleProductAction: async () => {
         const url = 'https://dummyjson.com/products?limit=80';
         const method = METHOD.GET;
-        return axiosClient.excuted({ url, method }).then(response => {
+        return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
                 return response?.data?.products;
             }
@@ -23,7 +23,7 @@ export const productService = {
     listProduct: async () => {
         const url = 'https://dummyjson.com/products?limit=20';
         const method = METHOD.GET;
-        return axiosClient.excuted({ url, method }).then(response => {
+        return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
                 return response?.data?.products;
             }

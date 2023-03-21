@@ -6,7 +6,7 @@ export const menuService = {
     getMenu: async () => {
         const url = ConfigApi.menuApi;
         const method = METHOD.GET;
-        return axiosClient.excuted({ url, method }).then(response => {
+        return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
                 return response?.data;
             }
