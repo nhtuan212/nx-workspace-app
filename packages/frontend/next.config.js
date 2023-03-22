@@ -21,7 +21,7 @@ const nextConfig = {
 };
 
 // Check export home page static
-if (abc) {
+if (STATUS_EXPORT_SSR) {
 	nextConfig['exportPathMap'] = () => {
 		return {
 			'/': { page: '/' }
