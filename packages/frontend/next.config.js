@@ -19,4 +19,13 @@ const nextConfig = {
     },
 };
 
+//check export home page static
+if (STATUS_EXPORT_SSR) {
+	nextConfig['exportPathMap'] = () => {
+		return {
+			'/': { page: '/' }
+		}
+	}
+}
+
 module.exports = nextConfig;

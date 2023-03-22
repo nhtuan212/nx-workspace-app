@@ -3,7 +3,7 @@
 
 echo '🏗️👷 Styling, testing and building your project before committing'
 
-yarn lint-staged ||
+npm run lint-staged ||
 (
     echo '🆘🚫 Prettier Format Failed. Run npm run lint-staged ==> and try commit again.';
     false;

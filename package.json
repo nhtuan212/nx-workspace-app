@@ -9,6 +9,13 @@
         "prepare": "husky install",
         "lint-staged": "npm run lint-staged --workspaces"
     },
+    "lint-staged": {
+        "src/**/*.{ts,tsx,json,scss}": [
+            "prettier --write",
+            "npm run lint",
+            "git add ."
+        ]
+    },
     "private": true,
     "devDependencies": {
         "@nrwl/nx-cloud": "latest",
