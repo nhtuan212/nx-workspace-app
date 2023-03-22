@@ -9,11 +9,11 @@
         "prepare": "husky install",
         "lint-staged": "lint-staged"
     },
-    "lint-stageddsadsadsa": {
-        "src/**/*.{ts,tsx,json,scss}": [
+    "lint-staged": {
+        "*.tsx": [
             "prettier --write",
-			"npm run lint",
-			"git add ."
+            "npm run lint",
+            "git add ."
         ]
     },
     "private": true,
