@@ -10,10 +10,10 @@
         "lint-staged": "lint-staged"
     },
     "lint-staged": {
-        "*.tsx": [
+        "src/**/*.{ts,tsx,json,scss}": [
             "prettier --write",
-            "npm run lint",
-            "git add ."
+			"npm run lint",
+			"git add ."
         ]
     },
     "private": true,
