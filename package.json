@@ -6,14 +6,13 @@
         "start": "npm run dev --workspaces",
         "build": "npm run build --workspaces",
         "lint": "npm run lint --workspaces",
-        "lint2": "eslint",
         "prepare": "husky install",
         "lint-staged": "lint-staged"
     },
     "lint-staged": {
         "src/**/*.{ts,tsx,json,scss}": [
             "prettier --write",
-			"npm run lint-2"
+			"npm run lint"
         ]
     },
     "private": true,
