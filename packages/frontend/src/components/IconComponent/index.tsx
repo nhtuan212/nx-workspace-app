@@ -1,12 +1,22 @@
 import React from 'react';
 import { iconInterface } from '@/interface';
 
-const IconComponent = ({ icon, iconClassName, direction = '' }: iconInterface) => {
-    return (
-        <i
-            className={`fi ${icon}${direction && `-${direction}`} ${iconClassName || 'text-16'}`}
-        ></i>
-    );
+const IconComponent = ({
+    icon,
+    iconClassName = 'text-16',
+    direction,
+}: iconInterface) => {
+    const renderIcon = () => {
+        let result = `fi ${icon}`;
+
+        if (direction) {
+            result = `${result}${direction && `-${direction}`}`;
+        }
+
+        return `${result} ${iconClassName}`;
+    };
+
+    return <i className={renderIcon()}></i>;
 };
 
 export default IconComponent;
