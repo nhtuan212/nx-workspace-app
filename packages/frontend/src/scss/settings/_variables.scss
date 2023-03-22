@@ -185,6 +185,7 @@ $texts: (
         property: 'font-size',
         class: 'text',
         values: (
+            '10': calc(10 / 16 * $font-size-base),
             '12': calc(12 / 16 * $font-size-base),
             '14': calc(14 / 16 * $font-size-base),
             '16': calc(16 / 16 * $font-size-base),

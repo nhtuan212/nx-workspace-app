@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { menuMoreInterface } from '@/interface';
-import SvgIcons from '@components/IconComponent/SvgIcons';
 import SubMenu from './SubMenu';
 import { ICON } from '@/constants';
+import IconComponent from '../IconComponent';
 
 const MenuMore = ({ data }: menuMoreInterface) => {
     // Variables
@@ -23,12 +23,12 @@ const MenuMore = ({ data }: menuMoreInterface) => {
     return (
         <div className="pointer" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             <li className="d-flex align-center p-1.5 relative">
-                <span className="icon icon--small mr-0.5">
-                    <SvgIcons kind={ICON.KEY.BAR} />
-                </span>
-                <span className="icon icon--tiny10">
-                    <SvgIcons kind={ICON.KEY.CHEVRON} direction={ICON.DIRECTION.DOWN} />
-                </span>
+                <IconComponent icon={ICON.FONT.BAR} iconClassName="mr-0.5" />
+                <IconComponent
+                    icon={ICON.FONT.CHEVRON}
+                    direction={ICON.DIRECTION.DOWN}
+                    iconClassName="text-10"
+                />
                 {showSubMenu && <SubMenu showSubMenu={showSubMenu} data={data} />}
             </li>
         </div>

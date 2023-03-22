@@ -15,11 +15,13 @@ export const PAGE = {
 export const ICON = {
     KEY: {
         LOGO: 'logo',
-        SEARCH: 'search',
-        CART: 'cart',
-        CLOSE: 'close',
-        BAR: 'bar',
-        CHEVRON: 'chevron',
+    },
+    FONT: {
+        SEARCH: 'fi-search',
+        CLOSE: 'fi-close',
+        BAR: 'fi-bar',
+        CHEVRON: 'fi-chevron',
+        CART: 'fi-cart',
     },
     DIRECTION: {
         UP: 'up',

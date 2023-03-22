@@ -1,4 +1,8 @@
-// @forward './styles/basic';
+/// Icons Font
+@forward './styles/fonts/style';
+
+/// Common Style
+@forward './styles/swiper';
 @forward './styles/styles';
 
 @forward './vendor/display';

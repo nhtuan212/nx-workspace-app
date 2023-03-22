@@ -1,14 +1,9 @@
 import React from 'react';
-import CartSvg from '@components/IconComponent/SvgIcons/CartSvg';
+import IconComponent from '@components/IconComponent';
+import { ICON } from '@/constants';
 
 const Cart = () => {
-    return (
-        <div className="cart">
-            <span className="icon">
-                <CartSvg />
-            </span>
-        </div>
-    );
+    return <IconComponent icon={ICON.FONT.CART} iconClassName="text-20" />;
 };
 
 export default Cart;

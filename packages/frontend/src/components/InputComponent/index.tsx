@@ -11,15 +11,17 @@ const InputComponent = ({
     placeHolder,
 }: inputInterface) => {
     // Setup ClassName
-    const inputClassname = classNames('input', className && className);
+    const inputClassName = classNames('input', className && className);
 
+    // Variables
     const [value, setValue] = useState(text);
 
+    // Functions
     const onChangeInput = (e: any) => setValue(e?.target?.value);
 
     return (
         <input
-            className={inputClassname}
+            className={inputClassName}
             onChange={onChange || onChangeInput}
             type={type}
             value={value}

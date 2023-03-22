@@ -31,18 +31,6 @@ img {
     line-height: 0;
 }
 
-@font-face {
-    font-family: 'icon';
-    src: url('../../../public/assets/fonts/icon-font/icon.eot');
-    src: url('../../../public/assets/fonts/icon-font/icon.eot') format('embedded-opentype'),
-        url('../../../public/assets/fonts/icon-font/icon.ttf') format('truetype'),
-        url('../../../public/assets/fonts/icon-font/icon.woff') format('woff'),
-        url('../../../public/assets/fonts/icon-font/icon.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
 .container {
     width: 100%;
     max-width: rem(1200);
@@ -100,56 +88,4 @@ img {
 .title {
     margin-bottom: rem(15);
     font-size: 1.5rem;
-}
-
-// Slide
-.swiper-button-next,
-.swiper-button-prev {
-    position: absolute;
-    top: 50%;
-    width: rem(35);
-    height: rem(35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba($color: #ffffff, $alpha: 0.5);
-    cursor: pointer;
-    z-index: 10;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    &::after {
-        content: '\e900';
-        font-size: rem(15);
-        font-family: 'icon';
-    }
-}
-.swiper-button-prev {
-    left: rem(20);
-    &::after {
-        transform: rotate(-180deg);
-    }
-}
-.swiper-button-next {
-    right: rem(20);
-}
-.swiper-button-disabled {
-    opacity: 0;
-    visibility: hidden;
-}
-
-@media only screen and (max-width: 600px) {
-    .swiper-button-next,
-    .swiper-button-prev {
-        width: rem(15);
-        height: rem(15);
-        &::after {
-            font-size: rem(8);
-        }
-    }
-    .swiper-button-prev {
-        left: rem(5);
-    }
-    .swiper-button-next {
-        right: rem(5);
-    }
 }

@@ -28,6 +28,9 @@
     $property: map.get(var.$texts, 'font-size', 'property'),
     $class: map.get(var.$texts, 'font-size', 'class'),
     $values: (
+        '10',
+        '16',
+        '20',
         '26',
         // 'md:12',
     )

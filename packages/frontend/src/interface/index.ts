@@ -17,10 +17,15 @@ export interface SvgIconsInterface {
     isHover?: boolean;
 }
 
-export interface buttonInterface {
+export interface iconInterface {
+    icon?: string;
+    iconClassName?: string;
+    direction?: string;
+}
+
+export interface buttonInterface extends iconInterface {
     className?: string;
     disabled?: boolean;
-    svgIconKind?: string;
     onClick?: any;
     type?: 'submit' | 'button' | undefined;
     text?: string;
