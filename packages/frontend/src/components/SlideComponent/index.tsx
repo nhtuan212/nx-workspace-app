@@ -7,8 +7,10 @@ import ImageComponent from '@components/ImageComponent';
 import 'swiper/css';
 
 const SlideComponent = () => {
-    // Hook
+    // Variables
     const [slideItems, setSlideItems] = useState<any>([]);
+
+    // Hooks
     useEffect(() => {
         setSlideItems(photoSlide);
     }, [slideItems]);
