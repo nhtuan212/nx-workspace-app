@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const STATUS_EXPORT_SSR = process.env.NEXT_PUBLIC_EXPORT_SSR === 'true'
+// const STATUS_EXPORT_SSR = process.env.NEXT_PUBLIC_EXPORT_SSR === 'true'
 
 const nextConfig = {
     reactStrictMode: false,
@@ -22,13 +22,13 @@ const nextConfig = {
     },
 };
 
-// //check export home page static
-// if (STATUS_EXPORT_SSR) {
-// 	nextConfig['exportPathMap'] = () => {
-// 		return {
-// 			'/': { page: '/' }
-// 		}
-// 	}
-// }
+// Check export home page static
+if (STATUS_EXPORT_SSR) {
+	nextConfig['exportPathMap'] = () => {
+		return {
+			'/': { page: '/' }
+		}
+	}
+}
 
 module.exports = nextConfig;
