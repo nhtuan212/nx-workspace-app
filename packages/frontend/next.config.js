@@ -22,6 +22,7 @@ const nextConfig = {
 
 // Check export home page static
 if (!STATUS_EXPORT_SSR) {
+	console.log('opk');
 	nextConfig['exportPathMap'] = () => {
 		return {
 			'/': { page: '/' }
