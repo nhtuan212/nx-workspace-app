@@ -6,7 +6,8 @@
         "start": "npm run dev --workspaces",
         "build": "npm run build --workspaces",
         "lint": "npm run lint --workspaces",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "lint-staged": "lint-staged"
     },
     "lint-staged": {
         "src/**/*.{ts,tsx,json,scss}": [
