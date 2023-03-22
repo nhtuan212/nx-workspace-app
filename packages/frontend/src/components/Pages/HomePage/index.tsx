@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 import { flashSaleProductAction, hotProducts } from '@reducers/productSlice';
 import Slide from '@components/SlideComponent';
-import Loading from '@components/Loading';
+import Loading from '@/components/LoadingComponent';
 
 const ProductList = dynamic(() => import('@components/Products/ProductList'), {
     loading: () => <Loading />,
@@ -13,7 +13,9 @@ const ProductList = dynamic(() => import('@components/Products/ProductList'), {
 const HomePage = () => {
     const dispatch = useDispatch();
 
-    const { hotProduct, flashSaleProduct } = useSelector<any, any>(state => state?.product);
+    const { hotProduct, flashSaleProduct } = useSelector<any, any>(
+        state => state?.product,
+    );
 
     // Hook
     useEffect(() => {

@@ -6,6 +6,7 @@ const IconComponent = ({
     iconClassName = 'text-16',
     direction,
 }: iconInterface) => {
+    // Functions
     const renderIcon = () => {
         let result = `fi ${icon}`;
 

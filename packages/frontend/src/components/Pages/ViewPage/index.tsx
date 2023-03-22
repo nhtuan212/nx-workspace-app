@@ -13,12 +13,14 @@ const ViewPage = ({ children }: any) => {
     );
 };
 
-ViewPage.getInitialProps = ReduxWrapper.getInitialPageProps((store: AppStore) => async () => {
-    console.log({ store });
-    // await store.dispatch(getMenu());
-    // return {
-    // 	data: 'binayu'
-    // }
-});
+ViewPage.getInitialProps = ReduxWrapper.getInitialPageProps(
+    (store: AppStore) => async () => {
+        console.log({ store });
+        // await store.dispatch(getMenu());
+        // return {
+        // 	data: ''
+        // }
+    },
+);
 
 export default ViewPage;
