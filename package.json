@@ -7,13 +7,13 @@
         "build": "npm run build --workspaces",
         "lint": "npm run lint --workspaces",
         "prepare": "husky install",
-        "lint-staged": "npm run lint"
+        "lint-staged": "lint-staged"
     },
-    "lint-staged2": {
+    "lint-stageddsadsadsa": {
         "src/**/*.{ts,tsx,json,scss}": [
             "prettier --write",
-            "npm run lint",
-            "git add ."
+			"npm run lint",
+			"git add ."
         ]
     },
     "private": true,
