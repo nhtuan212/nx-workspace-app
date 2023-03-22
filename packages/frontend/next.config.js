@@ -21,9 +21,11 @@ const nextConfig = {
 };
 
 // Check export home page static
-nextConfig['exportPathMap'] = () => {
-	return {
-		'/': { page: '/' }
+if (abc) {
+	nextConfig['exportPathMap'] = () => {
+		return {
+			'/': { page: '/' }
+		}
 	}
 }
 
