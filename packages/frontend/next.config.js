@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const STATUS_EXPORT_SSR = process.env.NEXT_PUBLIC_EXPORT_SSR === 'true'
+
 const nextConfig = {
     reactStrictMode: false,
     images: {
