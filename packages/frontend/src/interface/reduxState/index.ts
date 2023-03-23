@@ -7,5 +7,5 @@ export interface ProductState {
     loading: boolean;
     hotProduct: [];
     flashSaleProduct: [];
-    listProduct: [];
+    productList: [];
 }

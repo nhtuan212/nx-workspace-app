@@ -1,9 +1,10 @@
 import { HTTP_CODE, METHOD } from '@/constants';
 import { axiosClient } from '@services/axiosClient';
+import ConfigApi from '@config/ConfigApi';
 
 export const productService = {
     hotProducts: async () => {
-        const url = 'https://dummyjson.com/products?limit=40';
+        const url = `${ConfigApi.productApi}?limit=20`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
@@ -12,7 +13,7 @@ export const productService = {
         });
     },
     flashSaleProductAction: async () => {
-        const url = 'https://dummyjson.com/products?limit=80';
+        const url = `${ConfigApi.productApi}?limit=20`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
@@ -20,8 +21,8 @@ export const productService = {
             }
         });
     },
-    listProduct: async () => {
-        const url = 'https://dummyjson.com/products?limit=20';
+    productList: async () => {
+        const url = `${ConfigApi.productApi}?limit=10`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {

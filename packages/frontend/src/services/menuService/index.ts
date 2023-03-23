@@ -4,7 +4,7 @@ import ConfigApi from '@config/ConfigApi';
 
 export const menuService = {
     getMenu: async () => {
-        const url = ConfigApi.menuApi;
+        const url = 'https://61dd3beff60e8f0017668670.mockapi.io/menus';
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {

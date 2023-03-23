@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 import { flashSaleProductAction, hotProducts } from '@reducers/productSlice';
-import Slide from '@components/SlideComponent';
 import Loading from '@components/LoadingComponent';
 
 const ProductList = dynamic(
@@ -28,7 +27,6 @@ const HomePage = () => {
 
     return (
         <>
-            <Slide />
             <ProductList title={'Sản phẩm hot'} data={hotProduct} />
             <ProductList title={'Sản phẩm bán chạy'} data={flashSaleProduct} />
         </>
