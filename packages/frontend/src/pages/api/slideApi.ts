@@ -2,7 +2,8 @@ export const photoSlide = [
     {
         id: 1,
         name: 'Image 1',
-        src: 'https://ucarecdn.com/05f649bf-b70b-4cf8-90f7-2588ce404a08/',
+        // src: 'https://ucarecdn.com/05f649bf-b70b-4cf8-90f7-2588ce404a08/',
+        src: 'http://via.placeholder.com/1920x500',
     },
     {
         id: 2,
