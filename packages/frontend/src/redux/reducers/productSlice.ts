@@ -18,6 +18,12 @@ export const productListAction: any = createAsyncThunk(
         return await productService.productList();
     },
 );
+export const productSearchAction: any = createAsyncThunk(
+    '/productSearch',
+    async ({ keyword }: any) => {
+        return await productService.productSearch({ keyword });
+    },
+);
 
 // State
 export const initialState: ProductState = {
@@ -25,6 +31,7 @@ export const initialState: ProductState = {
     hotProduct: [],
     flashSaleProduct: [],
     productList: [],
+    productSearch: [],
 };
 
 // Reducers
@@ -48,6 +55,14 @@ const productSlice = createSlice({
         builder.addCase(productListAction.fulfilled, (state, action) => {
             state.loading = false;
             state.productList = action.payload;
+        });
+        // productSearchAction
+        builder.addCase(productSearchAction.pending, state => {
+            state.loading = true;
+        });
+        builder.addCase(productSearchAction.fulfilled, (state, action) => {
+            state.loading = false;
+            state.productSearch = action.payload;
         });
     },
 });

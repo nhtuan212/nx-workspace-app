@@ -30,4 +30,13 @@ export const productService = {
             }
         });
     },
+    productSearch: async ({ keyword }: any) => {
+        const url = `${ConfigApi.productSearch}?q=${keyword}`;
+        const method = METHOD.GET;
+        return axiosClient.executed({ url, method }).then(response => {
+            if (response?.status === HTTP_CODE.SUCCESS) {
+                return response?.data?.products;
+            }
+        });
+    },
 };

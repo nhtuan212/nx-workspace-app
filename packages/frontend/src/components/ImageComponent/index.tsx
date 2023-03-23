@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import classNames from 'classnames';
 import { imageInterface } from '@/interface';
-
 const ImageComponent = ({
-    className,
     src,
     title,
     width,
@@ -13,38 +10,30 @@ const ImageComponent = ({
     objectFit = 'contain',
     objectPosition = 'center',
 }: imageInterface) => {
-    // Setup ClassName
-    const slideClassName = classNames('relative w-100 mh-100p', className);
-    const imageClassName = classNames(width && 'w-100');
-
     // Variables
+    const [slideWidth, setSlideWidth] = useState<number>(0);
     const [slideHeight, setSlideHeight] = useState<number>(0);
-
-    const slideStyle = !width && { height: slideHeight || '100%' };
 
     // Functions
     const handleImageLoad = (event: any) => {
         const imageHeight = event.target.naturalHeight;
+        const imageWidth = event.target.naturalWidth;
         setSlideHeight(imageHeight);
+        setSlideWidth(imageWidth);
     };
 
     return (
-        <div className={slideClassName} style={{ ...slideStyle }}>
-            <Image
-                className={imageClassName}
-                src={src as string}
-                alt={alt}
-                title={title}
-                width={width}
-                height={height}
-                fill={!width}
-                style={{ objectFit: objectFit, objectPosition: objectPosition }}
-                sizes="100mw"
-                loading={!width ? 'lazy' : undefined}
-                priority={!!width}
-                onLoad={handleImageLoad}
-            />
-        </div>
+        <Image
+            src={src as string}
+            alt={alt}
+            title={title}
+            width={width || slideWidth}
+            height={height || slideHeight}
+            style={{ objectFit: objectFit, objectPosition: objectPosition }}
+            sizes="100mw"
+            loading="lazy"
+            onLoad={handleImageLoad}
+        />
     );
 };
 

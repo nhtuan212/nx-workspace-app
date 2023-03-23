@@ -9,7 +9,7 @@ const LogoComponent = () => {
     };
 
     return (
-        <Link href={''} onClick={onLogoClick}>
+        <Link href={PAGE.HOME} onClick={onLogoClick}>
             <span className="icon icon--8x">
                 <SvgIcons kind={ICON.KEY.LOGO} />
             </span>
