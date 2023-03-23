@@ -22,7 +22,8 @@ const ContactPage = () => {
                         <div className="list-group mb-1">
                             <span>Địa chỉ chúng tôi</span>
                             <p className="fw-700">
-                                51 Hoàng Diệu 2, Phường Linh Trung, Thành phố Thủ Đức
+                                51 Hoàng Diệu 2, Phường Linh Trung, Thành phố
+                                Thủ Đức
                             </p>
                         </div>
                         <div className="list-group mb-1">

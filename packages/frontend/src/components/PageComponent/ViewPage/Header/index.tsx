@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '@components/LogoComponent';
 import Search from '@components/SearchComponent';
 import Menu from '@components/MenuComponent';
-import Cart from '@components/Cart';
+import Cart from '@components/CartComponent';
 
 const Header = () => {
     return (

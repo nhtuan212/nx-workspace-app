@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorPage from '@/components/Pages/ErrorPage';
+import ErrorPage from '@components/PageComponent/ErrorPage';
 import { HTTP_CODE } from '@/constants/';
 
 const _error = () => {

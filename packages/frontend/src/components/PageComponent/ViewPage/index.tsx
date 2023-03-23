@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppStore, ReduxWrapper } from '@/redux/store';
-import Header from '@components/Pages/ViewPage/Header';
-import Footer from '@components/Pages/ViewPage/Footer';
+import Header from '@components/PageComponent/ViewPage/Header';
+import Footer from '@components/PageComponent/ViewPage/Footer';
 
 const ViewPage = ({ children }: any) => {
     return (

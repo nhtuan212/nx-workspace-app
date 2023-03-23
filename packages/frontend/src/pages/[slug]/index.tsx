@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import SeoText from '@components/Seo/SeoText';
-import SeoHead from '@components/Seo/SeoHead';
+import SeoText from '@components/SeoComponent/SeoText';
+import SeoHead from '@components/SeoComponent/SeoHead';
 // import ProductList from '@components/Products/ProductList';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { listProductAction } from '@/redux/reducers/productSlice';
-const ProductList = dynamic(() => import('@components/Products/ProductList'));
+const ProductList = dynamic(
+    () => import('@components/ProductComponent/ProductList'),
+);
 
 const Slug = ({ posts }: any) => {
     const dataSeo = {

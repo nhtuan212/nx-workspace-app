@@ -6,7 +6,10 @@ const SeoHead = (props: any) => {
         <>
             <Head>
                 {/* Meta Viewport */}
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
 
                 {/* <meta name="robots" content="index,follow" /> */}
                 {/* <meta name="author" content="" /> */}
@@ -19,7 +22,10 @@ const SeoHead = (props: any) => {
                 {/* Meta Seo Web */}
                 <title>{props?.data?.seoTitle}</title>
                 <meta name="keywords" content={props?.data?.seoKeywords} />
-                <meta name="description" content={props?.data?.seoDescription} />
+                <meta
+                    name="description"
+                    content={props?.data?.seoDescription}
+                />
 
                 {/* Meta Facebook */}
                 {/* <meta property="og:type" content="website" /> */}

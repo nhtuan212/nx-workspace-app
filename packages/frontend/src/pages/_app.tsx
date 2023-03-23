@@ -4,7 +4,7 @@ import { Roboto } from '@next/font/google';
 import { Provider } from 'react-redux';
 import { AppStore, ReduxWrapper } from '@/redux/store';
 import { getMenuAction } from '@reducers/menuSlice';
-import ViewPage from '@/components/Pages/ViewPage';
+import ViewPage from '@components/PageComponent/ViewPage';
 import 'public/assets/css/globals.css';
 
 const roboto = Roboto({
@@ -30,14 +30,18 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
     );
 };
 
-MyApp.getInitialProps = ReduxWrapper.getInitialPageProps((store: AppStore) => async (ctx: any) => {
-    // Handle SSR from ViewPage
-    const ViewPageProps = ViewPage.getInitialProps ? await ViewPage.getInitialProps(ctx) : {};
+MyApp.getInitialProps = ReduxWrapper.getInitialPageProps(
+    (store: AppStore) => async (ctx: any) => {
+        // Handle SSR from ViewPage
+        const ViewPageProps = ViewPage.getInitialProps
+            ? await ViewPage.getInitialProps(ctx)
+            : {};
 
-    // Dispatch from Server
-    await store.dispatch(getMenuAction());
+        // Dispatch from Server
+        await store.dispatch(getMenuAction());
 
-    return { ViewPageProps };
-});
+        return { ViewPageProps };
+    },
+);
 
 export default MyApp;

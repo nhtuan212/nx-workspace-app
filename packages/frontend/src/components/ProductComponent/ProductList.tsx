@@ -7,7 +7,9 @@ const ProductList = (props: productListInterface) => {
         props?.data && (
             <section className="hot-products py-1 sm:py-0.5">
                 <div className="container">
-                    {props?.title && <p className="title text-center">{props?.title}</p>}
+                    {props?.title && (
+                        <p className="title text-center">{props?.title}</p>
+                    )}
                     <div className="d-flex flex-wrap">
                         {props?.data.map((item: any, id: string | number) => (
                             <ProductItems key={id} data={item} />
