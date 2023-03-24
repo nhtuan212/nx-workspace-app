@@ -4,8 +4,7 @@ import { imageInterface } from '@/interface';
 const ImageComponent = ({
     src,
     title,
-    width,
-    height,
+    priority,
     alt = 'Image',
     objectFit = 'contain',
     objectPosition = 'center',
@@ -16,10 +15,10 @@ const ImageComponent = ({
 
     // Functions
     const handleImageLoad = (event: any) => {
-        const imageHeight = event.target.naturalHeight;
         const imageWidth = event.target.naturalWidth;
-        setSlideHeight(imageHeight);
+        const imageHeight = event.target.naturalHeight;
         setSlideWidth(imageWidth);
+        setSlideHeight(imageHeight);
     };
 
     return (
@@ -27,11 +26,12 @@ const ImageComponent = ({
             src={src as string}
             alt={alt}
             title={title}
-            width={width || slideWidth}
-            height={height || slideHeight}
+            width={slideWidth}
+            height={slideHeight}
             style={{ objectFit: objectFit, objectPosition: objectPosition }}
             sizes="100mw"
-            loading="lazy"
+            loading={!priority ? 'lazy' : undefined}
+            priority={priority}
             onLoad={handleImageLoad}
         />
     );

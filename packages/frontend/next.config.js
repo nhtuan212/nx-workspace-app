@@ -3,6 +3,7 @@
 const nextConfig = {
     reactStrictMode: false,
     images: {
+		// allowFutureImage: true,
 		remotePatterns: [
 			{
 				protocol: 'https',

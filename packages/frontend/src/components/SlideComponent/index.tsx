@@ -31,9 +31,8 @@ const SlideComponent = () => {
                             <ImageComponent
                                 src={item?.src}
                                 alt={item?.name}
-                                width={1920}
-                                height={500}
                                 objectFit={'cover'}
+                                priority
                             />
                         </SwiperSlide>
                     ))}
