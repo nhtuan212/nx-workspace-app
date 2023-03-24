@@ -30,8 +30,6 @@ const DetailComponent = (props: any) => {
 
     // Hook
     useEffect(() => {
-        console.log({ router });
-
         dispatch(
             productListAction({
                 slug: router?.asPath,
