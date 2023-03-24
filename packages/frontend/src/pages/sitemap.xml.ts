@@ -1,3 +1,6 @@
+import { HTTP_CODE } from '@/constants';
+import { isEmpty } from 'lodash';
+
 const EXTERNAL_DATA_URL = 'https://61dd3beff60e8f0017668670.mockapi.io/';
 
 const handleSitemapItem = (url: string) => {
@@ -21,11 +24,11 @@ const handleSitemapArray = (props: any) => {
 	`;
 };
 
-const generateSiteMap = (...props: any) => {
+const generateSiteMap = (...props: []) => {
     return `<?xml version="1.0" encoding="UTF-8"?>
 		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 			<!--We manually set the two URLs we know already-->
-			${handleSitemapArray(props)};
+			${!isEmpty(props) ? handleSitemapArray(props) : []}
 		</urlset>
 	`;
 };
@@ -37,21 +40,31 @@ function SiteMap() {
 export async function getServerSideProps({ req, res }: any) {
     const BASE_URL = req.headers.host;
 
-    // We make an API call to gather the URLs for our site
-    const menuApi = await fetch(EXTERNAL_DATA_URL + 'menus');
-    const menuResponse = await menuApi.json();
+    // Call API
+    const menuApi = await fetch(EXTERNAL_DATA_URL + 'menus').then(response => {
+        if (response?.status === HTTP_CODE.SUCCESS) {
+            return response.json();
+        }
+    });
+    const productApi = await fetch(EXTERNAL_DATA_URL + 'products').then(
+        response => {
+            if (response?.status === HTTP_CODE.SUCCESS) {
+                return response.json();
+            }
+        },
+    );
 
     // Auto Sitemap Paths
-    const dynamicPaths: [] = menuResponse.map(
-        (item: any) => `${BASE_URL}/${item?.slug}`,
-    );
-    const responseAllPaths = [...dynamicPaths];
+    const dynamicPaths: string[] = [
+        ...menuApi.map((item: any) => `${BASE_URL}/${item?.slug}`),
+        ...productApi.map((item: any) => `${BASE_URL}/${item?.slug}`),
+    ];
 
-    // We generate the XML sitemap with the api data
-    const sitemap = generateSiteMap(...responseAllPaths);
+    // Generate the XML sitemap with the api data
+    const sitemap = generateSiteMap(...(dynamicPaths as []));
 
     res.setHeader('Content-Type', 'text/xml');
-    // we send the XML to the browser
+    // Send the XML to the browser
     res.write(sitemap);
     res.end();
 
