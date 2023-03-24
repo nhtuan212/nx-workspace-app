@@ -34,6 +34,8 @@ export interface buttonInterface extends iconInterface {
 export interface inputInterface {
     className?: string;
     onChange?: any;
+    onKeyDown?: any;
+    autoFocus?: boolean;
     disabled?: boolean;
     type?: 'text' | 'number';
     placeHolder?: string;

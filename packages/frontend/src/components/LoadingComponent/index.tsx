@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './loadingStyles.module.scss';
 
 const Loading = () => {
-    // Setup ClassName
+    // ClassNames
     const loadingClassName = classNames(
         'h-100vh d-flex justify-center align-center',
         styles['loading'],

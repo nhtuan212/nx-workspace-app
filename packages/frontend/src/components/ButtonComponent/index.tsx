@@ -13,7 +13,7 @@ const ButtonComponent = ({
     type,
     text,
 }: buttonInterface) => {
-    // Setup ClassName
+    // ClassNames
     const buttonClassName = classNames('button', className && className);
 
     // Functions
@@ -30,8 +30,15 @@ const ButtonComponent = ({
     }, []);
 
     return (
-        <button className={buttonClassName} type={type} disabled={disabled} onClick={onClickButton}>
-            {icon && <IconComponent icon={icon} iconClassName={iconClassName} />}
+        <button
+            className={buttonClassName}
+            type={type}
+            disabled={disabled}
+            onClick={onClickButton}
+        >
+            {icon && (
+                <IconComponent icon={icon} iconClassName={iconClassName} />
+            )}
             {text && <span>{text}</span>}
         </button>
     );

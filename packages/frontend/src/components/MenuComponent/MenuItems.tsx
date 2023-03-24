@@ -9,7 +9,7 @@ const MenuItems = (props: any) => {
     const [isSubMenu, setIsSubMenu] = useState<boolean>(false);
     const { slug, name, subMenus }: any = props?.data || undefined;
 
-    // Setup ClassName
+    // ClassNames
     const itemMenuClassName = classNames(isSubMenu && 'd-flex align-center');
 
     // Hook
@@ -24,7 +24,10 @@ const MenuItems = (props: any) => {
                     <span>{name}</span>
                     {isSubMenu && (
                         <span className="icon icon--tiny10 ml-0.5">
-                            <SvgIcons kind={ICON.KEY.CHEVRON} direction={'down'} />
+                            <SvgIcons
+                                kind={ICON.KEY.CHEVRON}
+                                direction={'down'}
+                            />
                         </span>
                     )}
                 </Link>

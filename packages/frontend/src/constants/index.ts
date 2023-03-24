@@ -10,6 +10,7 @@ export const HTTP_CODE = {
 
 export const PAGE = {
     HOME: '/',
+    SEARCH: 'tim-kiem',
 };
 
 export const ICON = {
@@ -29,6 +30,11 @@ export const ICON = {
         LEFT: 'left',
         RIGHT: 'right',
     },
+};
+
+export const KEY_CODE = {
+    ENTER: 13,
+    ESCAPE: 27,
 };
 
 export const TEXT = {

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './contactStyles.module.scss';
 
 const ContactPage = () => {
-    // Setup ClassName
+    // ClassNames
     const iframeClassName = classNames('border-0 w-100', styles['iframe']);
 
     return (

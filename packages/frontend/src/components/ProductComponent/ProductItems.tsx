@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './productStyles.module.scss';
 
 const ProductItems = (props: any) => {
-    // Setup ClassName
+    // ClassNames
     const imageClassName = classNames(
         'd-flex align-center mb-0.5 rounded-lg',
         styles['product-image'],

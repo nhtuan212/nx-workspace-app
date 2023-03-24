@@ -5,6 +5,7 @@ import SeoText from '@components/SeoComponent/SeoText';
 import SeoHead from '@components/SeoComponent/SeoHead';
 import Loading from '@components/LoadingComponent';
 import { productSearchAction } from '@reducers/productSlice';
+import { useRouterCustomHook } from '@/helpers/customHook';
 
 const ProductList = dynamic(
     () => import('@components/ProductComponent/ProductList'),
@@ -15,6 +16,7 @@ const ProductList = dynamic(
 );
 
 const SearchComponent = (props: any) => {
+    const router = useRouterCustomHook();
     // Variables
     const dataSeo = {
         resolvedUrl: props?.resolvedUrl,
@@ -29,10 +31,10 @@ const SearchComponent = (props: any) => {
     useEffect(() => {
         dispatch(
             productSearchAction({
-                keyword: 'phone',
+                keyword: router?.query?.keyword,
             }),
         );
-    }, []);
+    }, [router?.query]);
 
     return (
         <div className="py-1">

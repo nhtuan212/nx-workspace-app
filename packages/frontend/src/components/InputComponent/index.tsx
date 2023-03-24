@@ -5,26 +5,30 @@ import classNames from 'classnames';
 const InputComponent = ({
     className,
     onChange,
+    onKeyDown,
+    autoFocus,
     disabled,
     type,
     text,
     placeHolder,
 }: inputInterface) => {
-    // Setup ClassName
+    // ClassNames
     const inputClassName = classNames('input', className && className);
 
     // Variables
-    const [value, setValue] = useState(text);
+    const [InputValue, setInputValue] = useState('');
 
     // Functions
-    const onChangeInput = (e: any) => setValue(e?.target?.value);
+    const onChangeInput = (e: any) => setInputValue(e?.target?.value);
 
     return (
         <input
             className={inputClassName}
             onChange={onChange || onChangeInput}
+            onKeyDown={onKeyDown}
+            autoFocus={autoFocus}
             type={type}
-            value={value}
+            value={text || InputValue}
             placeholder={placeHolder}
             disabled={disabled}
         />
