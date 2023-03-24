@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import HomePage from '@components/PageComponent/HomePage';
 import SeoText from '@components/SeoComponent/SeoText';
 import SeoHead from '@components/SeoComponent/SeoHead';

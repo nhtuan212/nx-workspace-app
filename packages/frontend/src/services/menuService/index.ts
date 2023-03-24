@@ -1,6 +1,5 @@
 import { HTTP_CODE, METHOD } from '@/constants';
 import { axiosClient } from '@services/axiosClient';
-import ConfigApi from '@config/ConfigApi';
 
 export const menuService = {
     getMenu: async () => {
