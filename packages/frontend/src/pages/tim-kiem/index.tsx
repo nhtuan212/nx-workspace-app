@@ -1,5 +1,5 @@
-import SearchComponent from '@components/PageComponent/SearchComponent';
-export default SearchComponent;
+import SearchPage from '@components/PageComponent/SearchPage';
+export default SearchPage;
 
 export async function getServerSideProps({ resolvedUrl }: any) {
     return {

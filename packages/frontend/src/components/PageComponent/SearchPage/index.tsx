@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
+import { productSearchAction } from '@reducers/productSlice';
 import SeoText from '@components/SeoComponent/SeoText';
 import SeoHead from '@components/SeoComponent/SeoHead';
 import Loading from '@components/LoadingComponent';
-import { productSearchAction } from '@reducers/productSlice';
 import { useRouterCustomHook } from '@/helpers/customHook';
 
 const ProductList = dynamic(
@@ -27,7 +27,7 @@ const SearchComponent = (props: any) => {
 
     const { productSearch } = useSelector<any, any>(state => state?.product);
 
-    // Hook
+    // Hooks
     useEffect(() => {
         dispatch(
             productSearchAction({
@@ -37,20 +37,20 @@ const SearchComponent = (props: any) => {
     }, [router?.query]);
 
     return (
-        <div className="py-1">
-            <div className="container">
-                {productSearch && (
+        <>
+            <div className="py-1">
+                <div className="container">
                     <div className="py-2">
                         <ProductList
                             title={'Kết quả tìm kiếm'}
                             data={productSearch}
                         />
                     </div>
-                )}
-                <SeoText data={dataSeo} />
-                <SeoHead data={dataSeo} />
+                </div>
             </div>
-        </div>
+            <SeoText data={dataSeo} />
+            <SeoHead data={dataSeo} />
+        </>
     );
 };
 

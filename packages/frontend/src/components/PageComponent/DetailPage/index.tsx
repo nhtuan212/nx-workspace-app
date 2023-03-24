@@ -15,7 +15,7 @@ const ProductList = dynamic(
     },
 );
 
-const DetailComponent = (props: any) => {
+const DetailPage = (props: any) => {
     const router = useRouterCustomHook();
 
     // Variables
@@ -50,4 +50,4 @@ const DetailComponent = (props: any) => {
     );
 };
 
-export default DetailComponent;
+export default DetailPage;

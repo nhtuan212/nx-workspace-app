@@ -551,7 +551,11 @@ img {
   }
 }
 .bg-white {
-  background: white;
+  background: #ffffff;
+}
+
+.bg-gray238 {
+  background: rgb(238, 238, 238);
 }
 
 .animation-top {

@@ -65,3 +65,7 @@ export interface subMenuInterface {
     showSubMenu: boolean;
     data: [];
 }
+
+export interface emptyPageInterface {
+    message?: string;
+}

@@ -405,7 +405,11 @@ $backgrounds: (
     'background': (
         'property': 'background',
         'class': 'bg',
-        'values': 'white black',
+        'values': (
+            'white': '#ffffff',
+            'black': '#000000',
+            'gray238': 'rgb(238, 238, 238)',
+        ),
     ),
 );
 

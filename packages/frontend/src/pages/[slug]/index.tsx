@@ -1,5 +1,5 @@
-import DetailComponent from '@components/PageComponent/DetailComponent';
-export default DetailComponent;
+import DetailPage from '@/components/PageComponent/DetailPage';
+export default DetailPage;
 
 export async function getServerSideProps({ resolvedUrl }: any) {
     return {

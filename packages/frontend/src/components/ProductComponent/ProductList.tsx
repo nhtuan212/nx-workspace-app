@@ -1,6 +1,8 @@
 import React from 'react';
 import { productListInterface } from '@/interface';
 import ProductItems from './ProductItems';
+import EmptyPage from '../EmptyPage';
+import { isEmpty } from 'lodash';
 
 const ProductList = (props: productListInterface) => {
     return (
@@ -10,11 +12,17 @@ const ProductList = (props: productListInterface) => {
                     {props?.title && (
                         <p className="title text-center">{props?.title}</p>
                     )}
-                    <div className="d-flex flex-wrap">
-                        {props?.data.map((item: any, id: string | number) => (
-                            <ProductItems key={id} data={item} />
-                        ))}
-                    </div>
+                    {!isEmpty(props?.data) ? (
+                        <div className="d-flex flex-wrap">
+                            {props?.data.map(
+                                (item: any, id: string | number) => (
+                                    <ProductItems key={id} data={item} />
+                                ),
+                            )}
+                        </div>
+                    ) : (
+                        <EmptyPage />
+                    )}
                 </div>
             </section>
         )
