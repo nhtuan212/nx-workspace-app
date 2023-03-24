@@ -10,15 +10,15 @@ const ImageComponent = ({
     objectPosition = 'center',
 }: imageInterface) => {
     // Variables
-    const [slideWidth, setSlideWidth] = useState<number>(0);
-    const [slideHeight, setSlideHeight] = useState<number>(0);
+    const [imgWidth, setImgWidth] = useState<number>(0);
+    const [imgHeight, setImgHeight] = useState<number>(0);
 
     // Functions
     const handleImageLoad = (event: any) => {
         const imageWidth = event.target.naturalWidth;
         const imageHeight = event.target.naturalHeight;
-        setSlideWidth(imageWidth);
-        setSlideHeight(imageHeight);
+        setImgWidth(imageWidth);
+        setImgHeight(imageHeight);
     };
 
     return (
@@ -26,8 +26,8 @@ const ImageComponent = ({
             src={src as string}
             alt={alt}
             title={title}
-            width={slideWidth}
-            height={slideHeight}
+            width={imgWidth}
+            height={imgHeight}
             style={{ objectFit: objectFit, objectPosition: objectPosition }}
             sizes="100mw"
             loading={!priority ? 'lazy' : undefined}
