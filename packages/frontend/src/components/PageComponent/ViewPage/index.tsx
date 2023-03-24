@@ -26,11 +26,7 @@ const ViewPage = ({ children }: any) => {
 
 // ViewPage.getInitialProps = ReduxWrapper.getInitialPageProps(
 //     (store: AppStore) => async () => {
-//         console.log({ store });
-//         // await store.dispatch(getMenu());
-//         // return {
-//         // 	data: ''
-//         // }
+//         await store.dispatch(getMenuAction());
 //     },
 // );
 

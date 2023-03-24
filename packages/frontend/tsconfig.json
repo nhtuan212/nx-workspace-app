@@ -24,6 +24,6 @@
       "@helpers/*": ["./src/helpers/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/services/menuService"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/services/menuService", "src/pages/sitemap.xml.ts"],
   "exclude": ["node_modules"]
 }
