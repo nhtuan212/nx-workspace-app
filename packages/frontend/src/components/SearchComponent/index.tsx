@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ButtonComponent from '@components/ButtonComponent';
 import InputComponent from '@components/InputComponent';
@@ -12,9 +12,7 @@ const SearchComponent = () => {
     // Variables
     const [showSearch, setShowSearch] = useState(false);
     const [inputFocus, setInputFocus] = useState(false);
-    const [inputValue, setInputValue] = useState<any>(
-        router?.query?.keyword || '',
-    );
+    const [inputValue, setInputValue] = useState<any>('');
 
     // ClassNames
     const searchClassName = classNames(
@@ -52,6 +50,15 @@ const SearchComponent = () => {
                 break;
         }
     };
+
+    // Hooks
+    useEffect(() => {
+        setInputValue(router?.query?.keyword);
+
+        return () => {
+            setInputValue('');
+        };
+    }, [router?.query]);
 
     return (
         <div className="search">

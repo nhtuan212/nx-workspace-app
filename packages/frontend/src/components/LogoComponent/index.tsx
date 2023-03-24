@@ -4,12 +4,8 @@ import SvgIcons from '@components/IconComponent/SvgIcons';
 import { ICON, PAGE } from '@/constants';
 
 const LogoComponent = () => {
-    const onLogoClick = () => {
-        window.location.href = PAGE.HOME;
-    };
-
     return (
-        <Link href={PAGE.HOME} onClick={onLogoClick}>
+        <Link href={PAGE.HOME}>
             <span className="icon icon--8x">
                 <SvgIcons kind={ICON.KEY.LOGO} />
             </span>
