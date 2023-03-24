@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import SvgIcons from '@components/IconComponent/SvgIcons';
-import { ICON } from '@/constants';
+import { ICON, PAGE } from '@/constants';
 import classNames from 'classnames';
 
 const MenuItems = (props: any) => {
@@ -12,7 +12,7 @@ const MenuItems = (props: any) => {
     // ClassNames
     const itemMenuClassName = classNames(isSubMenu && 'd-flex align-center');
 
-    // Hook
+    // Hooks
     useEffect(() => {
         setIsSubMenu(Array.isArray(subMenus) && subMenus.length > 0);
     }, []);
@@ -20,12 +20,12 @@ const MenuItems = (props: any) => {
     return (
         <div>
             <li className="p-1.5">
-                <Link className={itemMenuClassName} href={slug}>
+                <Link href={slug || PAGE.HOME} className={itemMenuClassName}>
                     <span>{name}</span>
                     {isSubMenu && (
                         <span className="icon icon--tiny10 ml-0.5">
                             <SvgIcons
-                                kind={ICON.KEY.CHEVRON}
+                                kind={ICON.FONT.CHEVRON}
                                 direction={'down'}
                             />
                         </span>
