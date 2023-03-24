@@ -11,7 +11,7 @@ const MenuComponent = () => {
     const [menuList, setMenuList] = useState<any>([]);
     const [menuMoreList, setMenuMoreList] = useState<any>([]);
 
-    // Hook
+    // Hooks
     useEffect(() => {
         const menuLimit = 3;
         !isEmpty(getMenu) && setMenuList(getMenu.slice(0, menuLimit));
