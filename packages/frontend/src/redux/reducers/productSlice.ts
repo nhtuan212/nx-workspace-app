@@ -14,8 +14,8 @@ export const flashSaleProductAction: any = createAsyncThunk(
 );
 export const productListAction: any = createAsyncThunk(
     '/productList',
-    async () => {
-        return await productService.productList();
+    async ({ slug }: any) => {
+        return await productService.productList({ slug });
     },
 );
 export const productSearchAction: any = createAsyncThunk(

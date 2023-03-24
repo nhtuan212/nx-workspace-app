@@ -5,6 +5,7 @@ import { productListAction } from '@reducers/productSlice';
 import SeoText from '@components/SeoComponent/SeoText';
 import SeoHead from '@components/SeoComponent/SeoHead';
 import Loading from '@components/LoadingComponent';
+import { useRouterCustomHook } from '@/helpers/customHook';
 
 const ProductList = dynamic(
     () => import('@components/ProductComponent/ProductList'),
@@ -15,6 +16,8 @@ const ProductList = dynamic(
 );
 
 const DetailComponent = (props: any) => {
+    const router = useRouterCustomHook();
+
     // Variables
     const dataSeo = {
         resolvedUrl: props?.resolvedUrl,
@@ -27,14 +30,20 @@ const DetailComponent = (props: any) => {
 
     // Hook
     useEffect(() => {
-        dispatch(productListAction());
-    }, []);
+        console.log({ router });
+
+        dispatch(
+            productListAction({
+                slug: router?.asPath,
+            }),
+        );
+    }, [router?.asPath]);
 
     return (
         <>
             {productList && (
                 <div className="py-2">
-                    <ProductList title={'Áo thun'} data={productList} />
+                    <ProductList title={router?.asPath} data={productList} />
                 </div>
             )}
             <SeoText data={dataSeo} />

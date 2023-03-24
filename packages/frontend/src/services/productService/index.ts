@@ -21,8 +21,8 @@ export const productService = {
             }
         });
     },
-    productList: async () => {
-        const url = `${ConfigApi.productApi}?limit=10`;
+    productList: async ({ slug }: any) => {
+        const url = `${ConfigApi.productApi}/category${slug}`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {

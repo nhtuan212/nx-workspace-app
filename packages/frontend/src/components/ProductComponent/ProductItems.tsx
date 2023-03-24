@@ -13,7 +13,7 @@ const ProductItems = (props: any) => {
 
     return (
         <div className="product-items md:col-3 sm:col-4 col-6 p-0.5">
-            <Link href="">
+            <Link href={`/${props?.data?.id}`}>
                 <div className={imageClassName}>
                     <ImageComponent src={props?.data?.thumbnail} />
                 </div>
