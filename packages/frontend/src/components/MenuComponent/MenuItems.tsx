@@ -26,7 +26,7 @@ const MenuItems = (props: any) => {
                         <span className="icon icon--tiny10 ml-0.5">
                             <SvgIcons
                                 kind={ICON.FONT.CHEVRON}
-                                direction={'down'}
+                                direction={ICON.DIRECTION.DOWN}
                             />
                         </span>
                     )}
