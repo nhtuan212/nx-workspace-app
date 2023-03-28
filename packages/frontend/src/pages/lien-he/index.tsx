@@ -1,2 +1,2 @@
-import SearchPage from '@components/PageComponent/ContactPage';
-export default SearchPage;
+import ContactPage from '@components/PageComponent/ContactPage';
+export default ContactPage;
