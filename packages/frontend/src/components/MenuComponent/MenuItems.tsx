@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import SvgIcons from '@components/IconComponent/SvgIcons';
 import { ICON, PAGE } from '@/constants';
 import classNames from 'classnames';
+import IconComponent from '../IconComponent';
 
 const MenuItems = (props: any) => {
     // Variables
@@ -14,6 +14,8 @@ const MenuItems = (props: any) => {
 
     // Hooks
     useEffect(() => {
+        console.log({ subMenus });
+
         setIsSubMenu(Array.isArray(subMenus) && subMenus.length > 0);
     }, []);
 
@@ -23,12 +25,11 @@ const MenuItems = (props: any) => {
                 <Link href={slug || PAGE.HOME} className={itemMenuClassName}>
                     <span>{name}</span>
                     {isSubMenu && (
-                        <span className="icon icon--tiny10 ml-0.5">
-                            <SvgIcons
-                                kind={ICON.FONT.CHEVRON}
-                                direction={ICON.DIRECTION.DOWN}
-                            />
-                        </span>
+                        <IconComponent
+                            icon={ICON.FONT.CHEVRON}
+                            direction={ICON.DIRECTION.DOWN}
+                            iconClassName="text-10 ml-0.5"
+                        />
                     )}
                 </Link>
             </li>
