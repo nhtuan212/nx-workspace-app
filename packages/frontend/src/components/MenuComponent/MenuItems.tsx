@@ -14,8 +14,6 @@ const MenuItems = (props: any) => {
 
     // Hooks
     useEffect(() => {
-        console.log({ subMenus });
-
         setIsSubMenu(Array.isArray(subMenus) && subMenus.length > 0);
     }, []);
 
