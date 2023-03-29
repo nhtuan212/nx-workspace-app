@@ -7,14 +7,15 @@
         "build": "next build",
         "start": "next start",
         "format": "prettier --write \"src/**/*.{ts,tsx,json,scss}\"",
+        "lint": "eslint --quiet \"src/**/*.{ts,tsx,json}\"",
         "build-scss": "sass -w src/scss/:public/assets/css/",
         "minify-css": "css-minify -d public/assets/css/ -o public/assets/css/",
         "lint-staged": "lint-staged"
     },
     "lint-staged": {
         "src/**/*.{ts,tsx,json,scss}": [
-            "prettier --write",
-            "eslint --quiet"
+            "yarn format",
+            "yarn lint"
         ]
     },
     "dependencies": {
