@@ -33,7 +33,11 @@
         /// Check if properties has '-'
         $value: string.slice($key, 1);
     }
-    $new-value: setting.str-replace($key, setting.$dot, setting.$state + setting.$dot);
+    $new-value: setting.str-replace(
+        $key,
+        setting.$dot,
+        setting.$state + setting.$dot
+    );
     $infix: if(map.has-key($map, $value), $new-value, '');
 
     // Log debug $infix
@@ -51,7 +55,10 @@
         /// Check variable sides: x || y
         .#{$infix}#{$class}#{$spacing-infix} {
             @each $position in map.get($side-list, $side) {
-                #{$property}-#{$position}: map.get(negative-merge($spacer, $value-list), $spacer);
+                #{$property}-#{$position}: map.get(
+                    negative-merge($spacer, $value-list),
+                    $spacer
+                );
             }
         }
     } @else {

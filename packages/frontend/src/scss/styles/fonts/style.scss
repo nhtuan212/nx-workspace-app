@@ -5,8 +5,10 @@
     src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?8smmk9');
     src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?8smmk9#iefix')
             format('embedded-opentype'),
-        url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?8smmk9') format('truetype'),
-        url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?8smmk9') format('woff'),
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?8smmk9')
+            format('truetype'),
+        url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?8smmk9')
+            format('woff'),
         url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?8smmk9##{$icomoon-font-family}')
             format('svg');
     font-weight: normal;

@@ -22,6 +22,13 @@ const makeStore: MakeStore<any> = () =>
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type AppState = ReturnType<AppStore['getState']>;
-export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppState, unknown, Action>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+    ReturnType,
+    AppState,
+    unknown,
+    Action
+>;
 
-export const ReduxWrapper = createWrapper<AppStore>(makeStore, { debug: false });
+export const ReduxWrapper = createWrapper<AppStore>(makeStore, {
+    debug: false,
+});

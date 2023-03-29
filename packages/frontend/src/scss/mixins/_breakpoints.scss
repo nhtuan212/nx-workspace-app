@@ -48,7 +48,11 @@ $breakpoint-map: sets.$breakpoints;
 @function breakpoint-infix($name, $breakpoints: $breakpoint-map) {
     // Check if $name value exists in map checks the value $name if not exists in the map
     // return null, otherwise returns -#{$name}
-    $infix: if(breakpoint-max($name, $breakpoints) ==null, '', $name + sets.$state + sets.$colon);
+    $infix: if(
+        breakpoint-max($name, $breakpoints) ==null,
+        '',
+        $name + sets.$state + sets.$colon
+    );
     // Log debug $infix
     // @debug "breakpoint-infix #{$infix}";
     // Returned

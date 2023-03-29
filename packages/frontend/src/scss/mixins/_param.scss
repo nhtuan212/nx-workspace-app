@@ -11,8 +11,16 @@
         $has-breakpoint: mixin.breakpoint-isset($value, setting.$colon);
 
         /// Check key and property when has-breakpoint
-        $breakpoint-key: setting.find($value, setting.$colon, $find: 'start'); // value before ':'
-        $breakpoint-property: setting.find($value, setting.$colon, $find: 'end'); // value after ':'
+        $breakpoint-key: setting.find(
+            $value,
+            setting.$colon,
+            $find: 'start'
+        ); // value before ':'
+        $breakpoint-property: setting.find(
+            $value,
+            setting.$colon,
+            $find: 'end'
+        ); // value after ':'
 
         $value: if($has-breakpoint, $breakpoint-property, $value);
         $infix: if(
@@ -39,13 +47,22 @@
                     @if map.has-key($maps, $space) {
                         .#{$infix}#{$class}#{$spacing-infix} {
                             @each $position in map.get($sides, $side) {
-                                #{$property}-#{$position}: map.get($maps, $space);
+                                #{$property}-#{$position}: map.get(
+                                    $maps,
+                                    $space
+                                );
                             }
                         }
                     } @else {
                         /// Check negative-margins
                         /// Has n in property
-                        @include mixin.negative-margins($property, $class, $value, $side, $space);
+                        @include mixin.negative-margins(
+                            $property,
+                            $class,
+                            $value,
+                            $side,
+                            $space
+                        );
                     }
                 }
             }
@@ -53,7 +70,11 @@
             @if setting.isset($maps, $value) {
                 @include mixin.media-breakpoint-up($breakpoint-key) {
                     // Check if $class == '' => return value none "-"
-                    $class-value: if($class != '' and $value != '', #{setting.$dash}, '') + $value;
+                    $class-value: if(
+                            $class != '' and $value != '',
+                            #{setting.$dash},
+                            ''
+                        ) + $value;
 
                     .#{$infix}#{$class}#{$class-value} {
                         // Check property to return mixin scss

@@ -21,7 +21,11 @@ const MenuMore = ({ data }: menuMoreInterface) => {
     };
 
     return (
-        <div className="pointer" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <div
+            className="pointer"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+        >
             <li className="d-flex align-center p-1.5 relative">
                 <IconComponent icon={ICON.FONT.BAR} iconClassName="mr-0.5" />
                 <IconComponent
@@ -29,7 +33,9 @@ const MenuMore = ({ data }: menuMoreInterface) => {
                     direction={ICON.DIRECTION.DOWN}
                     iconClassName="text-10"
                 />
-                {showSubMenu && <SubMenu showSubMenu={showSubMenu} data={data} />}
+                {showSubMenu && (
+                    <SubMenu showSubMenu={showSubMenu} data={data} />
+                )}
             </li>
         </div>
     );
