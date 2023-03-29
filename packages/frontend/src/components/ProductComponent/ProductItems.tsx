@@ -8,7 +8,7 @@ const ProductItems = (props: any) => {
     // ClassNames
     const imageClassName = classNames(
         'd-flex align-center mb-0.5 rounded-lg',
-        styles['product-image'],
+        styles['product-image']
     );
 
     return (

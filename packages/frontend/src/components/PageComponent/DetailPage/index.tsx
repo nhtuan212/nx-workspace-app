@@ -12,7 +12,7 @@ const ProductList = dynamic(
     {
         loading: () => <Loading />,
         ssr: false,
-    },
+    }
 );
 
 const DetailPage = (props: any) => {
@@ -33,7 +33,7 @@ const DetailPage = (props: any) => {
         dispatch(
             productListAction({
                 slug: router?.asPath,
-            }),
+            })
         );
     }, [router?.asPath]);
 

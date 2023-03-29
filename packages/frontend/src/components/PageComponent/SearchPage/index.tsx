@@ -12,7 +12,7 @@ const ProductList = dynamic(
     {
         loading: () => <Loading />,
         ssr: false,
-    },
+    }
 );
 
 const SearchComponent = (props: any) => {
@@ -32,7 +32,7 @@ const SearchComponent = (props: any) => {
         dispatch(
             productSearchAction({
                 keyword: router?.query?.keyword,
-            }),
+            })
         );
     }, [router?.query]);
 
