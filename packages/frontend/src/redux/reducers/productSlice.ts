@@ -10,19 +10,19 @@ export const flashSaleProductAction: any = createAsyncThunk(
     '/flashSaleProductAction',
     async () => {
         return await productService.flashSaleProductAction();
-    }
+    },
 );
 export const productListAction: any = createAsyncThunk(
     '/productList',
     async ({ slug }: any) => {
         return await productService.productList({ slug });
-    }
+    },
 );
 export const productSearchAction: any = createAsyncThunk(
     '/productSearch',
     async ({ keyword }: any) => {
         return await productService.productSearch({ keyword });
-    }
+    },
 );
 
 // State

@@ -9,14 +9,14 @@ const ProductList = dynamic(
     {
         loading: () => <Loading />,
         ssr: false,
-    }
+    },
 );
 
 const HomePage = () => {
     const dispatch = useDispatch();
 
     const { hotProduct, flashSaleProduct } = useSelector<any, any>(
-        state => state?.product
+        state => state?.product,
     );
 
     // Hook

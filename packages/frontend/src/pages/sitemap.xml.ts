@@ -51,7 +51,7 @@ export async function getServerSideProps({ req, res }: any) {
             if (response?.status === HTTP_CODE.SUCCESS) {
                 return response.json();
             }
-        }
+        },
     );
 
     // Auto Sitemap Paths

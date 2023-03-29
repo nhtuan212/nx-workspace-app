@@ -9,7 +9,7 @@ const subMenu = ({ data }: subMenuInterface) => {
     // ClassNames
     const subMenuClassname = classNames(
         'absolute w-100 top-100 left-0 p-1 bg-white animation-top border-top',
-        styles['sub-menu']
+        styles['sub-menu'],
     );
 
     // Hook

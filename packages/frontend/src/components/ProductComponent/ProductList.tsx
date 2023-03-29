@@ -17,7 +17,7 @@ const ProductList = (props: productListInterface) => {
                             {props?.data.map(
                                 (item: any, id: string | number) => (
                                     <ProductItems key={id} data={item} />
-                                )
+                                ),
                             )}
                         </div>
                     ) : (

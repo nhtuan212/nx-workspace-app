@@ -8,7 +8,7 @@ export const useRouterCustomHook = () => {
 
 export const useViewport = () => {
     const [width, setWidth] = useState<number>(
-        typeof window !== 'undefined' ? window.innerWidth : 1920
+        typeof window !== 'undefined' ? window.innerWidth : 1920,
     );
 
     useEffect(() => {

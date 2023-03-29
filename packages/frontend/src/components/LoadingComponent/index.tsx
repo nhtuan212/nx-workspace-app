@@ -6,7 +6,7 @@ const Loading = () => {
     // ClassNames
     const loadingClassName = classNames(
         'h-100vh d-flex justify-center align-center',
-        styles['loading']
+        styles['loading'],
     );
 
     return (
