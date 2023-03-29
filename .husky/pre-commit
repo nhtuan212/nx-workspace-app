@@ -3,14 +3,14 @@
 
 echo '🏗️👷 Styling, testing and building your project before committing'
 
-yarn lint-staged ||
-(
-    echo '🆘🚫 Prettier Format Failed. Run npm run lint-staged ==> and try commit again.';
-    false;
-)
 yarn lint ||
 (
     echo '🆘🚫 Es Lint founded Error. Plesase recheck and commit again';
+    false;
+)
+yarn lint-staged ||
+(
+    echo '🆘🚫 Prettier Format Failed. Run npm run lint-staged ==> and try commit again.';
     false;
 )
 
