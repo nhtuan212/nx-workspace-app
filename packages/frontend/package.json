@@ -6,7 +6,6 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
         "format": "prettier --write \"src/**/*.{ts,tsx,json,scss}\"",
         "build-scss": "sass -w src/scss/:public/assets/css/",
         "minify-css": "css-minify -d public/assets/css/ -o public/assets/css/",
@@ -14,7 +13,8 @@
     },
     "lint-staged": {
         "src/**/*.{ts,tsx,json,scss}": [
-            "prettier --write"
+            "prettier --write",
+            "eslint --quiet"
         ]
     },
     "dependencies": {
