@@ -1,4 +1,4 @@
-import express from "express"
+import express from 'express'
 const app = express()
 const port = 2000
 
@@ -8,4 +8,6 @@ app.get('/api', (req: any, res: any) => {
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`)
+	console.log('abc')
+	
 })
