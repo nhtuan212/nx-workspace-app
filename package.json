@@ -8,6 +8,7 @@
         "frontend-dev": "yarn --cwd packages/frontend dev",
         "start": "npm run dev --workspaces",
         "build": "npm run build --workspaces",
+        "format": "npm run format --workspaces",
         "lint": "npm run lint --workspaces",
         "prepare": "husky install",
         "lint-staged": "npm run lint-staged --workspaces"
