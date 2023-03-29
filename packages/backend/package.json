@@ -6,12 +6,18 @@
     "scripts": {
         "dev": "ts-node src/index.ts",
         "lint-staged": "lint-staged",
-        "lint": "eslint \"./**/*.js\" --quiet",
+        "lint": "eslint",
+        "lintFix": "eslint --fix 'src/**/*.{ts,tsx,json,scss}'",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "lint-staged": {
         "src/**/*.{ts,tsx,json,scss}": [
             "prettier --write"
+        ]
+    },
+    "eslint": {
+        "src/**/*.{ts,tsx,json,scss}": [
+            "eslint --quiet"
         ]
     },
     "author": "Nguyen Hoang Tuan",
