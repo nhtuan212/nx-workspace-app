@@ -1,61 +1,36 @@
+/// Load
+@use 'sass:math';
+
 /// Mixin
-@keyframes fadeIntop {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-20px);
-        -ms-transform: translateY(-20px);
-        transform: translateY(-20px);
+@mixin keyframes($position) {
+    $value: 1rem;
+    $valueTranslate: '';
+    $positionTranslate: '';
+    @if ($position == 'top' or $position == 'bottom') {
+        $valueTranslate: if($position == 'top', calc($value * -1), null);
+        $positionTranslate: translateY;
     }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-        transform: translateY(0);
+    @if ($position == 'left' or $position == 'right') {
+        $valueTranslate: if($position == 'left', calc($value * -1), null);
+        $positionTranslate: translateX;
     }
-}
-@keyframes fadeInbottom {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(20px);
-        -ms-transform: translateY(20px);
-        transform: translateY(20px);
+    @keyframes fadeIn#{$position} {
+        0% {
+            opacity: 0;
+            -webkit-transform: #{$positionTranslate }(#{$valueTranslate});
+            -ms-transform: #{$positionTranslate }(#{$valueTranslate});
+            transform: #{$positionTranslate }(#{$valueTranslate});
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: $positionTranslate(0);
+            -ms-transform: $positionTranslate(0);
+            transform: $positionTranslate(0);
+        }
     }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-@keyframes fadeInleft {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-20px);
-        -ms-transform: translateX(-20px);
-        transform: translateX(-20px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-@keyframes fadeInright {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(20px);
-        -ms-transform: translateX(20px);
-        transform: translateX(20px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-        transform: translateX(0);
-    }
+    animation: 0.5s fadeIn#{$position};
 }
 
 @mixin animation($value) {
-    animation: 0.5s fadeIn#{$value};
+    @include keyframes($value);
 }

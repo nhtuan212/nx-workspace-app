@@ -1,0 +1,24 @@
+/// Load
+@use '../settings/function' as *;
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: rem(25);
+    &--8x {
+        max-width: rem(80);
+    }
+    &--large {
+        max-width: rem(32);
+    }
+    &--small {
+        max-width: rem(20);
+    }
+    &--tiny10 {
+        max-width: rem(10);
+    }
+    &--tiny5 {
+        max-width: rem(5);
+    }
+}

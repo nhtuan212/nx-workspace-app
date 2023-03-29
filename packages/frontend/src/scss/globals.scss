@@ -1,10 +1,18 @@
 /// Icons Font
 @forward './styles/fonts/style';
 
+/// Modules Style
+@forward './vendor/input';
+@forward './vendor/container';
+@forward './vendor/icon';
+@forward './vendor/title';
+
 /// Common Style
 @forward './styles/swiper';
 @forward './styles/styles';
 
+/// Utilities Style
+@forward './vendor/animation';
 @forward './vendor/display';
 @forward './vendor/size';
 @forward './vendor/flex';
@@ -15,7 +23,6 @@
 @forward './vendor/border';
 // @forward './vendor/overflow';
 @forward './vendor/background';
-@forward './vendor/animation';
 @forward './vendor/hover';
 @forward './vendor/objectfit';
 @forward './vendor/seo';
