@@ -16,11 +16,6 @@
             "yarn lint"
         ]
     },
-    "eslint": {
-        "src/**/*.{ts,tsx,json,scss}": [
-            "eslint --quiet"
-        ]
-    },
     "author": "Nguyen Hoang Tuan",
     "license": "ISC",
     "dependencies": {
