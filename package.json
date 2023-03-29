@@ -3,9 +3,9 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "dev": "concurrently & yarn frontend-dev & yarn backend-dev",
-        "frontend-dev": "yarn --cwd packages/frontend dev",
+        "dev": "concurrently & yarn backend-dev & yarn frontend-dev",
         "backend-dev": "yarn --cwd packages/backend dev",
+        "frontend-dev": "yarn --cwd packages/frontend dev",
         "start": "npm run dev --workspaces",
         "build": "npm run build --workspaces",
         "lint": "npm run lint --workspaces",
