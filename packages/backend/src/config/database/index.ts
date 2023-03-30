@@ -6,3 +6,8 @@ export const DatabaseConnection = mysql.createConnection({
     password: '',
     database: process.env.PUBLIC_DATABASE,
 });
+
+/// Database Connect
+DatabaseConnection.connect(err => {
+    if (err) throw err;
+});

@@ -10,29 +10,24 @@ import { ENV_EXTENSION, ENV_PORT } from './config/constants';
 const app = express();
 const port = ENV_PORT;
 
+/// Static patch
 app.use(express.static(path.join(__dirname, '../public')));
+
+/// Database
+DatabaseConnection;
 
 /// Log information from server
 app.use(morgan('combined'));
 
-/// Template engine
+/// Config express-handlebars
 const handlebars = create({
     extname: ENV_EXTENSION,
 });
+
+/// Template engine
 app.engine(ENV_EXTENSION, handlebars.engine);
 app.set('view engine', ENV_EXTENSION);
 app.set('views', path.join(__dirname, 'views'));
-
-/// Handle Database
-DatabaseConnection.connect();
-DatabaseConnection.query(
-    'SELECT * from table_product',
-    (err: any, rows: any, fields: any) => {
-        if (err) throw err;
-        // console.log('result => ', rows[0]);
-    },
-);
-DatabaseConnection.end();
 
 /// Routing
 route(app);
