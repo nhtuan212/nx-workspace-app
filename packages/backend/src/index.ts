@@ -4,7 +4,7 @@ import express from 'express';
 import morgan from 'morgan';
 import { create } from 'express-handlebars';
 import { route } from './routes';
-import { DatabaseConnection } from './config/database';
+import { dbConnect } from './config/database';
 import { ENV_EXTENSION, ENV_PORT } from './config/constants';
 
 const app = express();
@@ -14,7 +14,7 @@ const port = ENV_PORT;
 app.use(express.static(path.join(__dirname, '../public')));
 
 /// Database
-DatabaseConnection;
+dbConnect();
 
 /// Log information from server
 app.use(morgan('combined'));
