@@ -1,3 +1,8 @@
+export const NODE_ENV = {
+    DEV: 'development',
+    PROD: 'production',
+};
+
 export const METHOD = {
     GET: 'get',
     POST: 'post',

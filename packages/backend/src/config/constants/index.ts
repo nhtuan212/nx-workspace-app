@@ -7,6 +7,7 @@ export const API = {
     },
     TYPE: {
         SUCCESS: 'success',
+        ERROR: 'error',
     },
     MESSAGE: {
         PRODUCT_LIST_SUCCESS: 'Get product list successfully',

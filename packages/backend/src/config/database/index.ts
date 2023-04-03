@@ -1,14 +1,14 @@
-// import mysql from 'mysql';
 import { Sequelize } from 'sequelize';
+import { config } from '../config';
 
 // Db config
 export const sequelize = new Sequelize(
-    process.env.PUBLIC_DATABASE,
-    'root',
-    '',
+    config[process.env.NODE_ENV]['database'],
+    config[process.env.NODE_ENV]['username'],
+    config[process.env.NODE_ENV]['password'],
     {
-        host: 'localhost',
-        dialect: 'mysql',
+        host: config[process.env.NODE_ENV]['host'],
+        dialect: config[process.env.NODE_ENV]['dialect'],
     },
 );
 
@@ -22,29 +22,3 @@ export const dbConnect = async () => {
             console.error('Unable to connect to the database: ', error);
         });
 };
-
-// const dbConfig = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: process.env.PUBLIC_DATABASE,
-// });
-
-// export default new (class Db {
-//     connection = async () =>
-//         new Promise((resolve, reject) => {
-//             const connection = dbConfig.connect(error => {
-//                 if (error) return reject(error);
-//                 console.log('Db Connect successfully');
-//                 return null;
-//             });
-//             resolve(connection);
-//         });
-//     query = async (query: any) =>
-//         new Promise((resolve, reject) => {
-//             dbConfig.query(query, (error: any, result: any) => {
-//                 if (error) return reject(error);
-//                 resolve(result);
-//             });
-//         });
-// })();
