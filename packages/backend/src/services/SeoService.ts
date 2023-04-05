@@ -1,16 +1,15 @@
 import { Sequelize } from 'sequelize';
-import { MenuModel } from '../models/MenuModel';
+import { SeoModel } from '../models/SeoModel';
 
-export const getMenuService = async ({ offset, limit }) => {
-    return await MenuModel.findAll({
+export const getSeoService = async ({ slug, offset, limit }) => {
+    return await SeoModel.findAll({
         nest: true,
-        attributes: ['id', 'name', 'slug'],
+        attributes: ['slug', 'title', 'description'],
         where: {
-            isActive: Sequelize.json('status.isActive', '1'),
+            slug: slug || '',
         },
         offset: Number(offset) || 0,
         limit: Number(limit) || 10,
-        order: [['id', 'ASC']],
     })
         .then((response: any) => {
             return response;

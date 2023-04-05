@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import { AppStore, ReduxWrapper } from '@/redux/store';
 import Header from '@components/PageComponent/ViewPage/Header';
 import Footer from '@components/PageComponent/ViewPage/Footer';
 import Slide from '@components/SlideComponent';

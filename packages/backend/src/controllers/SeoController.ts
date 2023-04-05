@@ -1,19 +1,19 @@
 import { API } from '../config/constants';
-import { getMenuService } from '../services/MenuService';
+import { getSeoService } from '../services/SeoService';
 
-export default new (class MenuController {
-    // [GET]/menu
+export default new (class SeoController {
+    // [GET]/seo
     index = async (req: any, res: any) => {
-        const { offset, limit } = req.query;
+        const { slug, offset, limit } = req.query;
         const { statusCode, statusMessage } = res;
 
-        return await getMenuService({ offset, limit })
+        return await getSeoService({ slug, offset, limit })
             .then(data => {
                 let message = statusMessage;
 
                 switch (statusCode) {
                     case API.STATUS_CODE.SUCCESS:
-                        message = API.MESSAGE.MENU.LIST_SUCCESS;
+                        message = API.MESSAGE.SEO.LIST_SUCCESS;
                         data;
                         break;
                     default:

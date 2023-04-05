@@ -2,13 +2,13 @@ import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { rootReducer } from '../reducers';
 import { createWrapper, MakeStore } from 'next-redux-wrapper';
 
-export const store = configureStore({
-    reducer: rootReducer,
-    middleware: getDefaultMiddleware =>
-        getDefaultMiddleware({
-            serializableCheck: false,
-        }),
-});
+// export const store = configureStore({
+// 	reducer: masterReducer,
+// 	middleware: getDefaultMiddleware =>
+// 		getDefaultMiddleware({
+// 			serializableCheck: false,
+// 		}),
+// });
 
 const makeStore: MakeStore<any> = () =>
     configureStore({

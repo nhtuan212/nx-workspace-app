@@ -5,11 +5,12 @@ export const API = {
     STATUS_CODE: {
         SUCCESS: 200,
     },
-    TYPE: {
-        SUCCESS: 'success',
-        ERROR: 'error',
-    },
     MESSAGE: {
-        PRODUCT_LIST_SUCCESS: 'Get product list successfully',
+        MENU: {
+            LIST_SUCCESS: 'Get menu list successfully',
+        },
+        SEO: {
+            LIST_SUCCESS: 'Get seo list successfully',
+        },
     },
 };

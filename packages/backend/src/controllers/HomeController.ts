@@ -1,5 +1,5 @@
 export default new (class HomeController {
-    /// [GET]/
+    // [GET]/
     index = (req: any, res: any) => {
         res.render('home');
     };

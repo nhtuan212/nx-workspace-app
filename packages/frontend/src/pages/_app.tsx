@@ -13,7 +13,7 @@ const roboto = Roboto({
 
 const MyApp = ({ Component, ...rest }: AppProps) => {
     const { store, props } = ReduxWrapper.useWrappedStore(rest);
-    const { pageProps, ViewPageProps } = props;
+    const { pageProps } = props;
 
     return (
         <Provider store={store}>
@@ -22,23 +22,30 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
                     font-family: ${roboto.style.fontFamily};
                 }
             `}</style>
-            <ViewPage {...ViewPageProps}>
+            <ViewPage>
                 <Component {...pageProps} />
             </ViewPage>
         </Provider>
     );
 };
 
+export default MyApp;
+
+// MyApp.getInitialProps = async () => {
+//     const res = await fetch(`${ConfigApi.menu.menuApi}`).then(res => res.json());
+//     return {
+//         pageProps: { menuData: res },
+//     };
+// };
+
 // MyApp.getInitialProps = ReduxWrapper.getInitialPageProps(
 //     () => async (ctx: any) => {
 //         // Handle SSR from ViewPage
-//         const ViewPageProps = ViewPage.getInitialProps
+//         const nextProps = ViewPage.getInitialProps
 //             ? await ViewPage.getInitialProps(ctx)
 //             : {};
 
 //         // Dispatch from Server
-//         return { ViewPageProps };
+// 		return { nextProps };
 //     },
 // );
-
-export default MyApp;

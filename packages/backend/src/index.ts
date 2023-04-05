@@ -10,29 +10,29 @@ import { ENV_EXTENSION, ENV_PORT } from './config/constants';
 const app = express();
 const port = ENV_PORT;
 
-/// Static patch
+// Static patch
 app.use(express.static(path.join(__dirname, '../public')));
 
-/// Database
+// Database
 dbConnect();
 
-/// Log information from server
+// Log information from server
 app.use(morgan('combined'));
 
-/// Config express-handlebars
+// Config express-handlebars
 const handlebars = create({
     extname: ENV_EXTENSION,
 });
 
-/// Template engine
+// Template engine
 app.engine(ENV_EXTENSION, handlebars.engine);
 app.set('view engine', ENV_EXTENSION);
 app.set('views', path.join(__dirname, 'views'));
 
-/// Routing
+// Routing
 route(app);
 
-/// Render App
+// Render App
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
 });

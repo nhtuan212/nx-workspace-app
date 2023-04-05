@@ -6,6 +6,7 @@ import SeoText from '@components/SeoComponent/SeoText';
 import SeoHead from '@components/SeoComponent/SeoHead';
 import Loading from '@components/LoadingComponent';
 import { useRouterCustomHook } from '@/helpers/customHook';
+import { AppState } from '@/redux/store';
 
 const ProductList = dynamic(
     () => import('@components/ProductComponent/ProductList'),
@@ -17,19 +18,20 @@ const ProductList = dynamic(
 
 const DetailPage = (props: any) => {
     const router = useRouterCustomHook();
+    const dispatch = useDispatch();
+
+    const { productList } = useSelector((state: AppState) => state?.product);
 
     // Variables
     const dataSeo = {
-        resolvedUrl: props?.resolvedUrl,
-        seoTitle: 'Áo thun',
-        seoDescription: 'Áo thun description',
+        resolvedUrl: props?.seoData?.slug,
+        seoTitle: props?.seoData?.title,
+        seoDescription: props?.seoData?.description,
     };
-    const dispatch = useDispatch();
-
-    const { productList } = useSelector<any, any>(state => state?.product);
 
     // Hook
     useEffect(() => {
+        // Dispatch ProductList
         dispatch(
             productListAction({
                 slug: router?.asPath,

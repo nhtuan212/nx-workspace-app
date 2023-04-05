@@ -4,7 +4,7 @@ import ConfigApi from '@config/ConfigApi';
 
 export const productService = {
     hotProducts: async () => {
-        const url = `${ConfigApi.productApi}?limit=20`;
+        const url = `${ConfigApi.product.productApi}?limit=20`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
@@ -13,7 +13,7 @@ export const productService = {
         });
     },
     flashSaleProductAction: async () => {
-        const url = `${ConfigApi.productApi}?limit=20`;
+        const url = `${ConfigApi.product.productApi}?limit=20`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
@@ -22,7 +22,7 @@ export const productService = {
         });
     },
     productList: async ({ slug }: any) => {
-        const url = `${ConfigApi.productApi}/category${slug}`;
+        const url = `${ConfigApi.product.productApi}/category${slug}`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
@@ -31,7 +31,7 @@ export const productService = {
         });
     },
     productSearch: async ({ keyword }: any) => {
-        const url = `${ConfigApi.productSearch}?q=${keyword}`;
+        const url = `${ConfigApi.product.productSearch}?q=${keyword}`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
