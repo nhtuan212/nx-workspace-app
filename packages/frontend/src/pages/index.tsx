@@ -5,15 +5,15 @@ import SeoHead from '@components/SeoComponent/SeoHead';
 
 export default function Home(props: any) {
     // Variables
-    const dataSeo = {
-        resolvedUrl: props?.resolvedUrl,
+    const seoData = {
+        seoSlug: props?.resolvedUrl,
         seoTitle: 'Create Next App',
         seoDescription: 'Create Next App description',
     };
     return (
         <>
-            <SeoText data={dataSeo} />
-            <SeoHead data={dataSeo} />
+            <SeoText data={seoData} />
+            <SeoHead data={seoData} />
             <HomePage />
         </>
     );

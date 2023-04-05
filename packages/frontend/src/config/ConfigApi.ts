@@ -1,6 +1,6 @@
 export default {
-    // menuApi: `${process.env.NEXT_PUBLIC_DOMAIN_API}/61dd3beff60e8f0017668670.mockapi.io/menus`,
     menu: {
+        // menuApi: `${process.env.NEXT_PUBLIC_DOMAIN_API}/61dd3beff60e8f0017668670.mockapi.io/menus`,
         menuApi: 'http://localhost:2000/menu',
     },
 

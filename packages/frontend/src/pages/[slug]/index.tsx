@@ -4,11 +4,11 @@ import { axiosClient } from '@/services/axiosClient';
 import { HTTP_CODE, METHOD } from '@/constants';
 export default DetailPage;
 
-export const getServerSideProps = async ({ resolvedUrl }: any) => {
+export const getServerSideProps = async ({ query }: any) => {
     // Seo data Fetching
     const seoData = await axiosClient
         .executed({
-            url: `${ConfigApi.seo.seoApi}?slug=${resolvedUrl}`,
+            url: `${ConfigApi.seo.seoApi}?slug=${query?.slug}`,
             method: METHOD.GET,
         })
         .then(response => {

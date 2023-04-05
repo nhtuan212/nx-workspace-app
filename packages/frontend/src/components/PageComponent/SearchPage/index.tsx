@@ -18,8 +18,8 @@ const ProductList = dynamic(
 const SearchComponent = (props: any) => {
     const router = useRouterCustomHook();
     // Variables
-    const dataSeo = {
-        resolvedUrl: props?.resolvedUrl,
+    const seoData = {
+        seoSlug: props?.resolvedUrl,
         seoTitle: 'Kết quả tìm kiếm',
         seoDescription: 'Kết quả tìm kiếm description',
     };
@@ -48,8 +48,8 @@ const SearchComponent = (props: any) => {
                     </div>
                 </div>
             </div>
-            <SeoText data={dataSeo} />
-            <SeoHead data={dataSeo} />
+            <SeoText data={seoData} />
+            <SeoHead data={seoData} />
         </>
     );
 };

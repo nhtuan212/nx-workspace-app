@@ -23,8 +23,8 @@ const DetailPage = (props: any) => {
     const { productList } = useSelector((state: AppState) => state?.product);
 
     // Variables
-    const dataSeo = {
-        resolvedUrl: props?.seoData?.slug,
+    const seoData = {
+        seoSlug: props?.seoData?.slug,
         seoTitle: props?.seoData?.title,
         seoDescription: props?.seoData?.description,
     };
@@ -46,8 +46,8 @@ const DetailPage = (props: any) => {
                     <ProductList title={router?.asPath} data={productList} />
                 </div>
             )}
-            <SeoText data={dataSeo} />
-            <SeoHead data={dataSeo} />
+            <SeoText data={seoData} />
+            <SeoHead data={seoData} />
         </>
     );
 };
