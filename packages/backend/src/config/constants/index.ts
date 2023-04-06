@@ -9,6 +9,9 @@ export const API = {
         CATEGORY: {
             LIST_SUCCESS: 'Get category list successfully',
         },
+        PRODUCT: {
+            LIST_SUCCESS: 'Get product list successfully',
+        },
         MENU: {
             LIST_SUCCESS: 'Get menu list successfully',
         },

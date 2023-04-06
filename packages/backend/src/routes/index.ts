@@ -2,6 +2,7 @@ import { HomeRouter } from './home';
 import { MenuRouter } from './menu';
 import { CategoryRouter } from './category';
 import { SeoRouter } from './seo';
+import { ProductRouter } from './product';
 
 export const route = (app: any) => {
     // Add headers before the routes are defined
@@ -34,6 +35,7 @@ export const route = (app: any) => {
 
     app.use('/', HomeRouter);
     app.use('/category', CategoryRouter);
+    app.use('/product', ProductRouter);
     app.use('/menu', MenuRouter);
     app.use('/seo', SeoRouter);
 };

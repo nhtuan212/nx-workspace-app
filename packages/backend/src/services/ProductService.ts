@@ -2,15 +2,15 @@ import { Sequelize } from 'sequelize';
 import { ProductModel } from '../models/ProductModel';
 import { CategoryModel } from '../models/CategoryModel';
 
-export const CategoryService = async ({ slug, offset, limit }) => {
+export const GetProductService = async ({ slug }) => {
     return await ProductModel.findAll({
         nest: true,
         attributes: ['id', 'name', 'slug', 'thumbnail'],
         where: {
-            // Check slug of categories table
-            '$category.slug$': slug,
+            // Check slug
+            slug: slug,
 
-            // Check isActive of products table
+            // Check isActive
             isActive: Sequelize.literal(
                 "JSON_EXTRACT(products.status, '$.isActive')",
             ),
@@ -21,8 +21,8 @@ export const CategoryService = async ({ slug, offset, limit }) => {
                 model: CategoryModel,
             },
         ],
-        offset: Number(offset) || 0,
-        limit: Number(limit) || 10,
+        offset: 0,
+        limit: 1,
     })
         .then((response: any) => {
             return response;
