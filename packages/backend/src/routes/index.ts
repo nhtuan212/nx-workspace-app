@@ -1,5 +1,6 @@
-import HomeRouter from './home';
-import MenuRouter from './menu';
+import { HomeRouter } from './home';
+import { MenuRouter } from './menu';
+import { CategoryRouter } from './category';
 import { SeoRouter } from './seo';
 
 export const route = (app: any) => {
@@ -32,6 +33,7 @@ export const route = (app: any) => {
     });
 
     app.use('/', HomeRouter);
+    app.use('/category', CategoryRouter);
     app.use('/menu', MenuRouter);
     app.use('/seo', SeoRouter);
 };

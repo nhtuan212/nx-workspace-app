@@ -6,7 +6,8 @@ export const getMenuService = async ({ offset, limit }) => {
         nest: true,
         attributes: ['id', 'name', 'slug'],
         where: {
-            isActive: Sequelize.json('status.isActive', '1'),
+            // Check isActive of table
+            isActive: Sequelize.literal("JSON_EXTRACT(status, '$.isActive')"),
         },
         offset: Number(offset) || 0,
         limit: Number(limit) || 10,

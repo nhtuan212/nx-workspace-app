@@ -6,6 +6,9 @@ export const API = {
         SUCCESS: 200,
     },
     MESSAGE: {
+        CATEGORY: {
+            LIST_SUCCESS: 'Get category list successfully',
+        },
         MENU: {
             LIST_SUCCESS: 'Get menu list successfully',
         },

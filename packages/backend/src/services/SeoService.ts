@@ -1,4 +1,3 @@
-import { Sequelize } from 'sequelize';
 import { SeoModel } from '../models/SeoModel';
 
 export const getSeoService = async ({ slug, offset, limit }) => {
