@@ -63,5 +63,5 @@ module.exports = {
 			}
 		]
     },
-	// 'ignorePatterns': ["**/*.css", "**/*.scss"],
+	'ignorePatterns': ["**/*.css", "**/*.scss"],
 };

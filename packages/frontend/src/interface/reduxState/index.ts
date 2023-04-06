@@ -8,5 +8,6 @@ export interface ProductState {
     hotProduct: [];
     flashSaleProduct: [];
     productList: [];
+    productDetail: [];
     productSearch: [];
 }

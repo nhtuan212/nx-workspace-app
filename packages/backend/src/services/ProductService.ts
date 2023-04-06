@@ -5,7 +5,15 @@ import { CategoryModel } from '../models/CategoryModel';
 export const GetProductService = async ({ slug }) => {
     return await ProductModel.findAll({
         nest: true,
-        attributes: ['id', 'name', 'slug', 'thumbnail'],
+        attributes: [
+            'id',
+            'name',
+            'slug',
+            'thumbnail',
+            'price',
+            'description',
+            'content',
+        ],
         where: {
             // Check slug
             slug: slug,

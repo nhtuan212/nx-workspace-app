@@ -5,7 +5,7 @@ import { CategoryModel } from '../models/CategoryModel';
 export const CategoryService = async ({ slug, offset, limit }) => {
     return await ProductModel.findAll({
         nest: true,
-        attributes: ['id', 'name', 'slug', 'thumbnail'],
+        attributes: ['id', 'name', 'slug', 'thumbnail', 'price'],
         where: {
             // Check slug of categories table
             '$category.slug$': slug,

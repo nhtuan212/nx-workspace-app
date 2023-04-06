@@ -3,21 +3,32 @@ import { productService } from '@/services/productService';
 import { ProductState } from '@/interface/reduxState';
 
 // Async Actions
+// hotProducts
 export const hotProducts: any = createAsyncThunk('/hotProducts', async () => {
     return await productService.hotProducts();
 });
+// flashSaleProductAction
 export const flashSaleProductAction: any = createAsyncThunk(
     '/flashSaleProductAction',
     async () => {
         return await productService.flashSaleProductAction();
     },
 );
-export const productListAction: any = createAsyncThunk(
-    '/productList',
+// productByCategoryAction
+export const productByCategoryAction: any = createAsyncThunk(
+    '/productByCategory',
     async ({ slug }: any) => {
-        return await productService.productList({ slug });
+        return await productService.productByCategory({ slug });
     },
 );
+// productAction
+export const productAction: any = createAsyncThunk(
+    '/productAction',
+    async ({ slug }: any) => {
+        return await productService.productAction({ slug });
+    },
+);
+// productSearchAction
 export const productSearchAction: any = createAsyncThunk(
     '/productSearch',
     async ({ keyword }: any) => {
@@ -31,6 +42,7 @@ export const initialState: ProductState = {
     hotProduct: [],
     flashSaleProduct: [],
     productList: [],
+    productDetail: [],
     productSearch: [],
 };
 
@@ -48,13 +60,21 @@ const productSlice = createSlice({
         builder.addCase(flashSaleProductAction.fulfilled, (state, action) => {
             state.flashSaleProduct = action.payload;
         });
-        // productListAction
-        builder.addCase(productListAction.pending, state => {
+        // productByCategoryAction
+        builder.addCase(productByCategoryAction.pending, state => {
             state.loading = true;
         });
-        builder.addCase(productListAction.fulfilled, (state, action) => {
+        builder.addCase(productByCategoryAction.fulfilled, (state, action) => {
             state.loading = false;
             state.productList = action.payload;
+        });
+        // productAction
+        builder.addCase(productAction.pending, state => {
+            state.loading = true;
+        });
+        builder.addCase(productAction.fulfilled, (state, action) => {
+            state.loading = false;
+            state.productDetail = action.payload;
         });
         // productSearchAction
         builder.addCase(productSearchAction.pending, state => {

@@ -4,7 +4,12 @@ export default {
         menuApi: 'http://localhost:2000/menu',
     },
 
+    category: {
+        getProductCategory: 'http://localhost:2000/category',
+    },
+
     product: {
+        getProduct: 'http://localhost:2000/product',
         productApi: `${process.env.NEXT_PUBLIC_DOMAIN_API}/products`,
         productSearch: `${process.env.NEXT_PUBLIC_DOMAIN_API}/products/search`,
     },

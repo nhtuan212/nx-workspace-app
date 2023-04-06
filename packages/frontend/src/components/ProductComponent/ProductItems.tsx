@@ -13,11 +13,11 @@ const ProductItems = (props: any) => {
 
     return (
         <div className="product-items md:col-3 sm:col-4 col-6 p-0.5">
-            <Link href={`/${props?.data?.id}`}>
+            <Link href={`/${props?.data?.slug}`}>
                 <div className={imageClassName}>
                     <ImageComponent src={props?.data?.thumbnail} />
                 </div>
-                <p className="name">{props?.data.title}</p>
+                <p className="name">{props?.data.name}</p>
                 <p className="price text-pink fw-700">{props?.data.price}</p>
             </Link>
         </div>

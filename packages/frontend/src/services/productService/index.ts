@@ -21,12 +21,21 @@ export const productService = {
             }
         });
     },
-    productList: async ({ slug }: any) => {
-        const url = `${ConfigApi.product.productApi}/category${slug}`;
+    productByCategory: async ({ slug }: any) => {
+        const url = `${ConfigApi.category.getProductCategory + slug}`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
-                return response?.data?.products;
+                return response?.data?.data;
+            }
+        });
+    },
+    productAction: async ({ slug }: any) => {
+        const url = `${ConfigApi.product.getProduct + slug}`;
+        const method = METHOD.GET;
+        return axiosClient.executed({ url, method }).then(response => {
+            if (response?.status === HTTP_CODE.SUCCESS) {
+                return response?.data?.data;
             }
         });
     },

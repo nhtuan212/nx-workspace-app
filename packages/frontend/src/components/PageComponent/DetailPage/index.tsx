@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
-import { productListAction } from '@reducers/productSlice';
+import { AppState } from '@/redux/store';
+import { productAction, productByCategoryAction } from '@reducers/productSlice';
 import SeoText from '@components/SeoComponent/SeoText';
 import SeoHead from '@components/SeoComponent/SeoHead';
 import Loading from '@components/LoadingComponent';
+import ProductDetail from '@components/ProductComponent/ProductDetail';
 import { useRouterCustomHook } from '@/helpers/customHook';
-import { AppState } from '@/redux/store';
+import { isEmpty } from 'lodash';
+import EmptyPage from '@/components/EmptyPage';
 
 const ProductList = dynamic(
     () => import('@components/ProductComponent/ProductList'),
@@ -20,7 +23,9 @@ const DetailPage = (props: any) => {
     const router = useRouterCustomHook();
     const dispatch = useDispatch();
 
-    const { productList } = useSelector((state: AppState) => state?.product);
+    const { productList, productDetail } = useSelector(
+        (state: AppState) => state?.product,
+    );
 
     // Variables
     const seoData = {
@@ -31,20 +36,34 @@ const DetailPage = (props: any) => {
 
     // Hook
     useEffect(() => {
-        // Dispatch ProductList
+        // Dispatch product By Category
         dispatch(
-            productListAction({
+            productByCategoryAction({
                 slug: router?.asPath,
             }),
-        );
+        ).then(() => {
+            isEmpty(productList) &&
+                dispatch(
+                    productAction({
+                        slug: router?.asPath,
+                    }),
+                );
+        });
     }, [router?.asPath]);
 
     return (
         <>
-            {productList && (
+            {!isEmpty(productList) && (
                 <div className="py-2">
                     <ProductList title={router?.asPath} data={productList} />
                 </div>
+            )}
+            {!isEmpty(productDetail) ? (
+                <div className="py-2">
+                    <ProductDetail data={productDetail} />
+                </div>
+            ) : (
+                <EmptyPage />
             )}
             <SeoText data={seoData} />
             <SeoHead data={seoData} />
