@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "dev": "concurrently 'yarn backend-dev' 'yarn frontend-dev' 'yarn frontend-build-scss'",
+        "dev": "concurrently \"yarn backend-dev\" \"yarn frontend-dev\" \"yarn frontend-build-scss\"",
         "backend-dev": "yarn --cwd packages/backend dev",
         "frontend-dev": "yarn --cwd packages/frontend dev",
         "frontend-build-scss": "yarn --cwd packages/frontend build-scss",
