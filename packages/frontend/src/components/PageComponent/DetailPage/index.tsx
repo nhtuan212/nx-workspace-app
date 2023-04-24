@@ -53,12 +53,11 @@ const DetailPage = (props: any) => {
 
     return (
         <>
-            {!isEmpty(productList) && (
+            {!isEmpty(productList) ? (
                 <div className="py-2">
                     <ProductList title={router?.asPath} data={productList} />
                 </div>
-            )}
-            {!isEmpty(productDetail) ? (
+            ) : !isEmpty(productDetail) ? (
                 <div className="py-2">
                     <ProductDetail data={productDetail} />
                 </div>
