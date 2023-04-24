@@ -13,7 +13,6 @@ const SlideComponent = () => {
     // Hooks
     useEffect(() => {
         setSlideItems(photoSlide);
-        return true;
     }, [slideItems]);
 
     return (
