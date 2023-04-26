@@ -1,10 +1,10 @@
-import { HTTP_CODE, METHOD } from '@/constants';
+import { HTTP_CODE, LIMIT, METHOD } from '@/constants';
 import { axiosClient } from '@services/axiosClient';
 import ConfigApi from '@config/ConfigApi';
 
 export const productService = {
     hotProducts: async () => {
-        const url = `${ConfigApi.product.productApi}?limit=20`;
+        const url = `${ConfigApi.product.productApi}?limit=${LIMIT.HOME_PAGE_LOAD}`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {
@@ -13,7 +13,7 @@ export const productService = {
         });
     },
     flashSaleProductAction: async () => {
-        const url = `${ConfigApi.product.productApi}?limit=20`;
+        const url = `${ConfigApi.product.productApi}?limit=${LIMIT.HOME_PAGE_LOAD}`;
         const method = METHOD.GET;
         return axiosClient.executed({ url, method }).then(response => {
             if (response?.status === HTTP_CODE.SUCCESS) {

@@ -3,6 +3,7 @@ import { productListInterface } from '@/interface';
 import ProductItems from './ProductItems';
 import EmptyPage from '../EmptyPage';
 import { isEmpty } from 'lodash';
+import { LIMIT } from '@/constants';
 
 const ProductList = (props: productListInterface) => {
     return (
@@ -14,11 +15,15 @@ const ProductList = (props: productListInterface) => {
                     )}
                     {!isEmpty(props?.data) ? (
                         <div className="d-flex flex-wrap">
-                            {props?.data.map(
-                                (item: any, id: string | number) => (
-                                    <ProductItems key={id} data={item} />
-                                ),
-                            )}
+                            {props?.data.map((item: any, index: number) => {
+                                return (
+                                    <ProductItems
+                                        key={item?.id}
+                                        data={item}
+                                        priority={index < LIMIT.PRIORITY_IMAGE}
+                                    />
+                                );
+                            })}
                         </div>
                     ) : (
                         <EmptyPage />

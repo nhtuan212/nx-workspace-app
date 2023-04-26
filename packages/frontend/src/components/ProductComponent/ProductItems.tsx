@@ -15,7 +15,10 @@ const ProductItems = (props: any) => {
         <div className="product-items md:col-3 sm:col-4 col-6 p-0.5">
             <Link href={`/${props?.data?.slug}`}>
                 <div className={imageClassName}>
-                    <ImageComponent src={props?.data?.thumbnail} />
+                    <ImageComponent
+                        src={props?.data?.thumbnail}
+                        priority={props?.priority}
+                    />
                 </div>
                 <p className="name">{props?.data.name}</p>
                 <p className="price text-pink fw-700">{props?.data.price}</p>

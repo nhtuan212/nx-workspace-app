@@ -42,6 +42,11 @@ export const KEY_CODE = {
     ESCAPE: 27,
 };
 
+export const LIMIT = {
+    HOME_PAGE_LOAD: 20,
+    PRIORITY_IMAGE: 20,
+};
+
 export const TEXT = {
     EMPTY_PAGE: 'Dữ liệu đang được cập nhật ...',
     ENTER_FIND_PRODUCT: 'Nhập sản phẩm cần tìm ...',
