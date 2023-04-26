@@ -2,19 +2,15 @@ import React, { useEffect } from 'react';
 import Header from '@components/PageComponent/ViewPage/Header';
 import Footer from '@components/PageComponent/ViewPage/Footer';
 import Slide from '@components/SlideComponent';
-// import { useDispatch } from 'react-redux';
-// import { getMenuAction } from '@reducers/menuSlice';
-import UseMenuStore from '@/zustand/UseMenuStore';
+import { useDispatch } from 'react-redux';
+import { getMenuAction } from '@reducers/menuSlice';
 
 const ViewPage = ({ children }: any) => {
-    // const dispatch = useDispatch();
-
-    const { getMenu } = UseMenuStore(state => state);
+    const dispatch = useDispatch();
 
     // Hooks
     useEffect(() => {
-        getMenu();
-        // dispatch(getMenuAction());
+        dispatch(getMenuAction());
     }, []);
 
     return (
