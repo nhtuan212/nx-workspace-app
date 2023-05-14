@@ -8,7 +8,7 @@ import styles from '@styles/components/search.module.scss';
 
 const SearchComponent = () => {
     // Custom Hook
-    const router = useRouterCustomHook();
+    const router = useRouterCustomHook()
 
     // Variables
     const [showSearch, setShowSearch] = useState(false);
