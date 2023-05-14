@@ -3,9 +3,9 @@ import Head from 'next/head';
 
 const SeoHead = (props: any) => {
     const favicon = '/favicon.ico';
-    const nameSeo = 'Qini thời trang nữ Quảng Châu';
+    const nameSeo = 'Qini thời trang nữ Quảng Châu'
     const descriptionSeo =
-        'Qini chuyên thời trang, phụ kiện nữ Quảng Châu. Hàng mới luôn về'
+        'Qini chuyên thời trang, phụ kiện nữ Quảng Châu. Hàng mới luôn về';
 
     const { seoSlug, seoTitle, seoDescription } = props?.data || {};
 
