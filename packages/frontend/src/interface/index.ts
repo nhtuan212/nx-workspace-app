@@ -26,7 +26,7 @@ export interface iconInterface {
 export interface buttonInterface extends iconInterface {
     className?: string;
     disabled?: boolean;
-    onClick?: any;
+    onClick?: (e: {} | undefined) => {} | void;
     type?: 'submit' | 'button' | undefined;
     text?: string;
 }

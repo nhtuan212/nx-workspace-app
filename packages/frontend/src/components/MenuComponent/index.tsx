@@ -4,6 +4,7 @@ import MenuItems from './MenuItems';
 import MenuMore from './MenuMore';
 import isEmpty from 'lodash/isEmpty';
 import { AppState } from '@/redux/store';
+import styles from '@styles/components/menu.module.scss';
 
 const MenuComponent = () => {
     // Variables
@@ -21,7 +22,7 @@ const MenuComponent = () => {
     return (
         <>
             {!isEmpty(getMenu) && (
-                <ul className="d-flex align-center">
+				<ul className={styles.menu}>
                     {menuList.map((item: any) => (
                         <MenuItems key={item?.id} data={item} />
                     ))}

@@ -16,7 +16,7 @@ const SlideComponent = () => {
     }, [slideItems]);
 
     return (
-        <section className="slide">
+        <section>
             {slideItems && (
                 <Swiper
                     modules={[Navigation]}

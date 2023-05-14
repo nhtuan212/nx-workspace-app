@@ -1,0 +1,9 @@
+.search {
+    @apply absolute top-0 left-0 w-full h-full flex justify-between items-center bg-white mx-auto border-b animate-fadeInTop;
+    &__container {
+        @apply w-full h-full max-w-[800px] flex items-center mx-auto px-8;
+    }
+    &__input {
+        @apply text-[26px] px-0 border-0;
+    }
+}

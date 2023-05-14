@@ -1,0 +1,22 @@
+.swiper-button-next,
+.swiper-button-prev {
+    @apply absolute top-1/2 w-8 h-8 flex justify-center items-center bg-white/50 cursor-pointer z-10 translate-y-[-50%] rounded-full;
+    &::after {
+        @apply content-['\e904'] text-base font-fi;
+    }
+}
+
+.swiper-button-next {
+    @apply right-5;
+}
+
+.swiper-button-prev {
+    @apply left-5;
+    &::after {
+        @apply rotate-180;
+    }
+}
+
+.swiper-button-disabled {
+    @apply opacity-0 invisible;
+}

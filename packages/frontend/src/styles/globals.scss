@@ -1,0 +1,21 @@
+@forward './components/slide.module';
+@forward './icons/styles';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .seo-head {
+        @apply absolute h-0 text-transparent overflow-hidden z-[-9999];
+    }
+    .container {
+        @apply mx-auto;
+    }
+    .icon {
+        @apply flex justify-center items-center max-w-[1.562rem];
+    }
+    .title {
+        @apply mb-2 text-2xl;
+    }
+}

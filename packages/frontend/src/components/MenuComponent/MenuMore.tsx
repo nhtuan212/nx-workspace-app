@@ -3,6 +3,7 @@ import { menuMoreInterface } from '@/interface';
 import SubMenu from './SubMenu';
 import { ICON } from '@/constants';
 import IconComponent from '../IconComponent';
+import styles from '@styles/components/menu.module.scss';
 
 const MenuMore = ({ data }: menuMoreInterface) => {
     // Variables
@@ -22,21 +23,21 @@ const MenuMore = ({ data }: menuMoreInterface) => {
 
     return (
         <div
-            className="pointer"
+			className={styles.menu__more}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            <li className="d-flex align-center p-1.5 relative">
-                <IconComponent icon={ICON.FONT.BAR} iconClassName="mr-0.5" />
+            <div className="flex items-center">
+                <IconComponent icon={ICON.FONT.BAR} iconClassName="mr-2" />
                 <IconComponent
                     icon={ICON.FONT.CHEVRON}
                     direction={ICON.DIRECTION.DOWN}
-                    iconClassName="text-10"
+                    iconClassName="text-[10px]"
                 />
                 {showSubMenu && (
                     <SubMenu showSubMenu={showSubMenu} data={data} />
                 )}
-            </li>
+			</div>
         </div>
     );
 };

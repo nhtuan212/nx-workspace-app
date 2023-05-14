@@ -7,16 +7,16 @@ import Cart from '@components/CartComponent';
 const Header = () => {
     return (
         <header className="relative">
-            <div className="container d-flex justify-between align-center">
-                <section className="logo">
+            <div className="container flex justify-between items-center">
+                <section>
                     <Logo />
                 </section>
-                <section className="menu">
+                <section>
                     <Menu />
                 </section>
-                <section className="d-flex justify-end">
+                <section className="flex justify-end">
                     <Search />
-                    <div className="ml-0.5">
+                    <div className="ml-2">
                         <Cart />
                     </div>
                 </section>

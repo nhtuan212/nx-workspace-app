@@ -1,0 +1,15 @@
+.menu {
+	@apply flex items-center;
+	&__item {
+		@apply p-6
+	}
+	&__more {
+		@apply relative p-2 cursor-pointer;
+		&__sub-menu {
+			@apply absolute top-full right-0 w-full min-w-[200px] bg-white border-t shadow-[0_2px_2px_rgba(0,0,0,0.1)] z-[2];
+			&__item {
+				@apply p-2 border-b last:border-0;
+			}
+		}
+	}
+}

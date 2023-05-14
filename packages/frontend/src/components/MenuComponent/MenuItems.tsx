@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { ICON, PAGE } from '@/constants';
 import classNames from 'classnames';
 import IconComponent from '../IconComponent';
+import styles from '@styles/components/menu.module.scss';
 
 const MenuItems = (props: any) => {
     // Variables
@@ -10,7 +11,7 @@ const MenuItems = (props: any) => {
     const { slug, name, subMenus }: any = props?.data || undefined;
 
     // ClassNames
-    const itemMenuClassName = classNames(isSubMenu && 'd-flex align-center');
+    const itemMenuClassName = classNames(isSubMenu && 'flex items-center');
 
     // Hooks
     useEffect(() => {
@@ -19,14 +20,14 @@ const MenuItems = (props: any) => {
 
     return (
         <div>
-            <li className="p-1.5">
+            <li className={styles.menu__item}>
                 <Link href={slug || PAGE.HOME} className={itemMenuClassName}>
                     <span>{name}</span>
                     {isSubMenu && (
                         <IconComponent
                             icon={ICON.FONT.CHEVRON}
                             direction={ICON.DIRECTION.DOWN}
-                            iconClassName="text-10 ml-0.5"
+                            iconClassName="text-[10px] ml-2"
                         />
                     )}
                 </Link>

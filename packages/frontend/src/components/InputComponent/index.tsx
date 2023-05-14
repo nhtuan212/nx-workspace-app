@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { inputInterface } from '@/interface';
 import classNames from 'classnames';
+import styles from '@styles/components/input.module.scss';
 
 const InputComponent = ({
     className,
@@ -13,7 +14,7 @@ const InputComponent = ({
     placeHolder,
 }: inputInterface) => {
     // ClassNames
-    const inputClassName = classNames('input', className && className);
+	const inputClassName = classNames(styles.input, className && className);
 
     // Variables
     const [InputValue, setInputValue] = useState('');
@@ -23,7 +24,7 @@ const InputComponent = ({
 
     return (
         <input
-            className={inputClassName}
+			className={inputClassName}
             onChange={onChange || onChangeInput}
             onKeyDown={onKeyDown}
             autoFocus={autoFocus}

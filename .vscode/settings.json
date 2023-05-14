@@ -1,4 +1,5 @@
 {
+	"scss.lint.unknownAtRules": "ignore",
 	"cSpell.words": [
 		"boder",
 		"changefreq",
@@ -14,6 +15,7 @@
 		"roundeds",
 		"seos",
 		"swiper",
+		"tailwindcss",
 		"Tuan",
 		"urlset"
 	]

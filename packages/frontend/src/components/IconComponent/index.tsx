@@ -3,7 +3,7 @@ import { iconInterface } from '@/interface';
 
 const IconComponent = ({
     icon,
-    iconClassName = 'text-16',
+    iconClassName = 'text-base',
     direction,
 }: iconInterface) => {
     // Functions

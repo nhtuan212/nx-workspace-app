@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { buttonInterface } from '@/interface';
-import classNames from 'classnames';
 import IconComponent from '@components/IconComponent';
+import classNames from 'classnames';
 
 let clickTimer = 0;
 const ButtonComponent = ({
@@ -14,7 +14,7 @@ const ButtonComponent = ({
     text,
 }: buttonInterface) => {
     // ClassNames
-    const buttonClassName = classNames('button', className && className);
+	const buttonClassName = classNames(className && className);
 
     // Functions
     const onClickButton = (e: object) => {

@@ -4,6 +4,7 @@ import ButtonComponent from '@components/ButtonComponent';
 import InputComponent from '@components/InputComponent';
 import { ICON, KEY_CODE, PAGE, TEXT } from '@/constants';
 import { useRouterCustomHook } from '@/helpers/customHook';
+import styles from '@styles/components/search.module.scss';
 
 const SearchComponent = () => {
     // Custom Hook
@@ -61,18 +62,18 @@ const SearchComponent = () => {
     }, [router?.query]);
 
     return (
-        <div className="search">
+        <>
             <ButtonComponent
                 icon={ICON.FONT.SEARCH}
                 iconClassName={'text-20'}
                 onClick={handleOnClick}
             />
             {showSearch && (
-                <div className={searchClassName}>
-                    <div className={containerSearchClassName}>
-                        <div className="col">
+                <div className={styles.search}>
+					<div className={styles.search__container}>
+                        <div className="flex-1">
                             <InputComponent
-                                className={inputSearchClassName}
+								className={styles.search__input}
                                 onChange={handleOnChangeInput}
                                 onKeyDown={handleKeyDownInput}
                                 autoFocus={inputFocus}
@@ -80,9 +81,9 @@ const SearchComponent = () => {
                                 placeHolder={TEXT.ENTER_FIND_PRODUCT}
                             />
                         </div>
-                        <div className="p-0.5 pointer">
+                        <div className="p-2 cursor-pointer">
                             <ButtonComponent
-                                className="mr-0.5"
+                                className="mr-2"
                                 icon={ICON.FONT.SEARCH}
                                 onClick={handleOnSearch}
                             />
@@ -94,7 +95,7 @@ const SearchComponent = () => {
                     </div>
                 </div>
             )}
-        </div>
+        </>
     );
 };
 

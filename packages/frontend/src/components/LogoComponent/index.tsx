@@ -6,7 +6,7 @@ import { ICON, PAGE } from '@/constants';
 const LogoComponent = () => {
     return (
         <Link href={PAGE.HOME}>
-            <span className="icon icon--8x">
+            <span className="icon max-w-[5rem]">
                 <SvgIcons kind={ICON.KEY.LOGO} />
             </span>
         </Link>

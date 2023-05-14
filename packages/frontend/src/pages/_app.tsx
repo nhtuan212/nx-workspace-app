@@ -4,7 +4,7 @@ import { Roboto } from '@next/font/google';
 import { Provider } from 'react-redux';
 import { ReduxWrapper } from '@/redux/store';
 import ViewPage from '@components/PageComponent/ViewPage';
-import 'public/assets/css/globals.css';
+import '../../src/styles/globals.scss';
 
 const roboto = Roboto({
     weight: ['400', '700'],
