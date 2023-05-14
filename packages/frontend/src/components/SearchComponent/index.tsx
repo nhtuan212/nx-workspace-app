@@ -11,7 +11,7 @@ const SearchComponent = () => {
     const router = useRouterCustomHook();
 
     // Variables
-    const [showSearch, setShowSearch] = useState(false);
+    const [showSearch, setShowSearch] = useState(false)
     const [inputFocus, setInputFocus] = useState(false);
     const [inputValue, setInputValue] = useState<any>('');
 
