@@ -6,6 +6,9 @@
 @tailwind utilities;
 
 @layer base {
+    * {
+        @apply m-0 p-0 box-border outline-none;
+    }
     .seo-head {
         @apply absolute h-0 text-transparent overflow-hidden z-[-9999];
     }
