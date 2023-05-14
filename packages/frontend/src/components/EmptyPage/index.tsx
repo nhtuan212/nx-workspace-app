@@ -4,9 +4,9 @@ import { TEXT } from '@/constants';
 
 const EmptyPage = ({ message }: emptyPageInterface) => {
     return (
-        <div className="py-1">
+        <div className="py-4">
             <div className="container">
-                <div className="bg-gray238 rounded-lg p-1">
+				<div className="bg-empty rounded-lg p-4">
                     {message || TEXT.EMPTY_PAGE}
                 </div>
             </div>
