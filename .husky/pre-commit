@@ -6,7 +6,7 @@ echo '🏗️👷 Styling, testing and building your project before committing'
 yarn lint-staged ||
 (
     echo '🆘🚫 Prettier Format Failed. Run yarn format ==> and try commit again.';
-    return false;
+    false;
 )
 
 echo '✅🐶 Successfully!! Already to commit!!'
