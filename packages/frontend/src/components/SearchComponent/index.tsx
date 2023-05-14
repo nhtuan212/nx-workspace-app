@@ -18,7 +18,7 @@ const SearchComponent = () => {
     // ClassNames
     const searchClassName = classNames(
         'absolute top-0 left-0 w-100 h-100 d-flex justify-between border-bottom align-center bg-white mx-auto animation-top',
-    );
+    )
     const containerSearchClassName = classNames(
         'w-100 h-100 mw-800 d-flex align-center mx-auto px-2',
     );
