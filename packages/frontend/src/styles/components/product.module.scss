@@ -1,9 +1,9 @@
 .product {
-	@apply md:basis-3/12 sm:basis-4/12 basis-1/2 p-2;
-	&__image {
-		@apply h-[200px] flex items-center mb-2 rounded-lg;
-	}
-	&__price {
-		@apply text-primary font-bold;
-	}
+    @apply md:basis-3/12 sm:basis-4/12 basis-1/2 p-2;
+    &__image {
+        @apply h-[200px] flex items-center mb-2 rounded-lg;
+    }
+    &__price {
+        @apply text-primary font-bold;
+    }
 }

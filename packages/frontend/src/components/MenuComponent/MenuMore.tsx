@@ -23,7 +23,7 @@ const MenuMore = ({ data }: menuMoreInterface) => {
 
     return (
         <div
-			className={styles.menu__more}
+            className={styles.menu__more}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
@@ -37,7 +37,7 @@ const MenuMore = ({ data }: menuMoreInterface) => {
                 {showSubMenu && (
                     <SubMenu showSubMenu={showSubMenu} data={data} />
                 )}
-			</div>
+            </div>
         </div>
     );
 };

@@ -14,7 +14,7 @@ const InputComponent = ({
     placeHolder,
 }: inputInterface) => {
     // ClassNames
-	const inputClassName = classNames(styles.input, className && className);
+    const inputClassName = classNames(styles.input, className && className);
 
     // Variables
     const [InputValue, setInputValue] = useState('');
@@ -24,7 +24,7 @@ const InputComponent = ({
 
     return (
         <input
-			className={inputClassName}
+            className={inputClassName}
             onChange={onChange || onChangeInput}
             onKeyDown={onKeyDown}
             autoFocus={autoFocus}

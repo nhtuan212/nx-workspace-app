@@ -14,7 +14,7 @@ const ButtonComponent = ({
     text,
 }: buttonInterface) => {
     // ClassNames
-	const buttonClassName = classNames(className && className);
+    const buttonClassName = classNames(className && className);
 
     // Functions
     const onClickButton = (e: object) => {

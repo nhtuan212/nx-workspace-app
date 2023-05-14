@@ -22,7 +22,7 @@ const MenuComponent = () => {
     return (
         <>
             {!isEmpty(getMenu) && (
-				<ul className={styles.menu}>
+                <ul className={styles.menu}>
                     {menuList.map((item: any) => (
                         <MenuItems key={item?.id} data={item} />
                     ))}

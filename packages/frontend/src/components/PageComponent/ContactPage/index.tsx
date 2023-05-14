@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const ContactPage = () => {
     // ClassNames
-	const iframeClassName = classNames('w-full h-[300px] border-0');
+    const iframeClassName = classNames('w-full h-[300px] border-0');
 
     return (
         <div className="container">
@@ -15,7 +15,7 @@ const ContactPage = () => {
                         loading="lazy"
                     ></iframe>
                 </div>
-				<div className="sm:basis-1/2 basis-full p-4">
+                <div className="sm:basis-1/2 basis-full p-4">
                     <h3 className="title">Thông tin liên hệ</h3>
                     <div className="contact-list">
                         <div className="mb-4">
