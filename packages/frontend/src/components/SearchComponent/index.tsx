@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import classNames from 'classnames';
 import ButtonComponent from '@components/ButtonComponent';
 import InputComponent from '@components/InputComponent';
 import { ICON, KEY_CODE, PAGE, TEXT } from '@/constants';
