@@ -5,16 +5,18 @@ import styles from '@styles/components/product.module.scss';
 
 const ProductItems = (props: any) => {
     return (
-        <div className={styles.product}>
+        <div className={styles.product__item}>
             <Link href={`/${props?.data?.slug}`}>
-                <div className={styles.product__image}>
+                <div className={styles.product__item__image}>
                     <ImageComponent
                         src={props?.data?.thumbnail}
                         priority={props?.priority}
                     />
                 </div>
                 <p>{props?.data.name}</p>
-                <p className={styles.product__price}>{props?.data.price}</p>
+                <p className={styles.product__item__price}>
+                    {props?.data.price}
+                </p>
             </Link>
         </div>
     );
