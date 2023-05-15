@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import classNames from 'classnames';
 import ButtonComponent from '@components/ButtonComponent';
 import InputComponent from '@components/InputComponent';
 import { ICON, KEY_CODE, PAGE, TEXT } from '@/constants';
@@ -13,7 +12,7 @@ const SearchComponent = () => {
     // Variables
     const [showSearch, setShowSearch] = useState(false);
     const [inputFocus, setInputFocus] = useState(false);
-    const [inputValue, setInputValue] = useState<any>('')
+    const [inputValue, setInputValue] = useState<any>('');
 
     // Setup Functions
     const handleOnChangeInput = (event: any) => {
