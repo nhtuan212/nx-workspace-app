@@ -26,7 +26,7 @@ export interface SvgIconsInterface {
 export interface iconInterface {
     icon?: string;
     iconClassName?: string;
-    directiFon?: string;
+    direction?: string;
 }
 
 export interface buttonInterface
