@@ -34,7 +34,7 @@ const DetailPage = (props: any) => {
         seoDescription: props?.seoData?.description,
     };
 
-    // Hook
+    // Hooks
     useEffect(() => {
         // Dispatch product By Category
         dispatch(
