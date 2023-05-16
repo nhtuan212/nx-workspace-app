@@ -20,7 +20,7 @@ const ButtonComponent = ({
     const onClickButton = (e: object) => {
         if (clickTimer) clearTimeout(clickTimer);
         clickTimer = window.setTimeout(() => {
-            onClick && onClick(e);
+            return onClick && onClick(e);
         }, 300);
     };
 

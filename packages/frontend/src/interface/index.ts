@@ -1,3 +1,9 @@
+export interface App {
+    className?: string;
+    disabled?: boolean;
+    onClick?: (e: {} | undefined) => {} | void;
+}
+
 export interface InitialPropsInterface {
     store?: any;
     req?: string;
@@ -23,10 +29,9 @@ export interface iconInterface {
     direction?: string;
 }
 
-export interface buttonInterface extends iconInterface {
-    className?: string;
-    disabled?: boolean;
-    onClick?: (e: {} | undefined) => {} | void;
+export interface buttonInterface
+    extends Omit<iconInterface, 'direction'>,
+        Pick<App, 'className' | 'onClick' | 'disabled'> {
     type?: 'submit' | 'button' | undefined;
     text?: string;
 }
