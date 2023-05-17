@@ -3,6 +3,11 @@ import { ProductModel } from '../models/ProductModel';
 import { CategoryModel } from '../models/CategoryModel';
 
 export const GetProductService = async ({ slug }) => {
+    const categoryAssociate = ProductModel.belongsTo(CategoryModel, {
+        foreignKey: 'categoryId',
+        targetKey: 'id',
+    });
+
     return await ProductModel.findAll({
         nest: true,
         attributes: [
@@ -25,10 +30,8 @@ export const GetProductService = async ({ slug }) => {
             ),
         },
         include: [
-            {
-                // JOIN Category Model
-                model: CategoryModel,
-            },
+            // JOIN Category Model
+            categoryAssociate,
         ],
         offset: 0,
         limit: 1,

@@ -3,23 +3,25 @@ import { ProductModel } from '../models/ProductModel';
 import { CategoryModel } from '../models/CategoryModel';
 
 export const CategoryService = async ({ slug, offset, limit }) => {
-    return await ProductModel.findAll({
+    return await CategoryModel.findAll({
         nest: true,
-        attributes: ['id', 'name', 'slug', 'thumbnail', 'price'],
+        attributes: ['id', 'name', 'slug', 'thumbnail'],
         where: {
             // Check slug of categories table
-            '$category.slug$': slug,
+            // '$categories.slug$': slug,
+            slug: slug,
 
-            // Check isActive of products table
+            // Check isActive of categories table
             isActive: Sequelize.literal(
-                "JSON_EXTRACT(products.status, '$.isActive')",
+                "JSON_EXTRACT(categories.status, '$.isActive')",
             ),
         },
         include: [
-            {
-                // JOIN Category Model
-                model: CategoryModel,
-            },
+            // JOIN Product Model
+            CategoryModel.belongsTo(ProductModel, {
+                foreignKey: 'id',
+                targetKey: 'categoryId',
+            }),
         ],
         offset: Number(offset) || 0,
         limit: Number(limit) || 10,

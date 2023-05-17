@@ -1,11 +1,14 @@
+import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/database';
-import { CategoryModel } from './CategoryModel';
 
 export const ProductModel = sequelize.define('products', {
     // Model options go here
-});
-
-ProductModel.belongsTo(CategoryModel, {
-    foreignKey: 'categoryId',
-    targetKey: 'id',
+    id: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        autoIncrement: true,
+        primaryKey: true,
+    },
+    categoryId: {
+        type: DataTypes.INTEGER.UNSIGNED,
+    },
 });

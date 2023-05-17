@@ -24,7 +24,7 @@ export const categorySlug = async (req: any, res: any) => {
             res.status(statusCode).json({
                 message,
                 statusCode,
-                data,
+                data: data,
             });
         })
         .catch((error: any) => {
