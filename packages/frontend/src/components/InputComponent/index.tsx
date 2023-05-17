@@ -1,37 +1,21 @@
-import React, { useState } from 'react';
-import { inputInterface } from '@/interface';
-import classNames from 'classnames';
-import styles from '@styles/components/input.module.scss';
+import React, { InputHTMLAttributes } from 'react';
 
-const InputComponent = ({
+const InputComponent: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
     className,
-    onChange,
-    onKeyDown,
-    autoFocus,
     disabled,
     type,
-    text,
-    placeHolder,
-}: inputInterface) => {
-    // ClassNames
-    const inputClassName = classNames(styles.input, className && className);
-
-    // Variables
-    const [InputValue, setInputValue] = useState('');
-
-    // Functions
-    const onChangeInput = (e: any) => setInputValue(e?.target?.value);
-
+    value,
+    placeholder,
+    ...props
+}) => {
     return (
         <input
-            className={inputClassName}
-            onChange={onChange || onChangeInput}
-            onKeyDown={onKeyDown}
-            autoFocus={autoFocus}
+            className={className}
             type={type}
-            value={text || InputValue}
-            placeholder={placeHolder}
             disabled={disabled}
+            value={value}
+            placeholder={placeholder}
+            {...props}
         />
     );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ButtonComponent from '@components/ButtonComponent';
 import InputComponent from '@components/InputComponent';
+import IconComponent from '@components/IconComponent';
 import { ICON, KEY_CODE, PAGE, TEXT } from '@/constants';
 import { useRouterCustomHook } from '@/helpers/customHook';
 import styles from '@styles/components/search.module.scss';
@@ -12,7 +13,9 @@ const SearchComponent = () => {
     // Variables
     const [showSearch, setShowSearch] = useState(false);
     const [inputFocus, setInputFocus] = useState(false);
-    const [inputValue, setInputValue] = useState<any>('');
+    const [inputValue, setInputValue] = useState<
+        string | number | string[] | undefined
+    >('');
 
     // Setup Functions
     const handleOnChangeInput = (event: any) => {
@@ -44,20 +47,17 @@ const SearchComponent = () => {
 
     // Hooks
     useEffect(() => {
-        setInputValue(router?.query?.keyword);
-
-        return () => {
-            setInputValue('');
-        };
-    }, [router?.query]);
+        router?.query?.keyword && setInputValue(router?.query?.keyword);
+    }, [router?.query?.keyword]);
 
     return (
         <>
-            <ButtonComponent
-                icon={ICON.FONT.SEARCH}
-                iconClassName={'text-20'}
-                onClick={handleOnClick}
-            />
+            <ButtonComponent onClick={handleOnClick}>
+                <IconComponent
+                    icon={ICON.FONT.SEARCH}
+                    iconClassName="text-20"
+                />
+            </ButtonComponent>
             {showSearch && (
                 <div className={styles.search}>
                     <div className={styles.search__container}>
@@ -67,20 +67,20 @@ const SearchComponent = () => {
                                 onChange={handleOnChangeInput}
                                 onKeyDown={handleKeyDownInput}
                                 autoFocus={inputFocus}
-                                text={inputValue}
-                                placeHolder={TEXT.ENTER_FIND_PRODUCT}
+                                value={inputValue}
+                                placeholder={TEXT.ENTER_FIND_PRODUCT}
                             />
                         </div>
                         <div className="p-2 cursor-pointer">
-                            <ButtonComponent
-                                className="mr-2"
-                                icon={ICON.FONT.SEARCH}
-                                onClick={handleOnSearch}
-                            />
-                            <ButtonComponent
-                                icon={ICON.FONT.CLOSE}
-                                onClick={handleOnClick}
-                            />
+                            <ButtonComponent onClick={handleOnSearch}>
+                                <IconComponent
+                                    icon={ICON.FONT.SEARCH}
+                                    iconClassName="mr-2"
+                                />
+                            </ButtonComponent>
+                            <ButtonComponent onClick={handleOnClick}>
+                                <IconComponent icon={ICON.FONT.CLOSE} />
+                            </ButtonComponent>
                         </div>
                     </div>
                 </div>

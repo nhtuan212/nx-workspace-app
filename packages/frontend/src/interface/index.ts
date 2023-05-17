@@ -29,34 +29,6 @@ export interface iconInterface {
     direction?: string;
 }
 
-export interface buttonInterface
-    extends Omit<iconInterface, 'direction'>,
-        Pick<App, 'className' | 'onClick' | 'disabled'> {
-    type?: 'submit' | 'button' | undefined;
-    text?: string;
-}
-
-export interface inputInterface {
-    className?: string;
-    onChange?: any;
-    onKeyDown?: any;
-    autoFocus?: boolean;
-    disabled?: boolean;
-    type?: 'text' | 'number';
-    placeHolder?: string;
-    text?: string;
-}
-
-export interface imageInterface {
-    className?: string;
-    src?: string;
-    alt?: string;
-    title?: string;
-    objectFit?: 'fill' | 'contain' | 'cover' | 'none';
-    objectPosition?: string;
-    priority?: boolean;
-}
-
 export interface productListInterface {
     title?: string;
     data?: any;

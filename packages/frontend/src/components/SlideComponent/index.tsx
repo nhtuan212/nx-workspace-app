@@ -31,7 +31,6 @@ const SlideComponent = () => {
                             <ImageComponent
                                 src={item?.src}
                                 alt={item?.name}
-                                objectFit={'cover'}
                                 priority
                             />
                         </SwiperSlide>

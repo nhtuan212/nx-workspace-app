@@ -1,45 +1,22 @@
-import React, { useEffect } from 'react';
-import { buttonInterface } from '@/interface';
-import IconComponent from '@components/IconComponent';
-import classNames from 'classnames';
+import React, { ButtonHTMLAttributes } from 'react';
 
-let clickTimer = 0;
-const ButtonComponent = ({
+const ButtonComponent: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+    children,
     className,
-    disabled = false,
-    icon,
-    iconClassName,
-    onClick,
     type,
-    text,
-}: buttonInterface) => {
-    // ClassNames
-    const buttonClassName = classNames(className && className);
-
-    // Functions
-    const onClickButton = (e: object) => {
-        if (clickTimer) clearTimeout(clickTimer);
-        clickTimer = window.setTimeout(() => {
-            return onClick && onClick(e);
-        }, 300);
-    };
-
-    // Hooks
-    useEffect(() => {
-        return () => clearTimeout(clickTimer);
-    }, []);
-
+    title,
+    disabled,
+    ...props
+}) => {
     return (
         <button
-            className={buttonClassName}
+            className={className}
             type={type}
+            title={title || 'button'}
             disabled={disabled}
-            onClick={onClickButton}
+            {...props}
         >
-            {icon && (
-                <IconComponent icon={icon} iconClassName={iconClassName} />
-            )}
-            {text && <span>{text}</span>}
+            {children}
         </button>
     );
 };

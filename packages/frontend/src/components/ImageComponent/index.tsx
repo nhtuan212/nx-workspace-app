@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
-import { imageInterface } from '@/interface';
-const ImageComponent = ({
+import Image, { ImageProps } from 'next/image';
+
+const ImageComponent: React.FC<ImageProps> = ({
     src,
-    title,
+    className,
     priority,
-    alt = 'Image',
-    objectFit = 'contain',
-    objectPosition = 'center',
-}: imageInterface) => {
+    title,
+    alt,
+}) => {
     // Variables
     const [imgWidth, setImgWidth] = useState<number>(0);
     const [imgHeight, setImgHeight] = useState<number>(0);
 
     // Functions
-    const handleImageLoad = (event: any) => {
-        const imageWidth = event.target.naturalWidth;
-        const imageHeight = event.target.naturalHeight;
-        setImgWidth(imageWidth);
-        setImgHeight(imageHeight);
+    const onLoadImage = (event: any) => {
+        setImgWidth(event.target.naturalWidth);
+        setImgHeight(event.target.naturalHeight);
     };
 
     return (
         <Image
-            src={src as string}
-            alt={alt}
+            className={className}
+            src={src}
+            alt={alt || 'Image'}
             title={title}
             width={imgWidth}
             height={imgHeight}
-            style={{ objectFit: objectFit, objectPosition: objectPosition }}
             sizes="100mw"
             loading={!priority ? 'lazy' : undefined}
             priority={priority}
-            onLoad={handleImageLoad}
+            onLoad={onLoadImage}
         />
     );
 };

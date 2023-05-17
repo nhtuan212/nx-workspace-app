@@ -11,6 +11,7 @@ const ProductItems = (props: any) => {
                     <ImageComponent
                         src={props?.data?.thumbnail}
                         priority={props?.priority}
+                        alt={props?.data.name}
                     />
                 </div>
                 <p>{props?.data.name}</p>
