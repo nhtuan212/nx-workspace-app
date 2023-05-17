@@ -13,6 +13,7 @@ export const GetProductService = async ({ slug }) => {
             'price',
             'description',
             'content',
+            'kind',
         ],
         where: {
             // Check slug

@@ -23,7 +23,7 @@ export const productSlug = async (req: any, res: any) => {
             res.status(statusCode).json({
                 message,
                 statusCode,
-                data: data[0],
+                data,
             });
         })
         .catch((error: any) => {
