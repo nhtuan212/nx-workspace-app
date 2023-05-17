@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { API } from '../config/constants';
 import { CategoryService } from '../services/CategoryService';
 
@@ -21,10 +22,13 @@ export const categorySlug = async (req: any, res: any) => {
                     break;
             }
 
+            const result = _.values(_.merge(_.keyBy(data, 'product')));
+
             res.status(statusCode).json({
                 message,
                 statusCode,
-                data: data,
+                data,
+                result,
             });
         })
         .catch((error: any) => {
