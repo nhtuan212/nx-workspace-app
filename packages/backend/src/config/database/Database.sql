@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2023 at 09:49 AM
+-- Generation Time: May 17, 2023 at 10:37 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -33,15 +33,16 @@ CREATE TABLE `categories` (
   `slug` varchar(100) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NULL DEFAULT NULL,
-  `status` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"isActive": 1}' CHECK (json_valid(`status`))
+  `status` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"isActive": 1}' CHECK (json_valid(`status`)),
+  `kind` varchar(10) NOT NULL DEFAULT 'category'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `slug`, `createdAt`, `updatedAt`, `status`) VALUES
-(1, 'Áo thun', 'smartphones', '2023-04-24 07:37:35', NULL, '{\"isActive\": 1}');
+INSERT INTO `categories` (`id`, `name`, `slug`, `createdAt`, `updatedAt`, `status`, `kind`) VALUES
+(1, 'Áo thun', 'smartphones', '2023-04-24 07:37:35', NULL, '{\"isActive\": 1}', 'category');
 
 -- --------------------------------------------------------
 
@@ -86,15 +87,16 @@ CREATE TABLE `products` (
   `content` text DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NULL DEFAULT NULL,
-  `status` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"isActive":1}' CHECK (json_valid(`status`))
+  `status` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"isActive":1}' CHECK (json_valid(`status`)),
+  `kind` varchar(10) NOT NULL DEFAULT 'detail'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `categoryId`, `name`, `slug`, `price`, `thumbnail`, `description`, `content`, `createdAt`, `updatedAt`, `status`) VALUES
-(1, 1, 'Product 1', 'product-1', 100000, 'https://ucarecdn.com/05f649bf-b70b-4cf8-90f7-2588ce404a08/-/resize/300x250/', NULL, NULL, '2023-04-24 07:40:15', NULL, '{\"isActive\":1}');
+INSERT INTO `products` (`id`, `categoryId`, `name`, `slug`, `price`, `thumbnail`, `description`, `content`, `createdAt`, `updatedAt`, `status`, `kind`) VALUES
+(1, 1, 'Product 1', 'product-1', 100000, 'https://ucarecdn.com/05f649bf-b70b-4cf8-90f7-2588ce404a08/-/resize/300x200/', NULL, NULL, '2023-04-24 07:40:15', NULL, '{\"isActive\":1}', 'detail');
 
 -- --------------------------------------------------------
 
