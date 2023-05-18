@@ -15,9 +15,9 @@ export const handleMergedProductsWhenGetCategory = ({
         return Object.assign(getCategory, { [groupName]: getChildren });
     }
 
-    // Example
+    //// Example
     // {
-    // 	...getCategory,
+    // 	getCategory,
     // 	[mergedKey]: {
     // 		...getChildren,
     // 	}
