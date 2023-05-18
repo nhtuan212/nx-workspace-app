@@ -11,4 +11,19 @@ export const ProductModel = sequelize.define('products', {
     categoryId: {
         type: DataTypes.INTEGER.UNSIGNED,
     },
+    name: {
+        type: DataTypes.STRING,
+    },
+    thumbnail: {
+        type: DataTypes.STRING,
+    },
+    price: {
+        type: DataTypes.INTEGER,
+    },
+    slug: {
+        type: DataTypes.STRING,
+    },
+    kind: {
+        type: DataTypes.STRING,
+    },
 });

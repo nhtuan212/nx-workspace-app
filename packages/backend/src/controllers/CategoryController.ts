@@ -1,6 +1,6 @@
-import _ from 'lodash';
 import { API } from '../config/constants';
 import { CategoryService } from '../services/CategoryService';
+import { handleMergedProductsWhenGetCategory } from '../utils';
 
 // [GET]/:slug
 export const categorySlug = async (req: any, res: any) => {
@@ -22,13 +22,14 @@ export const categorySlug = async (req: any, res: any) => {
                     break;
             }
 
-            const result = _.values(_.merge(_.keyBy(data, 'product')));
-
             res.status(statusCode).json({
                 message,
                 statusCode,
-                data,
-                result,
+                data: handleMergedProductsWhenGetCategory({
+                    data,
+                    mergedKey: 'product',
+                    groupName: 'products',
+                }),
             });
         })
         .catch((error: any) => {
