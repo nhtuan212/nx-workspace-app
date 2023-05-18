@@ -15,15 +15,19 @@ const ProductList = (props: productListInterface) => {
                     )}
                     {!isEmpty(props?.data) ? (
                         <div className="flex flex-wrap">
-                            {props?.data.map((item: any, index: number) => {
-                                return (
-                                    <ProductItems
-                                        key={item?.id}
-                                        data={item}
-                                        priority={index < LIMIT.PRIORITY_IMAGE}
-                                    />
-                                );
-                            })}
+                            {props?.data?.products.map(
+                                (item: any, index: number) => {
+                                    return (
+                                        <ProductItems
+                                            key={item?.id}
+                                            data={item}
+                                            priority={
+                                                index < LIMIT.PRIORITY_IMAGE
+                                            }
+                                        />
+                                    );
+                                },
+                            )}
                         </div>
                     ) : (
                         <EmptyPage />

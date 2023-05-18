@@ -49,48 +49,6 @@ const DetailPage = (props: any) => {
                     }),
                 );
         });
-
-        const arr = [
-            {
-                id: 1,
-                name: 'Áo thun',
-                slug: 'smartphones',
-                thumbnail: null,
-                product: {
-                    id: 1,
-                    categoryId: 1,
-                    createdAt: '2023-04-24T07:40:15.000Z',
-                    updatedAt: null,
-                },
-            },
-            {
-                id: 1,
-                name: 'Áo thun',
-                slug: 'smartphones',
-                thumbnail: null,
-                product: {
-                    id: 2,
-                    categoryId: 1,
-                    createdAt: '2023-04-24T07:40:15.000Z',
-                    updatedAt: null,
-                },
-            },
-        ];
-
-        const mergedObject = arr.reduce((acc, cur) => {
-            return {
-                ...acc,
-                ...cur,
-            };
-        }, {});
-
-        const products = arr.reduce((acc, cur) => {
-            return acc.concat(cur.product);
-        }, []);
-
-        mergedObject.product = products;
-
-        console.log({ mergedObject });
     }, [router?.asPath]);
 
     return (
