@@ -1,15 +1,9 @@
 import React from 'react';
-import type { AppProps } from 'next/app';
-import { Roboto } from '@next/font/google';
+import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { ReduxWrapper } from '@/redux/store';
 import ViewPage from '@components/PageComponent/ViewPage';
 import '../../src/styles/globals.scss';
-
-const roboto = Roboto({
-    weight: ['400', '700'],
-    subsets: ['latin'],
-});
 
 const MyApp = ({ Component, ...rest }: AppProps) => {
     const { store, props } = ReduxWrapper.useWrappedStore(rest);
@@ -17,11 +11,6 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
 
     return (
         <Provider store={store}>
-            <style jsx global>{`
-                html {
-                    font-family: ${roboto.style.fontFamily};
-                }
-            `}</style>
             <ViewPage>
                 <Component {...pageProps} />
             </ViewPage>

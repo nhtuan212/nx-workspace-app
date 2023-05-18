@@ -51,3 +51,5 @@ export const TEXT = {
     EMPTY_PAGE: 'Dữ liệu đang được cập nhật ...',
     ENTER_FIND_PRODUCT: 'Nhập sản phẩm cần tìm ...',
 };
+
+export const PRICE_UNIT = 'đ';
