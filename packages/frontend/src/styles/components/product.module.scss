@@ -2,7 +2,7 @@
     &__item {
         @apply md:basis-3/12 sm:basis-4/12 basis-1/2 p-4;
         &__image {
-            @apply flex justify-center items-center h-full max-h-[250px] mb-2 rounded-lg;
+            @apply flex justify-center items-center max-h-[250px] mb-2 rounded-lg;
         }
         &__price {
             @apply text-primary font-bold;

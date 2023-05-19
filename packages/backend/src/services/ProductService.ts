@@ -18,7 +18,7 @@ export const GetProductService = async ({ slug }) => {
             'price',
             'description',
             'content',
-            'kind',
+            'type',
         ],
         where: {
             // Check slug

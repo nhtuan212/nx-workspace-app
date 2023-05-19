@@ -23,7 +23,7 @@ export const ProductModel = sequelize.define('products', {
     slug: {
         type: DataTypes.STRING,
     },
-    kind: {
+    type: {
         type: DataTypes.STRING,
     },
 });
