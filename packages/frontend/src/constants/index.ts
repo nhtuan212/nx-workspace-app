@@ -52,4 +52,4 @@ export const TEXT = {
     ENTER_FIND_PRODUCT: 'Nhập sản phẩm cần tìm ...',
 };
 
-export const PRICE_UNIT = 'đ';
+export const PRICE_UNIT = 'VND';

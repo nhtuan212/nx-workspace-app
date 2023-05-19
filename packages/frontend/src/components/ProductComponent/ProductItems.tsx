@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import ImageComponent from '@components/ImageComponent';
 import { moneyFormat } from '@/utils';
-import { PRICE_UNIT } from '@/constants';
 
 import styles from '@styles/components/product.module.scss';
 
@@ -19,7 +18,7 @@ const ProductItems = (props: any) => {
                 </div>
                 <p>{props?.data.name}</p>
                 <p className={styles.product__item__price}>
-                    {moneyFormat(props?.data.price, PRICE_UNIT)}
+                    {moneyFormat(props?.data.price)}
                 </p>
             </Link>
         </div>
